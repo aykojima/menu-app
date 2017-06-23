@@ -15,10 +15,24 @@
     </div>
     
     <div id="container">
-    
+    <p class="notes"><img id="fish" src='images/fish.png' alt='fish' style=width:15px;>sustainable "best" or "good alternative" seafood 
+        *raw or undercooked meats, poultry, seafodd, shellfish or eggs 
+        may increase your risk of foodborne illness</p>
     <div id="menu">
-    <h2>Friday 06. 30. 2017</h2>
-    <h1>Sushi Bar</h1>
+    <h2 id="dates"></h2>
+    <div class="date">
+        <span class="dateTips">Today</span>
+        <input type="button" id="left" value=" < " onclick="changeDate('left')"/>
+    </div>
+    <div class="date">
+        <span class="dateTips">Tomorrow</span>
+        <input type="button" id="right" value=" > " onclick="changeDate('right')"/> 
+    </div>
+    
+    <h1 id="sushiBar">Sushi Bar</h1>
+    <p class="verticalSashimi">Sashimi</p>
+    <p class="verticalSushi">Nigiri<br>Sushi</p>
+    
     <table id="showResult">
             <!--<?php $test = new Database; $test->db(); ?>-->
     </table>
