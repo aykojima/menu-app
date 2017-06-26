@@ -4,10 +4,12 @@
 }
 
 body{
+        /*TheSans*/
         font-family: font77724;
+        font-weight: normal;
     }
 
-
+div#nav{display: none;}
 /* Formatting search box */
 .search-box{
         display:none;
@@ -15,7 +17,7 @@ body{
 
 a {display:none;}
 
-input {display:none;}
+.date {display:none;}
 
 div#container {
     width: 100%;
@@ -39,7 +41,7 @@ p.verticalSushi {
         font-size: 0.7em;
         color:#ccc;
         float:right;
-        padding-bottom: 20px;
+        padding: 0 0 20px 8px;
 }
 
 p.verticalSashimi {
@@ -48,7 +50,7 @@ p.verticalSashimi {
         font-size: 0.7em;
         color:#ccc;
         float:right;
-        padding-bottom: 20px;
+        padding: 0 0 9px 18px;
 }
 
 img#fish{
@@ -61,6 +63,7 @@ div#menu {
     width:85%;
     margin: auto;
     margin:2%;
+    margin-top:3%;
     padding:2%;
     margin-left:10%;
     /*border: solid 1px Blue;*/
@@ -77,7 +80,9 @@ h1, h2{
 h1{
     float: left;
 }
-/*
+
+/*h2{ font-family:Arial, Helvetica, sans-serif; }
+
 h1{
     font-size:1.5em;
 }
@@ -85,14 +90,15 @@ h1{
 h2{
     font-size:1.23em;
 }
-
+*/
 table#showResult{
+    /*border: solid 1px Blue;*/
     display:block;
     margin:auto;
     width:100%;
-    font-size: .69em;
+    clear: both;
 }
-*/
+
 tr.tableRow{
     line-height:30px;
     vertical-align: center;
@@ -109,10 +115,13 @@ td.origin{
     color:#ccc;
 }
 td.price{
+    /*TheMix
+    font-family: font84093;
+    font-family:Arial, Helvetica, sans-serif;*/
     text-align: right;
     padding: 0 2% 0 2%;
 }
-
+td.space{width:15px;}
 /*Menu items more than 37*/
 .NoMargin{
     margin:0 2% 0 2%;
@@ -142,10 +151,11 @@ td.price{
 div.gratuity{
     width:70%;
     margin-left:5%;
-    font-size: .43em;
+    font-size: .5em;
     position: absolute;
-    bottom:2%;
-    text-align: center;
+    bottom:3%;
+    text-align: justify;
+    line-height: 1em;
 }
 
 @page {

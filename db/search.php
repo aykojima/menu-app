@@ -23,7 +23,7 @@ if(isset($_REQUEST['term'])){
                     echo "<p id='" . $row[SushiKey] .  "'>" . $row["SushiName"] . " " .$row["Origin"] . "</p>";
                 }
             } else{
-                echo "<p>No matches found</p>";
+                echo "<p id='nomatch'>No matches found. <a href='http://ayumik.com/skt/add_form.php' target='_blank''>Add New Item</a></p>";
             }
         } else{
             echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);

@@ -11,8 +11,9 @@ if(isset($_POST['term'])){
                         $item =
                         "<td class='sustainable'></td>
                         <td class='name'>{$item['SushiName']}</td>
-                        <td class='origin'>{$item['Origin']}</td>
+                        <td class='origin'> {$item['Origin']}</td>
                         <td class='price'id='{$item['SushiKey']}'>{$item['SushiPrice']}</td>
+                        <td class='space'></td>
                         <td class='price'id='{$item['Sustainability']}'>{$item['SashimiPrice']}</td>";
                         $trimed = trim($item);
                         echo $trimed;  

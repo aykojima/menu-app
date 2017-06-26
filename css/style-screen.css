@@ -7,11 +7,41 @@ body{
         font-family: font77724;
     }
 
+div#nav{
+    position: fixed;
+    top:0;
+    left:0;
+    padding-top:50px;
+    width: 100px;
+    border-right-style:ridge;
+    height: 100%;
+}
+.nav_icons{
+    width: 50px;
+    display: block;
+    margin: auto;
 
+}
+
+p#nav{
+    visibility: hidden;
+    text-align: center;
+    color: #ccc;
+    }
+
+a#nav{
+    text-decoration: none;
+}
+a#nav:hover p#nav{
+    visibility: visible;
+}
 /* Formatting search box */
 .search-box{
         width: 300px;
-        position: relative;
+        /*position: relative;*/
+        position: fixed;
+        top:0;
+        left:20%;
         display: inline-block;
         font-size: 14px;
     }
@@ -67,12 +97,12 @@ p.notes {
 
 
 .date {
-    position: relative;
+    /*position: relative;*/
     display: inline-block;
-    border-bottom: 1px dotted black;
     margin-top:4%;
+    visibility: hidden;
 }
-
+/*
 .date .dateTips {
     visibility: hidden;
     width: 120px;
@@ -98,8 +128,8 @@ p.notes {
     border-style: solid;
     border-color: transparent transparent black transparent;
 }
-
-.date:hover .dateTips {
+*/
+#menu:hover .date {
     visibility: visible;
 }
 
@@ -112,7 +142,7 @@ p.verticalSushi {
         font-size: 0.7em;
         color:#ccc;
         float:right;
-        padding-bottom: 20px;
+        padding: 0 0 20px 15px;
 }
 
 p.verticalSashimi {
@@ -121,7 +151,7 @@ p.verticalSashimi {
         font-size: 0.7em;
         color:#ccc;
         float:right;
-        padding-bottom: 20px;
+        padding: 0 0 9px 9px;
 }
 
 img#fish{
@@ -133,6 +163,7 @@ div#menu {
     width:90%;
     display: block;
     margin:auto;
+    margin-top:10%;
     padding-bottom: 10%;
     padding-left: 10%;
 }
@@ -141,7 +172,7 @@ h1{
     text-align: left;
     padding-left:2%;
     margin:2%;          
-    color: #ED521B;
+    color: #C25E03;
     float: left;
     clear:left;
 }
@@ -150,7 +181,7 @@ h2{
     text-align: left;
     padding-left:2%;
     margin:2%;          
-    color: #ED521B;
+    color: #C25E03;
     float: left;
 }
 
@@ -167,6 +198,7 @@ table#showResult{
     display:block;
     margin:auto;
     width:100%;
+    clear: both;
     /*font-size: .69em;*/
 }
 
@@ -190,12 +222,80 @@ td.price{
     padding: 0 2% 0 2%;
 }
 
+td.space{width:12px;}
 
+a#print{
+    position: fixed;
+    top: 0;
+    left: 45%;
+    text-decoration-line: none;
+    background-color: #ccc;
+    padding: 0 1%;
+    color: #fff;
+    border-bottom: solid #000 1px;
+    border-right: solid #000 1px;
+}
+
+a:hover{
+    padding: 0.2% 1.2%;
+    background-color: #b0b1b2;
+}
 
 div.gratuity{
     width:80%;
     display:block;
     margin:auto;
-    font-size: .43em;
+    font-size: .5em;
     bottom:2%;
+    text-align: justify;
+    line-height: 1em;
+}
+
+/***Style for add form***/
+div#add_form{
+    width: 50%;
+    position: absolute;
+    top:0;
+    right:20px;
+    font-size: 1em;
+    border: solid 1px #ccc;
+    padding-bottom: 2%;
+}
+
+input#sushi_key{
+    display: none;
+}
+input#name, #origin {
+    padding: 2%;
+    width: 80%;
+    margin: auto;
+    display: block;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    font-size: 1em;
+}
+
+input#sushiPrice, #sashimiPrice {
+    padding: 2%;
+    margin: 2% 2% 8% 2%;
+    width: 25%;
+    float: left;
+    font-size: 1em;
+}
+
+input#sushiPrice{
+    margin: 2% 2% 8% 7.5%;
+}
+
+div#sustainable {
+    padding: 2%;
+    margin-top:3.5%;
+    font-size: 1em;
+}
+
+input[type="submit"] {
+    display: block;
+    margin: auto;
+    clear: both;
+    font-size: 1em;
 }
