@@ -1,0 +1,10 @@
+# Config #
+##########
+config/
+db/items-back.php
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
