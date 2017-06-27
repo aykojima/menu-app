@@ -1,7 +1,8 @@
+<?php include ("config.php");?>
 <!DOCTYPE html>
 <html>
 <head>
-<title>Menus</title>
+<title><?=$myTitle?></title>
 <link rel="stylesheet" href="css/style-screen.css" type="text/css" media="screen">
 <link rel="stylesheet" href="css/style-print.css" type="text/css" media="print">
 <!--TheSans SemiBold Plain for fonts-->
@@ -14,10 +15,12 @@
 <body>
    <?php include ('db/items-back.php') ;?> 
 <div id="nav">
-    <a href="main.php" id="nav"><img src="images/sushi_icon.png" class="nav_icons">
-    <p id="nav">Sushi Menu</p></a>
-    <a href="edit.php" id="nav"><img src="images/edit_icon.png" class="nav_icons">
-    <p id="nav">Edit Items</p></a>
-    <a href="add_form.php" id="nav"><img src="images/add_icon.png" class="nav_icons">
-    <p id="nav">Add Items</p></a>
+    <?php echo"<a href='main.php' id='nav'><img src='images/sushi_icon" . $activeNav1 . ".png' class='nav_icons'> 
+    <p id='" . $activeP1 . "'>Sushi Menu</p></a>";?>
+    <?php echo"<a href='main.php' id='nav'><img src='images/ippin_icon" . $activeNav2 . ".png' class='nav_icons'> 
+    <p id='" . $activeP2 . "'>Ippin Menu</p></a>";?>
+    <?php echo"<a href='edit.php' id='nav'><img src='images/edit_icon" . $activeNav3 . ".png' class='nav_icons'>
+    <p id='" . $activeP3 . "'>Edit Items</p></a>";?>
+    <?php echo"<a href='add_form.php' id='nav'><img src='images/add_icon" . $activeNav4 . ".png' class='nav_icons'>
+    <p id='" . $activeP4 . "'>Add Items</p></a>";?>
 </div> 

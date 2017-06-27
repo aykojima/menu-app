@@ -17,7 +17,7 @@
 
         <input type="text" name="origin" id="origin" placeholder="Origin">
 
-        <input type="text" name="sushi_price" id="sushiPrice" placeholder="Sushi Price">
+        <input type="text" name="sushi_price" id="sushiPrice" placeholder="Sushi Price" onkeyup="calcSashimi()">
 
         <input type="text" name="sashimi_price" id="sashimiPrice" placeholder="Sashimi Price">
         <div id= "sustainable">

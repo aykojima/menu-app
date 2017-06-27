@@ -42,7 +42,9 @@ function display(array){
     array.forEach(function(a){
         document.getElementById('sushi_key').value = a['SushiKey'];
         document.getElementById('name').value = a['SushiName'];
-        document.getElementById('origin').value = a['Origin'];
+        var origin = a['Origin'];
+        origin = origin.slice(1, -1);
+        document.getElementById('origin').value = origin;
         document.getElementById('sushiPrice').value = a['SushiPrice'];
         document.getElementById('sashimiPrice').value = a['SashimiPrice'];
         if(a['Sustainability'] == 1)
@@ -52,3 +54,20 @@ function display(array){
     });
     
 }
+
+
+function calcSashimi(){
+    var sushiP = document.getElementById('sushiPrice').value;
+    console.log(sushiP);
+    var newSashimiP = 0;
+    if(sushiP == ""){
+            document.getElementById('sashimiPrice').value = null;
+    }else if(isNaN(sushiP) === false){           
+            newSashimiP = sushiP * 2;
+            console.log(newSashimiP);
+            document.getElementById('sashimiPrice').value = newSashimiP;
+    }else{
+            document.getElementById('sashimiPrice').value = 'Please enter number';
+    }
+}
+        

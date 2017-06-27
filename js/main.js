@@ -80,7 +80,9 @@ if (stored) {
     //console.log(items);
     document.getElementById("showResult").innerHTML = displayResult(items);
     checkSustainability(items);
-    styleMenu(items);
+    styleLineHeight(items);
+    styleMargin(items);
+
     //checkSustainability(items);
     }
 else  {items = [];}
@@ -122,7 +124,8 @@ function storeInArray(data){
     localStorage['myKey'] = JSON.stringify(items);
     document.getElementById("showResult").innerHTML = displayResult(items);
     checkSustainability(items);
-    styleMenu(items);
+    styleLineHeight(items);
+    styleMargin(items);
 }
 
 function displayResult(array){
@@ -157,50 +160,64 @@ function checkId(array, sushiKey) {
          return true;
 }
 
-function styleMenu(array){
-    var dates = document.getElementById('dates');
-    var sushiBar = document.getElementById('sushiBar');
+function styleLineHeight(array){
     var tr = document.getElementsByClassName('tableRow');
     console.log(tr);
-    if(array.length >= 34 && array.length<=35)
-    {//this can hold up to 43 items
+    if(array.length >= 34 && array.length<=39)
+    {//this can hold up to 39 items
         //dates.className ='NoMargin';
         //sushiBar.className ='NoMargin';
-        for(var i=0; i<tr.length; i++)
+        for (var i = array.length -1 ; i >= 0; --i)
         {
             tr[i].className = "lineHeight34";
         }
-    }else if(array.length >= 36 && array.length<=37)
-    {//this can hold up to 43 items
+    }else if(array.length >= 40 && array.length<=42)
+    {//this can hold up to 42 items
         //dates.className ='NoMargin';
         //sushiBar.className ='NoMargin';
-        for(var i=0; i<tr.length; i++)
-        {
-            tr[i].className = "lineHeight36";
-        }
-    }else if(array.length >= 38 && array.length<=39)
-    {//this can hold up to 43 items
-        //dates.className ='NoMargin';
-        //sushiBar.className ='NoMargin';
-        for(var i=0; i<tr.length; i++)
-        {
-            tr[i].className = "lineHeight38";
-        }
-    }else if(array.length >= 40 && array.length<=41)
-    {//this can hold up to 43 items
-        //dates.className ='NoMargin';
-        //sushiBar.className ='NoMargin';
-        for(var i=0; i<tr.length; i++)
+        for (var i = array.length -1 ; i >= 0; --i)
         {
             tr[i].className = "lineHeight40";
         }
-    }else if(array.length >= 42)
+    }else if(array.length >= 43 && array.length<=43)
+    {//this can hold up to 44 items
+        for (var i = array.length -1 ; i >= 0; --i)
+        {   
+            tr[i].className = "lineHeight40";
+        }
+    }else if(array.length >= 44 && array.length<=46)
     {//this can hold up to 46 items
-        dates.className ='NoMargin';
-        sushiBar.className ='NoMargin';
-        for(var i=0; i<tr.length; i++)
+        for (var i = array.length -1 ; i >= 0; --i)
+        {
+            tr[i].className = "lineHeight44";
+        }
+    }else if(array.length >= 47)
+    {//this can hold up to 46 items
+        for (var i = array.length -1 ; i >= 0; --i)
         {
             tr[i].className = "lineHeight42";
         }
     }
 }
+
+function styleMargin(array){
+    var dates = document.getElementById('dates');
+    var sushiBar = document.getElementById('sushiBar');
+
+
+    if(array.length >= 43)
+    {
+        dates.className ='NoMargin';
+        sushiBar.className ='NoMargin';
+        /*
+        if(document.getElementById('menu_up') == 'null')
+        {
+            console.log(document.getElementById('menu_up'));
+            var div = document.getElementById('menu');
+            div.id ='menu_up';
+            console.log(div.id)
+        }
+        */
+    }
+}
+

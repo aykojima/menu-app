@@ -21,7 +21,7 @@ a {display:none;}
 
 div#container {
     width: 100%;
-    /*border: solid 1px #ED521B;*/
+    /*border: solid 1px #C25E03;*/
     max-height:100vh;
 }
 
@@ -50,7 +50,7 @@ p.verticalSashimi {
         font-size: 0.7em;
         color:#ccc;
         float:right;
-        padding: 0 0 9px 18px;
+        padding: 0 0 9px 13px;
 }
 
 img#fish{
@@ -63,17 +63,28 @@ div#menu {
     width:85%;
     margin: auto;
     margin:2%;
-    margin-top:3%;
+    margin-top:10%;
     padding:2%;
-    margin-left:10%;
-    /*border: solid 1px Blue;*/
+    margin-left:8%;
+   /* border: solid 1px Blue;*/
+}
+
+div#menu_up {
+    display:block;
+    width:85%;
+    margin: auto;
+    margin:2%;
+    margin-top:5%;
+    padding:2%;
+    margin-left:8%;
+   /* border: solid 1px Blue;*/
 }
 
 h1, h2{
     text-align: left;
     padding-left:2%;
     margin:2%;          
-    color: #ED521B;
+    color: #C25E03;
     
 }
 
@@ -99,10 +110,12 @@ table#showResult{
     clear: both;
 }
 
-tr.tableRow{
-    line-height:30px;
+tr{
     vertical-align: center;
     font-size:0.9em;
+}
+tr.tableRow{
+    line-height:30px;
 }
 
 td.name{
@@ -121,28 +134,30 @@ td.price{
     text-align: right;
     padding: 0 2% 0 2%;
 }
-td.space{width:15px;}
-/*Menu items more than 37*/
+td.space{width:10px;}
+
+
 .NoMargin{
     margin:0 2% 0 2%;
 }
-
+/*Menu items more than 34*/
 .lineHeight34{
-    line-height:26px;
+    line-height:24px;
 }
 
-.lineHeight36{
+.lineHeight40{
     line-height:22px;
+    font-size: 0.85em;
 }
 .lineHeight38{
     line-height:20px;
 }
-.lineHeight40{
-    line-height:16px;
+.lineHeight43{
+    line-height:20px;
 }
 
-.lineHeight42{
-    line-height:14px;
+.lineHeight44{
+    line-height:19px;
 }
 
 

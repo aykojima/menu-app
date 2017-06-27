@@ -2,8 +2,6 @@
     <!--@to do
      @Style it so that it exactly same as the original
      @DB credentials into config file
-     @Date picker
-     @Items in alphabetic order =>okay, except Salmon Belly goes before Salmon. Need to be fixed!
      @print out be able to select "custom" paper size by default
      @Be able to search item with any words (e.g. you can get to "Tuna*/Maguro" by typing "Maguro")
     -->
