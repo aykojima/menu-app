@@ -3,7 +3,8 @@ include ('../config/config.php') ;
 
 if(isset($_POST['term'])){
         $param_term = $_POST['term'];
-        $sql = "SELECT Sustainability, SushiName, Origin, SushiPrice, SashimiPrice, SushiKey FROM Sushi WHERE SushiKey = '". $param_term ."'" ;
+        $sql = "SELECT Sustainability, SushiName, Origin, SushiPrice, SashimiPrice, SushiKey 
+        FROM Sushi WHERE SushiKey = '". $param_term ."'" ;
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {                   
                 // output data of each row
@@ -18,9 +19,31 @@ if(isset($_POST['term'])){
                         $trimed = trim($item);
                         echo $trimed;  
                         }                              
-                }else{
+        }else if(isset($_POST['term']) && $_POST['term'] == "addall"){
+                $items = array();
+                for($i=1; $i<31; $i++)
+                {
+                        $sql = "SELECT Sustainability, SushiName, Origin, SushiPrice, SashimiPrice, SushiKey 
+                        FROM Sushi WHERE SushiKey = '". $i ."'" ;
+                        $result = $conn->query($sql);
+                        if ($result->num_rows > 0) {                                           
+                                // output data of each row
+                                while($item = $result->fetch_assoc()) {
+                                        $item =
+                                        "<td class='sustainable'></td>
+                                        <td class='name'>{$item['SushiName']}</td>
+                                        <td class='origin'> {$item['Origin']}</td>
+                                        <td class='price'id='{$item['SushiKey']}'>{$item['SushiPrice']}</td>
+                                        <td class='space'></td>
+                                        <td class='price'id='{$item['Sustainability']}'>{$item['SashimiPrice']}</td>";
+                                        array_push($items, $item); 
+                                        }
+                        }
+                }
+                echo json_encode($items);
+        }else{
                         echo "0 results (isset)";
-               }                        
+        }                        
 }
 //Close database connection
 mysqli_close($conn);

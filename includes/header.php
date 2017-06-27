@@ -1,4 +1,3 @@
-<?php include ("config.php");?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +12,7 @@
 
 </head>
 <body>
-   <?php include ('db/items-back.php') ;?> 
+   <?php include ("config.php");?>
 <div id="nav">
     <?php echo"<a href='main.php' id='nav'><img src='images/sushi_icon" . $activeNav1 . ".png' class='nav_icons'> 
     <p id='" . $activeP1 . "'>Sushi Menu</p></a>";?>

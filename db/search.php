@@ -22,7 +22,11 @@ if(isset($_REQUEST['term'])){
                 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
                     echo "<p id='" . $row[SushiKey] .  "'>" . $row["SushiName"] . " " .$row["Origin"] . "</p>";
                 }
-            } else{
+            }else if(isset($_REQUEST['term']) && $_REQUEST['term'] == '+'){
+                echo "<p id='addall'>add sample 30 items to the menu</p>";
+            }else if(isset($_REQUEST['term']) && $_REQUEST['term'] == '-'){
+                echo "<p id='empty'>empty the menu</p>";
+            }else{
                 echo "<p id='nomatch'>No matches found. <a href='http://ayumik.com/skt/add_form.php' target='_blank''>Add New Item</a></p>";
             }
         } else{

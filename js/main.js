@@ -85,7 +85,7 @@ if (stored) {
 
     //checkSustainability(items);
     }
-else  {items = [];}
+else  {var items = [];}
 
 /***fetch the clicked item in the search box and store it in an array***/
  $(document).on("click", ".result p", function(event){ 
@@ -98,7 +98,26 @@ else  {items = [];}
         //if "No matches found", 
             $('input[type="text"]').val('');   
             $(this).parent(".result").empty();
-        }else if(checkId(items, item) === true)
+        }else if(item == "addall"){
+            $.post("db/items.php", {term: item}).done(function(data){           
+            items = JSON.parse(data);
+            localStorage['myKey'] = JSON.stringify(items);
+            //console.log(items);
+            document.getElementById("showResult").innerHTML = displayResult(items);
+            checkSustainability(items);
+            styleLineHeight(items);
+            styleMargin(items);
+            });
+            //clear the text in textbox and search drop down
+            $('input[type="text"]').val('');   
+            $(this).parent(".result").empty();              
+        }else if(item == "empty"){
+            items = [];
+            localStorage['myKey'] = JSON.stringify(items);
+            document.getElementById("showResult").innerHTML = '';
+            $('input[type="text"]').val('');   
+            $(this).parent(".result").empty();
+        }else if(isNaN(item) == false && checkId(items, item) === true)
         {//add a item to the table                 
             $.post("db/items.php", {term: item}).done(function(data){    
             storeInArray(data);
