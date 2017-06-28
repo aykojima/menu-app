@@ -19,10 +19,10 @@ if(isset($_POST['term'])){
                         $trimed = trim($item);
                         echo $trimed;  
                         }                              
-        }else if(isset($_POST['term']) && $_POST['term'] == "addall"){
-                $items = array();
-                for($i=1; $i<31; $i++)
-                {
+        }else if(isset($_POST['term']) && $_POST['term'] == "i"){
+                //$items = array();
+                //for($i=1; $i<31; $i++)
+                //{
                         $sql = "SELECT Sustainability, SushiName, Origin, SushiPrice, SashimiPrice, SushiKey 
                         FROM Sushi WHERE SushiKey = '". $i ."'" ;
                         $result = $conn->query($sql);
@@ -36,11 +36,13 @@ if(isset($_POST['term'])){
                                         <td class='price'id='{$item['SushiKey']}'>{$item['SushiPrice']}</td>
                                         <td class='space'></td>
                                         <td class='price'id='{$item['Sustainability']}'>{$item['SashimiPrice']}</td>";
-                                        array_push($items, $item); 
+                                        //array_push($items, $item); 
+                                        $trimed = trim($item);
+                        echo $trimed; 
                                         }
                         }
-                }
-                echo json_encode($items);
+                //}
+                //echo json_encode($items);
         }else{
                         echo "0 results (isset)";
         }                        

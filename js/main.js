@@ -99,18 +99,24 @@ else  {var items = [];}
             $('input[type="text"]').val('');   
             $(this).parent(".result").empty();
         }else if(item == "addall"){
-            $.post("db/items.php", {term: item}).done(function(data){           
-            items = JSON.parse(data);
-            localStorage['myKey'] = JSON.stringify(items);
-            //console.log(items);
-            document.getElementById("showResult").innerHTML = displayResult(items);
-            checkSustainability(items);
-            styleLineHeight(items);
-            styleMargin(items);
-            });
+            for(var i = 1; i <31; i++){
+            $.post("db/items.php", {term: i}).done(function(data){           
+            //items = JSON.parse(data);
+            //console.log(items.length);
+            //for(var i = items.length -1 ; i >= 0; --i){
+                //console.log(element);
+                storeInArray(data);
+            //}
+            }); 
+        }
+            console.log(items);
+            //items.forEach(function(item) {
+              //  storeInArray(item);
+            //});
             //clear the text in textbox and search drop down
             $('input[type="text"]').val('');   
-            $(this).parent(".result").empty();              
+            $(this).parent(".result").empty();     
+                    
         }else if(item == "empty"){
             items = [];
             localStorage['myKey'] = JSON.stringify(items);
@@ -119,7 +125,8 @@ else  {var items = [];}
             $(this).parent(".result").empty();
         }else if(isNaN(item) == false && checkId(items, item) === true)
         {//add a item to the table                 
-            $.post("db/items.php", {term: item}).done(function(data){    
+            $.post("db/items.php", {term: item}).done(function(data){
+            console.log(items);    
             storeInArray(data);
             });
             //clear the text in textbox and search drop down
@@ -127,7 +134,7 @@ else  {var items = [];}
             $(this).parent(".result").empty();
         }else{//take out the item
             var checkedId = checkId(items, item)
-            console.log(checkedId);
+            //console.log(checkedId);
             items.splice(checkedId, 1);
             localStorage['myKey'] = JSON.stringify(items);
             location.reload();
@@ -140,6 +147,7 @@ function storeInArray(data){
     //store feched items in an array and display in table
     items.push(data);
     items.sort();
+    //console.log(items);
     localStorage['myKey'] = JSON.stringify(items);
     document.getElementById("showResult").innerHTML = displayResult(items);
     checkSustainability(items);
@@ -181,7 +189,7 @@ function checkId(array, sushiKey) {
 
 function styleLineHeight(array){
     var tr = document.getElementsByClassName('tableRow');
-    console.log(tr);
+    //console.log(tr);
     if(array.length >= 34 && array.length<=39)
     {//this can hold up to 39 items
         //dates.className ='NoMargin';
