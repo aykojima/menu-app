@@ -28,7 +28,6 @@
     <p class="verticalSushi">Nigiri<br>Sushi</p>
     
     <table id="showResult">
-            <!--<?php $test = new Database; $test->db(); ?>-->
     </table>
     <div class="gratuity"><p>We would like to inform our guests that in place of gratuity a 20% service charge is included in the total (excludes take out).
     100% of these funds are distributed to the staff in form of wages, benefits and revenue share.

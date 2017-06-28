@@ -24,7 +24,7 @@
         <label for=sustainable>Sustainable:</label>
         <input type="checkbox" name="sustainability" id="sustainability">
         </div>
-    <input type="submit" value="Edit">
+    <input type="submit" value="Save">
 </form>
 </div>
 <script src="js/edit.js"></script>

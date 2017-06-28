@@ -167,7 +167,7 @@ function displayResult(array){
     }
 
 function checkSustainability(array){
-    var img = "<img src='images/fish.png' alt='fish' style=width:15px;>";
+    var img = "<img src='images/fish.jpg' alt='fish' style=width:15px;>";
     for(var i=0; i<array.length; i++){
         var id = document.getElementById("showResult").rows[i].cells[5].getAttribute('id');
             if(id == 1 )
