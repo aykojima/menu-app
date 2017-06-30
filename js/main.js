@@ -19,13 +19,17 @@ function changeDate(id){
     var dd = today.getDate();
     var mm = today.getMonth()+1; //January is 0!
     var yyyy = today.getFullYear();
-
+    //format date
     if(dd<10) {
         dd = '0'+dd
     } 
     else if(mm<10) {
         mm = '0'+mm
     } 
+
+    var lastday = function(y,m){
+        return  new Date(y, m, 0).getDate();
+    }
     if(id == "today")
     {
         n = weekday[today.getDay()];
@@ -40,9 +44,17 @@ function changeDate(id){
         if(today.getDay() < 6)
         {n = weekday[today.getDay() + 1];}
         else{n = weekday[0];}
+
+        if(lastday(yyyy,mm) < (dd + 1))
+        {
+            dd = 1;
+            mm = today.getMonth()+2; //January is 0!
+        }else{
+        mm = today.getMonth() + 1;
         dd = today.getDate() + 1;
+        }
     }
-    
+
     today = n + ' ' + mm + ' .' + dd + ' .' + yyyy;
     console.log(today);
     document.getElementById("dates").innerHTML = today;

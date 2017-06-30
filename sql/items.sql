@@ -72,7 +72,7 @@ INSERT INTO `Ippins` (`IppinKey`,`GF`, `Sustainability`, `IppinName`, `IppinPric
 (3,	TRUE, FALSE, 'Organic roof top butter lettuce, radishes, toasted almonds and Washington Fuji apples tossed in a sweet miso dressing', '15', 'appetizer'),
 (4,	TRUE, FALSE, 'String bean salad tossed in a walnut miso dressing', '8', 'appetizer'),
 (5,	TRUE, FALSE, 'Hijiki seaweed nimono', '9', 'appetizer'),
-(6,	TRUE, TRUE, 'Shawan mushi with jidori eggs, snow crab and Neah Bay black cod', '11', 'appetizer'),
+(6,	TRUE, TRUE, 'Chawan mushi with jidori eggs, snow crab and Neah Bay black cod', '11', 'appetizer'),
 (7,	TRUE, TRUE, 'Shigoku oysters on the half shell with momiji ponzu', '20', 'appetizer'),
 (8,	FALSE, TRUE, 'Tempura assortment with white prawns, local rockfish, kabocha squash, shishito pepper, and satsuma yam', '17', 'tempura'),
 (9,	FALSE, FALSE, 'Assorted vegetable tempura with rooftop kale, kabocha squash, organic shiitake, shishito pepper and satsuma yam served with shiitake mushroom and konbu dashi', '14', 'tempura'),
