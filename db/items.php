@@ -20,6 +20,7 @@ if(isset($_POST['term'])){
                         echo $trimed;  
                         }                              
         }else if(isset($_POST['term']) && $_POST['term'] == "i"){
+                $param_term = $_POST['term'];
                 //$items = array();
                 //for($i=1; $i<31; $i++)
                 //{
@@ -43,6 +44,56 @@ if(isset($_POST['term'])){
                         }
                 //}
                 //echo json_encode($items);
+        }else{
+                        echo "0 results (isset)";
+        }                        
+}
+
+if(isset($_POST['ippin_term'])){
+        $param_term = $_POST['ippin_term'];
+        $sql = "SELECT IppinKey, GF, Sustainability, IppinName, IppinPrice, Category
+        FROM Ippins WHERE IppinKey = '". $param_term ."'" ;
+        $result = $conn->query($sql);
+
+        $array = [];
+        if ($result->num_rows > 0) {                   
+                // output data of each row
+                while($item = $result->fetch_assoc()) {
+                         $x =
+                                         "<div id='{$item['IppinKey']}' class='draggable'>
+                                         <div id='{$item['Category']}' class='gf'></div>
+                                         <div class='sustainable'></div>
+                                         <div class'name'><p>{$item['IppinName']}/ {$item['IppinPrice']}</p></div>
+                                         </div>";   
+                                         $trimed = trim($x);
+                                         $index = $item['Category'];
+                                         //echo $trimed;
+                                         $array = [$index => $trimed];
+                                        echo json_encode($array);  
+                        }                              
+        }else if(isset($_POST['ippin_term']) && $_POST['ippin_term'] == "i"){
+                $param_term = $_POST['ippin_term'];
+                $sql = "SELECT IppinKey, GF, Sustainability, IppinName, IppinPrice, Category
+                FROM Ippins WHERE IppinKey = '". $param_term ."'" ;
+                        $result = $conn->query($sql);
+                        if ($result->num_rows > 0) {                                           
+                                // output data of each row
+                                while($item = $result->fetch_assoc()) {
+                                        $item =
+                                         "<div id='{$item['IppinKey']} class='draggable ui-widget-content'>
+                                         <div id='{$item['Category']}' class='gf'></div>
+                                         <div class='sustainable'></div>
+                                         <div class'name'><p>{$item['IppinName']}'>/ {$item['IppinPrice']}</p></div>
+                                         </div>";   
+                                         $trimed = trim($item);
+                                         $index = "{$item['IppinKey']}";
+                                         $array = [$item, $array];
+                                        echo json_encode($array);
+                                        //echo $trimed; 
+                                        }
+                        }
+                //}
+                
         }else{
                         echo "0 results (isset)";
         }                        

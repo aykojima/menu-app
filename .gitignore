@@ -8,3 +8,10 @@ db/items-back.php
 .DS_Store
 .DS_Store?
 ._*
+
+# test files #
+######################
+js/ippin_test.js
+db/items_test.php
+ippin_test.php
+css/TheSans_Light_Expert.ttf
