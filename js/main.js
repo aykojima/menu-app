@@ -46,7 +46,7 @@ function changeDate(id){
         else{n = weekday[0];}
 
         if(lastday(yyyy,mm) < (dd + 1))
-        {
+        {//if today is the last day of the month
             dd = 1;
             mm = today.getMonth()+2; //January is 0!
         }else{

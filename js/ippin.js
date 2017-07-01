@@ -42,9 +42,9 @@ function changeDate(id){
         if(today.getDay() < 6)
         {n = weekday[today.getDay() + 1];}
         else{n = weekday[0];}
-
+        
         if(lastday(yyyy,mm) < (dd + 1))
-        {
+        {//if today is the last day of the month
             dd = 1;
             mm = today.getMonth()+2; //January is 0!
         }else{
@@ -114,7 +114,7 @@ $(document).ready(function(){
 
         }else if(item == "addall"){
             for(var i = 1; i <23; i++){
-            $.post("db/items_test.php", {term_ippin: i}).done(function(data){           
+            $.post("db/items.php", {term_ippin: i}).done(function(data){           
                 storeInArray(data);
             }); 
         }
@@ -132,7 +132,7 @@ $(document).ready(function(){
             $(this).parent(".result").empty();
         }else if(isNaN(item) == false) //&& checkId(items, item) === true)
         {//add a item to the table                 
-            $.post("db/items_test.php", {ippin_term: item}).done(function(data){
+            $.post("db/items.php", {ippin_term: item}).done(function(data){
             storeInArray(data, appetizer, tempura, fish_dish, meat_dish);
             });
             //clear the text in textbox and search drop down
@@ -196,18 +196,42 @@ function storeInArray(data, appetizer = [], tempura = [], fish_dish = [], meat_d
 
 
 function display(key, array){
-    var string ='';
+    var string ="<ul id='sortable_" + key + "'>";
     for(i=0; i < array.length; i++)
         {
                 string +=array[i];
         }  
+        string +='</ul>';
         document.getElementById(key).innerHTML = string;
 }
 
 $( function() {
-    $( "#2" ).draggable({ axis: "y" });
+    $( "#2" ).draggable({ axis: "y", containment: "#appetizer", scroll: false  });
 });
 
+$( function() {
+    $( "#sortable_appetizer" ).sortable({
+      revert: true
+    });
+});
+
+$( function() {
+    $( "#sortable_tempura" ).sortable({
+      revert: true
+    });
+});
+
+$( function() {
+    $( "#sortable_fish_dish" ).sortable({
+      revert: true
+    });
+});
+
+$( function() {
+    $( "#sortable_meat_dish" ).sortable({
+      revert: true
+    });
+});
 function checkId(array, ippinKey) {    
     for(var i=0; i<array.length; i++){
         var id = document.getElementById("IppinKey").rows[i].cells[3].getAttribute('id');

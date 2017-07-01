@@ -331,3 +331,20 @@ input[type="submit"] {
     color: #fff;
     padding: 2px;
 }
+
+
+
+/**ippin page***/
+#gf{
+    display: inline-block;
+    vertical-align: top;
+}
+
+#ippin_menu{
+    display: inline-block;
+    width:300px;
+}
+
+li{
+    list-style: none;
+}
