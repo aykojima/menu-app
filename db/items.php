@@ -56,34 +56,58 @@ if(isset($_POST['ippin_term'])){
         $result = $conn->query($sql);
 
         $array = [];
-        if ($result->num_rows > 0) {        
-                if($item['Sustainability'] === true)
-                {           
+        if ($result->num_rows > 0) {                  
                 // output data of each row
-                while($item = $result->fetch_assoc()) {                 
+                while($item = $result->fetch_assoc()) { 
+                        if($item['Sustainability'] == 1 && $item['GF'] == 1)
+                        {                 
+                         $x =
+                                "<li id='{$item['IppinKey']}' class='sortable'>
+                                <div id='gf'>GF <img src='images/fish.jpg' id='fish' style='width:15px;'></div>
+                                <div id='ippin_menu'>{$item['IppinName']}/ {$item['IppinPrice']}</div></li>";   
+                                $trimed = trim($x);
+                                $index = $item['Category'];
+                                //echo $trimed;
+                                //$array = [$index => $trimed];
+                                //echo json_encode($array);  
+                        }        
+                        else if($item['Sustainability'] == 1 && $item['GF'] == 0)
+                        {          
+                        $x =
+                                "<li id='{$item['IppinKey']}' class='sortable'>
+                                <div id='gf'><img src='images/fish.jpg' id='fish' style='width:15px;'></div>
+                                <div id='ippin_menu'>{$item['IppinName']}/ {$item['IppinPrice']}</div></li>";   
+                                $trimed = trim($x);
+                                $index = $item['Category'];
+                                //echo $trimed;
+                                //$array = [$index => $trimed];
+                                //echo json_encode($array);     
+                        }else if($item['Sustainability'] == 0 && $item['GF'] == 1)
+                         {                         
+                         $x =
+                                "<li id='{$item['IppinKey']}' class='sortable'>
+                                <div id='gf'>GF</div>
+                                <div id='ippin_menu'>{$item['IppinName']}/ {$item['IppinPrice']}</div></li>";   
+                                $trimed = trim($x);
+                                $index = $item['Category'];
+                                //echo $trimed;
+                                //$array = [$index => $trimed];
+                                //echo json_encode($array);  
+                        }else
+                         {            
                          $x =
                                          "<li id='{$item['IppinKey']}' class='sortable'>
-                                         <div id='gf'>GF <img src='images/fish.jpg' style='width:15px;'></div>
+                                         <div id='gf'></div>
                                          <div id='ippin_menu'>{$item['IppinName']}/ {$item['IppinPrice']}</div></li>";   
                                          $trimed = trim($x);
                                          $index = $item['Category'];
                                          //echo $trimed;
-                                         $array = [$index => $trimed];
-                                        echo json_encode($array);  
-                        }                
-                }else
-                {
-                while($item = $result->fetch_assoc()) {               
-                         $x =
-                                         "<li id='{$item['IppinKey']}' class='sortable'>
-                                         <div id='gf'>GF <img src='images/fish.jpg' style='width:15px;'></div>
-                                         <div id='ippin_menu'>{$item['IppinName']}/ {$item['IppinPrice']}</div></li>";   
-                                         $trimed = trim($x);
-                                         $index = $item['Category'];
-                                         //echo $trimed;
-                                         $array = [$index => $trimed];
-                                        echo json_encode($array);  
-                        }   }              
+                                         //$array = [$index => $trimed];
+                                         //echo json_encode($array);  
+                        } 
+                        $array = [$index => $trimed];
+                        echo json_encode($array); 
+                 }        
         }else if(isset($_POST['ippin_term']) && $_POST['ippin_term'] == "i"){
                 $param_term = $_POST['ippin_term'];
                 $sql = "SELECT IppinKey, GF, Sustainability, IppinName, IppinPrice, Category

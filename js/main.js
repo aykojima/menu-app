@@ -19,13 +19,7 @@ function changeDate(id){
     var dd = today.getDate();
     var mm = today.getMonth()+1; //January is 0!
     var yyyy = today.getFullYear();
-    //format date
-    if(dd<10) {
-        dd = '0'+dd
-    } 
-    else if(mm<10) {
-        mm = '0'+mm
-    } 
+    //format date 
 
     var lastday = function(y,m){
         return  new Date(y, m, 0).getDate();
@@ -54,6 +48,14 @@ function changeDate(id){
         dd = today.getDate() + 1;
         }
     }
+
+    //format date
+    if(dd<10) {
+        dd = '0'+dd
+    } 
+    if(mm<10) {
+        mm = '0'+mm
+    } 
 
     today = n + ' ' + mm + ' .' + dd + ' .' + yyyy;
     console.log(today);

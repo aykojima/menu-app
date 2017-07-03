@@ -39,7 +39,9 @@ p#nav{
 p#nav_active{
     visibility: visible;
     text-align: center;
-    color: #C25E03;
+    /*color: #C25E03;*/
+    color:#CF671F;
+
     margin-bottom: 30px;
     }
 
@@ -172,7 +174,7 @@ p.verticalSashimi {
         padding: 0 0 9px 9px;
 }
 
-img#fish{
+img#fish-vertical{
     transform: rotate(90deg);
     margin-bottom:10px;
 }
@@ -199,7 +201,7 @@ h1{
     text-align: left;
     padding-left:2%;
     margin:2%;          
-    color: #C25E03;
+    color:#CF671F;
     float: left;
     clear:left;
 }
@@ -208,7 +210,7 @@ h2{
     text-align: left;
     padding-left:2%;
     margin:2%;          
-    color: #C25E03;
+    color:#CF671F;
     float: left;
 }
 
@@ -326,7 +328,7 @@ input[type="submit"] {
     clear: both;
     font-size: 1em;
     width: 200px;
-    background-color: #C25E03;
+    background-color:#CF671F;
     border-radius: 5px;
     color: #fff;
     padding: 2px;
@@ -338,13 +340,24 @@ input[type="submit"] {
 #gf{
     display: inline-block;
     vertical-align: top;
+    font-size: .8em;
+    width: 33px;
+    /*padding-top: 5px;*/
 }
 
 #ippin_menu{
     display: inline-block;
-    width:300px;
+    width:88%;
+    line-height: 1.2em;
 }
 
-li{
+li.sortable {
+    margin: 10px 0;
     list-style: none;
+}
+
+img#fish {
+    display: block;
+    float: right;
+    /*margin-top: 5px;*/
 }

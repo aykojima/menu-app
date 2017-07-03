@@ -1,10 +1,11 @@
 <?php include('includes/header.php'); ?>
     <!--@to do
-    @correct date picker. It doesn't work for the last day of a month
     @be able to add item after taking it out
-    @Display sustainable fish and gf
     @style the menu
     @add edit and add pages for ippins
+    @add zeros to dates
+    @make sure sotable is really sortable(sometimes it doesn't work)
+    @currently, page need to be refreshed in order to sort items after adding new one -> need to be fixed.
     -->
     <?php include('includes/header.php'); ?>
     <div class="search-box">
@@ -14,7 +15,7 @@
 
     <a id="print" href="javascript:window.print()">PRINT</a>
     <div id="container">
-    <p class="notes"><img id="fish" src='images/fish.jpg' alt='fish' style=width:15px;>sustainable "best" or "good alternative" seafood 
+    <p class="notes"><img id="fish-vertical" src='images/fish.jpg' alt='fish' style=width:15px;>sustainable "best" or "good alternative" seafood 
         *raw or undercooked meats, poultry, seafodd, shellfish or eggs 
         may increase your risk of foodborne illness</p>
     <div id="menu">

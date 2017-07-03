@@ -55,7 +55,7 @@ if(isset($_REQUEST['term'])){
             if(mysqli_num_rows($result) > 0){
                 // Fetch result rows as an associative array
                 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-                    echo "<p id='" . $row[IppinKey] .  "'>" . $row["IppinName"] . "/ " .$row["IppinPrice"] . "</p>";
+                    echo "<p id='" . $row[IppinKey] .  "' class='" . $row[Category] .  "'>" . $row["IppinName"] . "/ " .$row["IppinPrice"] . "</p>";
                 }
             }else if(isset($_REQUEST['term_ippin']) && $_REQUEST['term_ippin'] == '+'){
                 echo "<p id='addall'>add sample 30 items to the menu</p>";

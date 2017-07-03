@@ -18,12 +18,7 @@ function changeDate(id){
     var mm = today.getMonth()+1; //January is 0!
     var yyyy = today.getFullYear();
     //format date
-    if(dd<10) {
-        dd = '0'+dd
-    } 
-    else if(mm<10) {
-        mm = '0'+mm
-    } 
+     
 
     var lastday = function(y,m){
         return  new Date(y, m, 0).getDate();
@@ -32,7 +27,7 @@ function changeDate(id){
     {
         n = weekday[today.getDay()];
         dd = today.getDate();
-        console.log(n);
+        //console.log(n);
     }else if(id == "left")
     {
         n = weekday[today.getDay()];
@@ -45,7 +40,7 @@ function changeDate(id){
         
         if(lastday(yyyy,mm) < (dd + 1))
         {//if today is the last day of the month
-            dd = 1;
+            dd = 01;
             mm = today.getMonth()+2; //January is 0!
         }else{
         mm = today.getMonth() + 1;
@@ -53,8 +48,15 @@ function changeDate(id){
         }
     }
 
+    if(dd<10) {
+        dd = '0'+dd
+    } 
+    if(mm<10) {
+        mm = '0'+mm
+    }
+
     today = n + ' ' + mm + ' .' + dd + ' .' + yyyy;
-    console.log(today);
+    //console.log(today);
     document.getElementById("dates").innerHTML = today;
 }
 
@@ -105,6 +107,8 @@ $(document).ready(function(){
 /***fetch the clicked item in the search box and store it in an array***/
  $(document).on("click", ".result p", function(event){         
         var item = $(this).attr('id');
+        var items = $(this).attr('class');
+        console.log(items);
         //check if the item already exists in the table
         //return true if it's new, false if it already exists
         if(item == "nomatch"){
@@ -130,7 +134,7 @@ $(document).ready(function(){
             document.getElementById("showResult").innerHTML = '';
             $('input[type="text"]').val('');   
             $(this).parent(".result").empty();
-        }else if(isNaN(item) == false) //&& checkId(items, item) === true)
+        }else if(isNaN(item) == false && checkId(items, item) === true)
         {//add a item to the table                 
             $.post("db/items.php", {ippin_term: item}).done(function(data){
             storeInArray(data, appetizer, tempura, fish_dish, meat_dish);
@@ -139,10 +143,19 @@ $(document).ready(function(){
             $('input[type="text"]').val('');   
             $(this).parent(".result").empty();
         }else{//take out the item
-            var checkedId = checkId(items, item)
-            //console.log(checkedId);
-            items.splice(checkedId, 1);
-            localStorage['ippins'] = JSON.stringify(items);
+            var checkedId = checkId(items, item);
+            if(items == 'appetizer'){
+                console.log(appetizer);
+                appetizer.splice(checkedId, 1);
+                console.log(appetizer);}
+            else if(items == 'tempura'){tempura.splice(checkedId, 1);}
+            else if(items == 'fish_dish'){fish_dish.splice(checkedId, 1);}
+            else if(items == 'meat_dish'){meat_dish.splice(checkedId, 1);}
+            else{'We cannot take out the menu'}
+            localStorage.setItem("appetizer", JSON.stringify(appetizer));
+            localStorage.setItem("tempura", JSON.stringify(tempura));
+            localStorage.setItem("fish_dish", JSON.stringify(fish_dish));
+            localStorage.setItem("meat_dish", JSON.stringify(meat_dish));
             location.reload();
         } 
           
@@ -151,7 +164,7 @@ $(document).ready(function(){
 function storeInArray(data, appetizer = [], tempura = [], fish_dish = [], meat_dish = []){
     //store feched items in an array and display in table
     var obj = [JSON.parse(data)];
-    console.log(obj);
+    //console.log(obj);
     
     //get the keys
     var obj1 = obj[0], key1;
@@ -187,7 +200,7 @@ function storeInArray(data, appetizer = [], tempura = [], fish_dish = [], meat_d
     localStorage.setItem("tempura", JSON.stringify(tempura));
     localStorage.setItem("fish_dish", JSON.stringify(fish_dish));
     localStorage.setItem("meat_dish", JSON.stringify(meat_dish));
-    console.log(JSON.stringify(appetizer));
+    //console.log(JSON.stringify(appetizer));
 
     //checkSustainability(items);
     //styleLineHeight(items);
@@ -205,39 +218,129 @@ function display(key, array){
         document.getElementById(key).innerHTML = string;
 }
 
-$( function() {
-    $( "#2" ).draggable({ axis: "y", containment: "#appetizer", scroll: false  });
-});
 
 $( function() {
-    $( "#sortable_appetizer" ).sortable({
-      revert: true
-    });
+     $( "#sortable_appetizer" ).sortable({
+        axis: 'y',
+        update: function (event, ui) {
+        var list = document.getElementById('sortable_appetizer');
+        appetizer = [];
+        var another_test = list.childNodes; 
+        for(var i =0; i < list.childNodes.length; i++)
+        {
+            var list_id = another_test[i].id;
+            //console.log(list_id);
+            var test = "<li id='" + list_id + "' class='sortable'>" + another_test[i].innerHTML + "</li>"
+            appetizer.push(test);
+            
+        }
+        console.log(appetizer);
+        localStorage.setItem("appetizer", JSON.stringify(appetizer));
+        
+            }
+        });    
 });
+
 
 $( function() {
     $( "#sortable_tempura" ).sortable({
-      revert: true
+        axis: 'y',
+        update: function (event, ui) {
+        var list = document.getElementById('sortable_tempura');
+        tempura = [];
+        var another_test = list.childNodes; 
+        for(var i =0; i < list.childNodes.length; i++)
+        {
+            var list_id = another_test[i].id;
+            //console.log(list_id);
+            var test = "<li id='" + list_id + "' class='sortable'>" + another_test[i].innerHTML + "</li>"
+            tempura.push(test);
+            
+        }
+        console.log(tempura);
+        localStorage.setItem("tempura", JSON.stringify(tempura));
+        
+            }
     });
 });
 
 $( function() {
     $( "#sortable_fish_dish" ).sortable({
-      revert: true
+        axis: 'y',
+        update: function (event, ui) {
+        var list = document.getElementById('sortable_fish_dish');
+        fish_dish = [];
+        var another_test = list.childNodes; 
+        for(var i =0; i < list.childNodes.length; i++)
+        {
+            var list_id = another_test[i].id;
+            //console.log(list_id);
+            var test = "<li id='" + list_id + "' class='sortable'>" + another_test[i].innerHTML + "</li>"
+            fish_dish.push(test);
+            
+        }
+        console.log(fish_dish);
+        localStorage.setItem("fish_dish", JSON.stringify(fish_dish));
+        
+            }
     });
 });
 
 $( function() {
     $( "#sortable_meat_dish" ).sortable({
-      revert: true
+        axis: 'y',
+        update: function (event, ui) {
+        var list = document.getElementById('sortable_meat_dish');
+        meat_dish = [];
+        var another_test = list.childNodes; 
+        for(var i =0; i < list.childNodes.length; i++)
+        {
+            var list_id = another_test[i].id;
+            //console.log(list_id);
+            var test = "<li id='" + list_id + "' class='sortable'>" + another_test[i].innerHTML + "</li>"
+            meat_dish.push(test);
+            
+        }
+        console.log(meat_dish);
+        localStorage.setItem("meat_dish", JSON.stringify(meat_dish));
+        
+            }
     });
 });
-function checkId(array, ippinKey) {    
-    for(var i=0; i<array.length; i++){
-        var id = document.getElementById("IppinKey").rows[i].cells[3].getAttribute('id');
-        console.log(id);
+function checkId(ippinClass, ippinKey) {    
+    //for(var i=0; i<array.length; i++){
+        //var ul = document.getElementById("sortable_" + ippinClass);//("'sortable_" + array + "'");
+        var div = document.getElementById(ippinClass);
+        
+        var li = div.getElementsByTagName("li");
+        if(0 < li.length){
+        for (var i = 0; i < li.length; ++i) {
+            var id = li[i].getAttribute('id');
+            console.log(id);
             if(id == ippinKey)
             { return i; }
-        }
-         return true;
+            }
+            {return true; }
+            
+      }else{ return true; }
+   // }
 }
+/*
+function checkId(array, ippinClass, ippinKey) {    
+    if(0 < array.length){
+    for(var i=0; i<array.length; i++){
+        
+        //var ul = document.getElementById("sortable_" + ippinClass);//("'sortable_" + array + "'");
+        //var div = document.getElementById(ippinClass);
+        
+        //var li = div.getElementsByTagName("li");
+        //if(0 < array.length){
+        for (var i = 0; i < li.length; ++i) {
+            var id = li[i].getAttribute('id');
+            console.log(id);
+            if(id == ippinKey)
+            { return i; }
+            }
+            {return true; }
+            
+      }else{ return true; }*/
