@@ -1,4 +1,4 @@
 </div>
-<script src="js/main.js"></script>
+<?php echo"<script src='js/" . $file . ".js'></script>";?>
 </body>
 </html>

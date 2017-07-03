@@ -104,6 +104,22 @@ $(document).ready(function(){
 }); 
 
 
+ //sort and store new order in array
+  var sort_items_appetizer = { sortAppetizer: sortAppetizer};
+  var sort_items_tempura = { sortTempura: sortTempura};
+  var sort_items_fish_dish = { sortFishDish: sortFishDish};
+  var sort_items_meat_dish = { sortMeatDish: sortMeatDish};
+   w = 'sortAppetizer', x = 'sortTempura', y = 'sortFishDish', z = 'sortMeatDish';   
+  sort_items_appetizer[w]();
+  sort_items_tempura[x]();
+  sort_items_fish_dish[y]();
+  sort_items_meat_dish[z]();
+
+
+
+
+
+
 /***fetch the clicked item in the search box and store it in an array***/
  $(document).on("click", ".result p", function(event){         
         var item = $(this).attr('id');
@@ -118,9 +134,19 @@ $(document).ready(function(){
 
         }else if(item == "addall"){
             for(var i = 1; i <23; i++){
-            $.post("db/items.php", {term_ippin: i}).done(function(data){           
-                storeInArray(data);
-            }); 
+            $.post("db/items.php", {term_ippin: i}).done(function(data){     
+                //console.log(data);      
+                storeInArray(data, appetizer, tempura, fish_dish, meat_dish);
+            sort_items_appetizer[w]();
+            sort_items_tempura[x]();
+            sort_items_fish_dish[y]();
+            sort_items_meat_dish[z]();
+            });
+            //clear the text in textbox and search drop down
+            $('input[type="text"]').val('');   
+            $(this).parent(".result").empty();
+             
+            
         }
             //items.forEach(function(item) {
               //  storeInArray(item);
@@ -131,17 +157,27 @@ $(document).ready(function(){
         }else if(item == "empty"){
             items = [];
             localStorage['ippins'] = JSON.stringify(items);
-            document.getElementById("showResult").innerHTML = '';
+            document.getElementById("show_result_ippin").innerHTML = '';
             $('input[type="text"]').val('');   
             $(this).parent(".result").empty();
         }else if(isNaN(item) == false && checkId(items, item) === true)
         {//add a item to the table                 
             $.post("db/items.php", {ippin_term: item}).done(function(data){
             storeInArray(data, appetizer, tempura, fish_dish, meat_dish);
+            sort_items_appetizer[w]();
+            sort_items_tempura[x]();
+            sort_items_fish_dish[y]();
+            sort_items_meat_dish[z]();
             });
             //clear the text in textbox and search drop down
             $('input[type="text"]').val('');   
             $(this).parent(".result").empty();
+             
+
+
+
+
+
         }else{//take out the item
             var checkedId = checkId(items, item);
             if(items == 'appetizer'){
@@ -160,6 +196,101 @@ $(document).ready(function(){
         } 
           
 });
+
+//});
+
+function sortAppetizer(){
+    $( "#sortable_appetizer").sortable({
+        axis: 'y',
+        cursor: "move",
+        update: function (event, ui) {
+        var list = document.getElementById('sortable_appetizer');
+        appetizer = [];
+        var another_test = list.childNodes; 
+        for(var i =0; i < list.childNodes.length; i++)
+        {
+            var list_id = another_test[i].id;
+            //console.log(list_id);
+            var test = "<li id='" + list_id + "' class='sortable'>" + another_test[i].innerHTML + "</li>"
+            appetizer.push(test);    
+        }
+        console.log(appetizer);
+        localStorage.setItem("appetizer", JSON.stringify(appetizer));
+        
+            }
+        }); 
+    };
+
+
+
+function sortTempura(){
+    $( "#sortable_tempura" ).sortable({
+        axis: 'y',
+        update: function (event, ui) {
+        var list = document.getElementById('sortable_tempura');
+        tempura = [];
+        var another_test = list.childNodes; 
+        for(var i =0; i < list.childNodes.length; i++)
+        {
+            var list_id = another_test[i].id;
+            //console.log(list_id);
+            var test = "<li id='" + list_id + "' class='sortable'>" + another_test[i].innerHTML + "</li>"
+            tempura.push(test);
+            
+        }
+        console.log(tempura);
+        localStorage.setItem("tempura", JSON.stringify(tempura));
+        
+            }
+    });
+};
+
+
+function sortFishDish(){
+    $( "#sortable_fish_dish" ).sortable({
+        axis: 'y',
+        update: function (event, ui) {
+        var list = document.getElementById('sortable_fish_dish');
+        fish_dish = [];
+        var another_test = list.childNodes; 
+        for(var i =0; i < list.childNodes.length; i++)
+        {
+            var list_id = another_test[i].id;
+            //console.log(list_id);
+            var test = "<li id='" + list_id + "' class='sortable'>" + another_test[i].innerHTML + "</li>"
+            fish_dish.push(test);
+            
+        }
+        console.log(fish_dish);
+        localStorage.setItem("fish_dish", JSON.stringify(fish_dish));
+        
+            }
+    });
+};
+
+
+function sortMeatDish(){
+    $( "#sortable_meat_dish" ).sortable({
+        axis: 'y',
+        update: function (event, ui) {
+        var list = document.getElementById('sortable_meat_dish');
+        meat_dish = [];
+        var another_test = list.childNodes; 
+        for(var i =0; i < list.childNodes.length; i++)
+        {
+            var list_id = another_test[i].id;
+            //console.log(list_id);
+            var test = "<li id='" + list_id + "' class='sortable'>" + another_test[i].innerHTML + "</li>"
+            meat_dish.push(test);
+            
+        }
+        console.log(meat_dish);
+        localStorage.setItem("meat_dish", JSON.stringify(meat_dish));
+        
+            }
+    });
+};
+
 
 function storeInArray(data, appetizer = [], tempura = [], fish_dish = [], meat_dish = []){
     //store feched items in an array and display in table
@@ -218,95 +349,6 @@ function display(key, array){
         document.getElementById(key).innerHTML = string;
 }
 
-
-$( function() {
-     $( "#sortable_appetizer" ).sortable({
-        axis: 'y',
-        update: function (event, ui) {
-        var list = document.getElementById('sortable_appetizer');
-        appetizer = [];
-        var another_test = list.childNodes; 
-        for(var i =0; i < list.childNodes.length; i++)
-        {
-            var list_id = another_test[i].id;
-            //console.log(list_id);
-            var test = "<li id='" + list_id + "' class='sortable'>" + another_test[i].innerHTML + "</li>"
-            appetizer.push(test);
-            
-        }
-        console.log(appetizer);
-        localStorage.setItem("appetizer", JSON.stringify(appetizer));
-        
-            }
-        });    
-});
-
-
-$( function() {
-    $( "#sortable_tempura" ).sortable({
-        axis: 'y',
-        update: function (event, ui) {
-        var list = document.getElementById('sortable_tempura');
-        tempura = [];
-        var another_test = list.childNodes; 
-        for(var i =0; i < list.childNodes.length; i++)
-        {
-            var list_id = another_test[i].id;
-            //console.log(list_id);
-            var test = "<li id='" + list_id + "' class='sortable'>" + another_test[i].innerHTML + "</li>"
-            tempura.push(test);
-            
-        }
-        console.log(tempura);
-        localStorage.setItem("tempura", JSON.stringify(tempura));
-        
-            }
-    });
-});
-
-$( function() {
-    $( "#sortable_fish_dish" ).sortable({
-        axis: 'y',
-        update: function (event, ui) {
-        var list = document.getElementById('sortable_fish_dish');
-        fish_dish = [];
-        var another_test = list.childNodes; 
-        for(var i =0; i < list.childNodes.length; i++)
-        {
-            var list_id = another_test[i].id;
-            //console.log(list_id);
-            var test = "<li id='" + list_id + "' class='sortable'>" + another_test[i].innerHTML + "</li>"
-            fish_dish.push(test);
-            
-        }
-        console.log(fish_dish);
-        localStorage.setItem("fish_dish", JSON.stringify(fish_dish));
-        
-            }
-    });
-});
-
-$( function() {
-    $( "#sortable_meat_dish" ).sortable({
-        axis: 'y',
-        update: function (event, ui) {
-        var list = document.getElementById('sortable_meat_dish');
-        meat_dish = [];
-        var another_test = list.childNodes; 
-        for(var i =0; i < list.childNodes.length; i++)
-        {
-            var list_id = another_test[i].id;
-            //console.log(list_id);
-            var test = "<li id='" + list_id + "' class='sortable'>" + another_test[i].innerHTML + "</li>"
-            meat_dish.push(test);
-            
-        }
-        console.log(meat_dish);
-        localStorage.setItem("meat_dish", JSON.stringify(meat_dish));
-        
-            }
-    });
-});
 function checkId(ippinClass, ippinKey) {    
     //for(var i=0; i<array.length; i++){
         //var ul = document.getElementById("sortable_" + ippinClass);//("'sortable_" + array + "'");
@@ -325,6 +367,7 @@ function checkId(ippinClass, ippinKey) {
       }else{ return true; }
    // }
 }
+
 /*
 function checkId(array, ippinClass, ippinKey) {    
     if(0 < array.length){

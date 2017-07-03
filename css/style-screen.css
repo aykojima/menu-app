@@ -356,8 +356,22 @@ li.sortable {
     list-style: none;
 }
 
+li.sortable:hover{
+    border: 1px solid #CCC;
+}
+
 img#fish {
     display: block;
     float: right;
-    /*margin-top: 5px;*/
+    margin-top: 5px;
+}
+
+h1#ippin{
+    float: none;
+}
+
+#show_result_ippin{
+    display:block;
+    margin:auto;
+    width:100%;
 }

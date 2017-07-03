@@ -21,7 +21,7 @@ a {display:none;}
 
 div#container {
     width: 100%;
-    /*border: solid 1px #C25E03;*/
+    border: solid 1px #C25E03;
     max-height:100vh;
 }
 
@@ -53,7 +53,7 @@ p.verticalSashimi {
         padding: 0 0 9px 13px;
 }
 
-img#fish{
+img#fish-vertical{
     transform: rotate(90deg);
      margin-bottom:10px;
 }
@@ -66,7 +66,8 @@ div#menu {
     margin-top:10%;
     padding:2%;
     margin-left:8%;
-   /* border: solid 1px Blue;*/
+    border: solid 1px Blue;
+    height:1195px;
 }
 
 div#menu_up {
@@ -77,7 +78,7 @@ div#menu_up {
     margin-top:5%;
     padding:2%;
     margin-left:8%;
-   /* border: solid 1px Blue;*/
+    border: solid 1px Blue;
 }
 
 h1, h2{
@@ -92,8 +93,12 @@ h1{
     float: left;
 }
 
-/*h2{ font-family:Arial, Helvetica, sans-serif; }
-
+h2{ 
+    font-family: myriad-pro, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+}
+/*
 h1{
     font-size:1.5em;
 }
@@ -164,6 +169,9 @@ td.space{width:10px;}
 
 
 div.gratuity{
+    font-family: myriad-pro, sans-serif;
+    font-style: normal;
+    font-weight: 400;
     width:70%;
     margin-left:5%;
     font-size: .5em;
@@ -171,6 +179,51 @@ div.gratuity{
     bottom:3%;
     text-align: justify;
     line-height: 1em;
+}
+
+
+
+/**ippin page***/
+#gf{
+    display: inline-block;
+    vertical-align: top;
+    font-size: .8em;
+    width: 33px;
+    /*padding-top: 5px;*/
+}
+
+#ippin_menu{
+    display: inline-block;
+    width:88%;
+    line-height: 1.2em;
+}
+
+li.sortable {
+    margin: 10px 0;
+    list-style: none;
+}
+
+
+img#fish {
+    display: block;
+    float: right;
+    margin-top: 5px;
+}
+/*
+div#appetizer{
+    border: 1px solid blue;
+}
+*/
+h1#ippin{
+    float: none;
+}
+
+#show_result_ippin{
+    display:block;
+    margin:auto;
+    width:100%;
+    border: solid 1px orange; 
+    max-height: 100%
 }
 
 @page {

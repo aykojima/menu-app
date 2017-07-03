@@ -12,16 +12,6 @@
 <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
-<style>
-    .draggable {border: 1px solid #ccc;}
-  /*.draggable { width: 90px; height: 90px; padding: 0.5em; float: left; margin: 0 10px 10px 0; }
-  #draggable, #draggable2 { margin-bottom:20px; }
-  #draggable { cursor: n-resize; }
-  #draggable2 { cursor: e-resize; }
-  #containment-wrapper { width: 95%; height:150px; border:2px solid #ccc; padding: 10px; }
-  h3 { clear: left; }*/
-  </style>
-
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -37,6 +27,6 @@
     <p id='" . $activeP2 . "'>Ippin Menu</p></a>";?>
     <?php echo"<a href='edit.php' id='nav'><img src='images/edit_icon" . $activeNav3 . ".png' class='nav_icons'>
     <p id='" . $activeP3 . "'>Edit Items</p></a>";?>
-    <?php echo"<a href='add_form.php' id='nav'><img src='images/add_icon" . $activeNav4 . ".png' class='nav_icons'>
+    <?php echo"<a href='add_sushi.php' id='nav'><img src='images/add_icon" . $activeNav4 . ".png' class='nav_icons'>
     <p id='" . $activeP4 . "'>Add Items</p></a>";?>
 </div> 

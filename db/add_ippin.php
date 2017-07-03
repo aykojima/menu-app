@@ -13,25 +13,39 @@ else{
     $sustainability=false;
 }
 
+$gf = true;
+if(isset($_POST['gf'])){
+    //$stok is checked and value = 1
+    $gf = true;
+}
+else{
+    //$stok is nog checked and value=0
+    $gf=false;
+}
+
+
+
 $name = mysqli_real_escape_string($conn, $_REQUEST['name']);
 $name = ucfirst($name);
 
-$origin= mysqli_real_escape_string($conn, $_REQUEST['origin']);
-$origin = '(' . ucfirst($origin) . ')';
+$price = mysqli_real_escape_string($conn, $_REQUEST['price']);
+$price = strtoupper($price); 
 
-$sushiPrice = (int)$_REQUEST['sushi_price'];
-$sashimiPrice = (int)$_REQUEST['sashimi_price'];
- 
+$category = $_REQUEST['category'];
+
+
+
+
 // attempt insert query execution
-$sql = "INSERT INTO Sushi (Sustainability, SushiName, Origin, SushiPrice, SashimiPrice) 
-        VALUES ('$sustainability', '$name', '$origin', '$sushiPrice', '$sashimiPrice')";
+$sql = "INSERT INTO Ippins (GF, Sustainability, IppinName, IppinPrice, Category) 
+        VALUES ('$gf', '$sustainability','$name', '$price', '$category')";
 if(mysqli_query($conn, $sql)){
     echo "<script type='text/javascript'>window.alert('" . $name . " was added successfully');
-    window.location.href = '../add_sushi.php';</script>"; 
+    window.location.href = '../add_ippin.php';</script>"; 
 exit;
 } else{
     echo "<script type='text/javascript'>window.alert('ERROR: Could not able to add " . $name . "');
-    window.location.href = '../add_sushi.php';</script>"; 
+    window.location.href = '../add_ippin.php';</script>"; 
 }
 
 //Close database connection

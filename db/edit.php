@@ -47,7 +47,7 @@ if(mysqli_query($conn, $sql)){
 exit;
 } else{
     echo "<script type='text/javascript'>window.alert('ERROR: Could not able to edit " . $name . "');
-    window.location.href = '../add_form.php';</script>"; 
+    window.location.href = '../add_sushi.php';</script>"; 
 }
 }
 //Close database connection

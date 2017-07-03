@@ -1,12 +1,12 @@
 <?php include('includes/header.php'); ?>
     <!--@to do
-    @be able to add item after taking it out
-    @style the menu
-    @add edit and add pages for ippins
-    @add zeros to dates
-    @make sure sotable is really sortable(sometimes it doesn't work)
-    @currently, page need to be refreshed in order to sort items after adding new one -> need to be fixed.
-    -->
+    @style the menu - height of div
+    @add all
+    @add edit pages for ippins
+    @style add page
+    @form validation
+    @fix navigation in ippin page
+     -->
     <?php include('includes/header.php'); ?>
     <div class="search-box">
             <input type="text" autocomplete="off" placeholder="Search..." />
@@ -27,8 +27,8 @@
         <input type="button" id="right" value=" > " onclick="changeDate('right')"/> 
     </div>
     
-    <h1 id="sushiBar">Ippins</h1>
-     <div id='showResult'>
+    <h1 id="ippin">Ippins</h1>
+     <div id='show_result_ippin'>
     <div id="appetizer"></div>
     <div id="tempura"></div>
     <div id="fish_dish"></div>
@@ -38,9 +38,6 @@
     100% of these funds are distributed to the staff in form of wages, benefits and revenue share.
     Additional gratuity is not expected.</p></div>
     </div>
-   </div>
-<script src="js/ippin.js"></script>
-</body>
-</html>
+<?php include('includes/footer.php'); ?>
 
 
