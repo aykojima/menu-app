@@ -1,7 +1,6 @@
 <?php include('includes/header.php'); ?>
     <!--@to do
      @Style
-     @auto fill Sashimi Price
     -->
 
 <div class="search-box">

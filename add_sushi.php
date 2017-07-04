@@ -1,7 +1,6 @@
 <?php include('includes/header.php'); ?>
     <!--@to do
      @Style
-     @auto fill Sashimi Price
     -->
 <div id="add_form">
 <form action="db/add.php" method="post">

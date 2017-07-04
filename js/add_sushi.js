@@ -12,3 +12,4 @@ function calcSashimi(){
             document.getElementById('sashimiPrice').value = 'Please enter number';
     }
 }
+

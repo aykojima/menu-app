@@ -36,7 +36,7 @@ switch(THIS_PAGE)
   
   case "edit_sushi.php":
   $myTitle = "Edit Sushi Item";
-  $file = "edit";
+  $file = "edit_sushi";
   $activeNav1 = "_no_active";
   $activeNav2 = "_no_active";
   $activeNav3 = "_active";
@@ -63,7 +63,7 @@ switch(THIS_PAGE)
 
   case "add_sushi.php":
   $myTitle = "Add Sushi Item";
-  $file = "add";
+  $file = "add_sushi";
   $activeNav1 = "_no_active";
   $activeNav2 = "_no_active";
   $activeNav3 = "_no_active";
@@ -72,7 +72,9 @@ switch(THIS_PAGE)
   $activeP2 = "nav";
   $activeP3 = "nav";
   $activeP4 = "nav_active";
+  break; 
 
+  
   case "add_ippin.php":
   $myTitle = "Add Ippin Item";
   $file = "add_ippin";

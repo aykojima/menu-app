@@ -168,7 +168,35 @@ $(document).ready(function(){
             sort_items_tempura[x]();
             sort_items_fish_dish[y]();
             sort_items_meat_dish[z]();
-            });
+
+            var change_height = function changeHeight(){
+                console.log($('#show_result_ippin').height());
+                var max_height = $('#show_result_ippin').height();
+                if(max_height > 1000 && max_height < 1149)
+                {
+                    $('#show_result_ippin').find('ul').addClass('changed_height1');
+                }
+                else if(max_height > 1150 && max_height < 1199)
+                {
+                    $('#show_result_ippin').find('ul').addClass('changed_height2');
+                    $('#show_result_ippin').find('div#gf').css('padding-top', '5px');
+                    $('#show_result_ippin').find('img#fish').css('margin-top', '0');
+                }
+                else if(max_height > 1200 && max_height < 1300)
+                {
+                    $('#show_result_ippin').find('ul').addClass('changed_height3');
+                    /*$('#menu').addClass('changed_height3');*/
+                    $('#dates').addClass('changed_height3');
+                    $('#ippin').addClass('changed_height3');
+                    $('#show_result_ippin').find('div#gf').css('padding-top', '5px');
+                    $('#show_result_ippin').find('img#fish').css('margin-top', '0');
+
+
+                    
+                }
+            }();
+         });
+        
             //clear the text in textbox and search drop down
             $('input[type="text"]').val('');   
             $(this).parent(".result").empty();
@@ -369,21 +397,31 @@ function checkId(ippinClass, ippinKey) {
 }
 
 /*
-function checkId(array, ippinClass, ippinKey) {    
-    if(0 < array.length){
-    for(var i=0; i<array.length; i++){
-        
-        //var ul = document.getElementById("sortable_" + ippinClass);//("'sortable_" + array + "'");
-        //var div = document.getElementById(ippinClass);
-        
-        //var li = div.getElementsByTagName("li");
-        //if(0 < array.length){
-        for (var i = 0; i < li.length; ++i) {
-            var id = li[i].getAttribute('id');
-            console.log(id);
-            if(id == ippinKey)
-            { return i; }
-            }
-            {return true; }
-            
-      }else{ return true; }*/
+$document.ready(function(){
+    console.log($('#show_result_ippin').height());
+});*/
+
+var change_height = function changeHeight(){
+                console.log($('#show_result_ippin').height());
+                var max_height = $('#show_result_ippin').height();
+                if(max_height > 1000 && max_height < 1149)
+                {
+                    $('#show_result_ippin').find('ul').addClass('changed_height1');
+                }
+                else if(max_height > 1150 && max_height < 1199)
+                {
+                    $('#show_result_ippin').find('ul').addClass('changed_height2');
+                    $('#show_result_ippin').find('div#gf').css('padding-top', '5px');
+                    $('#show_result_ippin').find('img#fish').css('margin-top', '0');
+                }
+                else if(max_height > 1200 && max_height < 1300)
+                {
+                    $('#show_result_ippin').find('ul').addClass('changed_height3');
+                    /*$('#menu').addClass('changed_height3');*/
+                    $('#dates').addClass('changed_height3');
+                    $('#ippin').addClass('changed_height3');
+                    $('#show_result_ippin').find('div#gf').css('padding-top', '5px');
+                    $('#show_result_ippin').find('img#fish').css('margin-top', '0');
+
+                }
+            }();
