@@ -34,8 +34,8 @@ switch(THIS_PAGE)
   $activeP4 = "nav";
   break;
   
-  case "edit.php":
-  $myTitle = "Edit Item";
+  case "edit_sushi.php":
+  $myTitle = "Edit Sushi Item";
   $file = "edit";
   $activeNav1 = "_no_active";
   $activeNav2 = "_no_active";
@@ -47,8 +47,22 @@ switch(THIS_PAGE)
   $activeP4 = "nav";
   break; 
   
+  case "edit_ippin.php":
+  $myTitle = "Edit Ippin Item";
+  $file = "edit_ippin";
+  $activeNav1 = "_no_active";
+  $activeNav2 = "_no_active";
+  $activeNav3 = "_active";
+  $activeNav4 = "_no_active";
+  $activeP1 = "nav";
+  $activeP2 = "nav";
+  $activeP3 = "nav_active";
+  $activeP4 = "nav";
+  break; 
+
+
   case "add_sushi.php":
-  $myTitle = "Add Item";
+  $myTitle = "Add Sushi Item";
   $file = "add";
   $activeNav1 = "_no_active";
   $activeNav2 = "_no_active";
@@ -58,6 +72,20 @@ switch(THIS_PAGE)
   $activeP2 = "nav";
   $activeP3 = "nav";
   $activeP4 = "nav_active";
+
+  case "add_ippin.php":
+  $myTitle = "Add Ippin Item";
+  $file = "add_ippin";
+  $activeNav1 = "_no_active";
+  $activeNav2 = "_no_active";
+  $activeNav3 = "_no_active";
+  $activeNav4 = "_active";
+  $activeP1 = "nav";
+  $activeP2 = "nav";
+  $activeP3 = "nav";
+  $activeP4 = "nav_active";
+
+
   break; 
   //fallback values for undefined pages
   default:

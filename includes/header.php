@@ -21,12 +21,22 @@
 <body>
    <?php include ("config.php");?>
 <div id="nav">
-    <?php echo"<a href='main.php' id='nav'><img src='images/sushi_icon" . $activeNav1 . ".png' class='nav_icons'> 
-    <p id='" . $activeP1 . "'>Sushi Menu</p></a>";?>
-    <?php echo"<a href='ippin.php' id='nav'><img src='images/ippin_icon" . $activeNav2 . ".png' class='nav_icons'> 
-    <p id='" . $activeP2 . "'>Ippin Menu</p></a>";?>
-    <?php echo"<a href='edit.php' id='nav'><img src='images/edit_icon" . $activeNav3 . ".png' class='nav_icons'>
-    <p id='" . $activeP3 . "'>Edit Items</p></a>";?>
-    <?php echo"<a href='add_sushi.php' id='nav'><img src='images/add_icon" . $activeNav4 . ".png' class='nav_icons'>
-    <p id='" . $activeP4 . "'>Add Items</p></a>";?>
+    <ul>
+    <?php echo"<li><a href='main.php' id='nav'><img src='images/sushi_icon" . $activeNav1 . ".png' class='nav_icons'> 
+    <p id='" . $activeP1 . "'>Sushi Menu</p></a></li>";?>
+    <?php echo"<li><a href='ippin.php' id='nav'><img src='images/ippin_icon" . $activeNav2 . ".png' class='nav_icons'> 
+    <p id='" . $activeP2 . "'>Ippin Menu</p></a></li>";?>
+    <?php echo"<li><a href='edit.php' id='nav'><img src='images/edit_icon" . $activeNav3 . ".png' class='nav_icons'>
+    <p id='" . $activeP3 . "'>Edit Items</p></a>
+    <ul>
+    <li><a href='edit_sushi.php'>Edit Sushi</a></li>
+    <li><a href='edit_ippin.php'>Edit Ippin</a></li>
+    </ul></li>";?>
+    <?php echo"<li><a href='add_sushi.php' id='nav'><img src='images/add_icon" . $activeNav4 . ".png' class='nav_icons'>
+    <p id='" . $activeP4 . "'>Add Items</p></a>
+    <ul>
+    <li><a href='add_sushi.php'>Add Sushi</a></li>
+    <li><a href='add_ippin.php'>Add Ippin</a></li>
+    </ul></li>";?>
+    </ul>
 </div> 

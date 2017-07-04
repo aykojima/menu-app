@@ -23,6 +23,32 @@ div#nav{
     border-right-style:ridge;
     height: 100%;
 }
+
+div#nav ul{
+    list-style: none;
+}
+
+div#nav ul a:hover{
+    background-color: #fff;
+}
+
+div#nav ul ul a{
+    text-decoration: none;
+    color: #ccc;
+}
+
+div#nav ul ul{
+    border: solid 1px #ccc;
+    padding-left:10%;
+    
+}
+
+div#nav ul ul a:hover{
+    color: #CF671F;
+}
+div#nav li{
+    position: relative;
+}
 .nav_icons{
     width: 50px;
     display: block;
@@ -45,16 +71,42 @@ p#nav_active{
     margin-bottom: 30px;
     }
 
-a#nav:hover p#nav_active{
+/*a#nav:hover p#nav_active{
     margin-bottom: 0;
     }
-
+*/
 a#nav{
     text-decoration: none;
+    display:block;
     }
 a#nav:hover p#nav{
     visibility: visible;
     }
+
+div#nav ul ul{
+  position:absolute;
+  left:0%;
+  top:0;
+  width:100%;
+  visibility:hidden;
+  opacity:0;
+  transition: transform 0.2s;
+  transform: translateX(50px);
+}
+/* INNER UL SHOW */
+div#nav li:hover > ul{
+  left:100%;
+  visibility:visible;
+  opacity:1;
+  transform: translateX(0px);
+}
+
+
+
+
+
+
+
 /* Formatting search box */
 .search-box{
         width: 300px;
@@ -280,6 +332,10 @@ div.gratuity{
     line-height: 1em;
 }
 
+
+
+
+
 /***Style for add form***/
 div#add_form{
     width: 50%;
@@ -336,8 +392,40 @@ input[type="submit"] {
 
 
 
+
+/**ippin form**/
+input#price{
+    padding: 2%;
+    width: 30%;
+    margin: 2% 2% 2% 8%;
+    /* display: block; */
+    margin-bottom: 2%;
+    margin-top: 2%;
+    font-size: 1em;
+}
+
+select#category{
+    width: 30%;
+    margin: 2% 2% 2% 8%;
+    font-size: 1em;
+}
+
+label.ippin{
+    padding-left: 20%;
+}
+
+div#sustainable_gf {
+    padding: 2%;
+    font-size: 1em;
+}
+
+input#ippin_key{display: none;}
+
+
+
+
 /**ippin page***/
-#gf{
+div#gf{
     display: inline-block;
     vertical-align: top;
     font-size: .8em;

@@ -86,7 +86,7 @@ INSERT INTO `Ippins` (`IppinKey`,`GF`, `Sustainability`, `IppinName`, `IppinPric
 (17,	TRUE, TRUE, 'Halibut (Neah Bay, WA) kama nitsuke with hari ginger and fresh gobo', 'MP', 'fish_dish'),
 (18,	TRUE, TRUE, 'Idiot fish (Neah Bay, WA) nitsuke with hari ginger and fresh gobo', 'MP', 'fish_dish'),
 (19,	TRUE, FALSE, 'Madai (Ehime, Japan) aradaki with hari ginger and fresh gobo', 'MP', 'fish_dish'),
-(20,	TRUE, TRUE, 'Braised Snake River Farms wagyu beef skirt konabe with maitake mushrooms and yuchoi', '20', 'meat_dish'),
-(21,	TRUE, TRUE, 'Skagit River Ranch organic pork tenderloin tonkatsu with sesame tonkatsu sauce', '19', 'meat_dish'),
-(22,	TRUE, TRUE, 'Jidori chicken karaage with sansho sea salt', '15', 'meat_dish')
+(20,	TRUE, FALSE, 'Braised Snake River Farms wagyu beef skirt konabe with maitake mushrooms and yuchoi', '20', 'meat_dish'),
+(21,	FALSE, FALSE, 'Skagit River Ranch organic pork tenderloin tonkatsu with sesame tonkatsu sauce', '19', 'meat_dish'),
+(22,	TRUE, FALSE, 'Jidori chicken karaage with sansho sea salt', '15', 'meat_dish')
 ON DUPLICATE KEY UPDATE `IppinKey` = VALUES(`IppinKey`), `GF` = VALUES(`GF`), `Sustainability` = VALUES(`Sustainability`), `IppinName` = VALUES(`IppinName`), `IppinPrice` = VALUES(`IppinPrice`), `Category` = VALUES(`Category`);
