@@ -57,7 +57,7 @@ function changeDate(id){
         mm = '0'+mm
     } 
 
-    today = n + ' ' + mm + ' .' + dd + ' .' + yyyy;
+    today = n + ' ' + mm + '.' + dd + '.' + yyyy;
     console.log(today);
     document.getElementById("dates").innerHTML = today;
 }

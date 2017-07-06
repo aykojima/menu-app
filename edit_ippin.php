@@ -25,7 +25,7 @@
         </select>
         <br><br>
         <div id= "sustainable_gf">
-        <label class='ippin' for=sustainable>Sustainable:</label>
+        <label class='ippin' for=sustainability>Sustainable:</label>
         <input type="checkbox" name="sustainability" id="sustainability">
         <label class='ippin' for=gf>Gluten Free:</label>
         <input type="checkbox" name="gf" id="gf">

@@ -29,19 +29,28 @@ if(isset($_POST['term_ippin'])){
         $sustainability=false;
     }
 
+    $gf = true;
+    if(isset($_POST['gf'])){
+        //$stok is checked and value = 1
+        $gf = true;
+    }
+    else{
+        //$stok is nog checked and value=0
+        $gf=false;
+    }
     
 
     $name = mysqli_real_escape_string($conn, $_REQUEST['name']);
     $name = ucfirst($name);
 
     $price= mysqli_real_escape_string($conn, $_REQUEST['price']);
-    $price = '(' . strtoupper($price) . ')';
+    $price = strtoupper($price);
 
     $category = $_REQUEST['category'];
  
     // attempt insert query execution
-    $sql = "UPDATE Ippins SET GF = '$gf', Sustainability = '$sustainablity', IppinName = '$name', 
-    Category = '$category' WHERE IppinKey = '$ippin_key'"; 
+    $sql = "UPDATE Ippins SET GF = '$gf', Sustainability = '$sustainability', IppinName = '$name', 
+    IppinPrice = $price, Category = '$category' WHERE IppinKey = '$ippin_key'"; 
 
 if(mysqli_query($conn, $sql)){
     echo "<script type='text/javascript'>window.alert('" . $name . " was edited successfully');

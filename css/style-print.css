@@ -6,7 +6,7 @@
 body{
         /*TheSans*/
         font-family: font77724;
-        font-weight: normal;
+        font-weight: lighter;
     }
 
 div#nav{display: none;}
@@ -227,7 +227,7 @@ h1#ippin{
 }
 
 #show_result_ippin ul.changed_height1{
-    line-height: 0.8em;
+    line-height: 0.6em;
 }
 
 #show_result_ippin ul.changed_height2{
