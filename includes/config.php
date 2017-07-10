@@ -1,11 +1,6 @@
 <?php 
 //this line below identifies the current page
 define('THIS_PAGE', basename($_SERVER['PHP_SELF']));
-$titleNames = array("sushi", "ippin", "rolls", "edit", "add");
-$upperTitleName = ucfirst($titleName);
-$i = $key + 1;
-$activeNav = ${'activeNav' . $i}; 
-$activeP = ${'activeP' . $i}; 
 /* below we can create 'case' statements to accommodate
  unique data items (title, a page id and an image) that will
 reside in the 'header.php' file
@@ -21,11 +16,13 @@ switch(THIS_PAGE)
   $activeNav3 = "_no_active";
   $activeNav4 = "_no_active";
   $activeNav5 = "_no_active";
+  $activeNav6 = "_no_active";
   $activeP1 = "nav_active";
   $activeP2 = "nav";
   $activeP3 = "nav";
   $activeP4 = "nav";
   $activeP5 = "nav";
+  $activeP6 = "nav";
   break;
 
   case "ippin.php":
@@ -36,11 +33,13 @@ switch(THIS_PAGE)
   $activeNav3 = "_no_active";
   $activeNav4 = "_no_active";
   $activeNav5 = "_no_active";
+  $activeNav6 = "_no_active";
   $activeP1 = "nav";
   $activeP2 = "nav_active";
   $activeP3 = "nav";
   $activeP4 = "nav";
   $activeP5 = "nav";
+  $activeP6 = "nav";
   break;
   
    case "rolls.php":
@@ -51,11 +50,30 @@ switch(THIS_PAGE)
   $activeNav3 = "_active";
   $activeNav4 = "_no_active";
   $activeNav5 = "_no_active";
+  $activeNav6 = "_no_active";
   $activeP1 = "nav";
   $activeP2 = "nav";
   $activeP3 = "nav_active";
   $activeP4 = "nav";
   $activeP5 = "nav";
+  $activeP6 = "nav";
+  break;
+
+  case "course.php":
+  $myTitle = "Course Meals";
+  $file = "course";
+  $activeNav1 = "_no_active";
+  $activeNav2 = "_no_active";
+  $activeNav3 = "_no_active";
+  $activeNav4 = "_active";
+  $activeNav5 = "_no_active";
+  $activeNav6 = "_no_active";
+  $activeP1 = "nav";
+  $activeP2 = "nav";
+  $activeP3 = "nav";
+  $activeP4 = "nav_active";
+  $activeP5 = "nav";
+  $activeP6 = "nav";
   break;
 
 
@@ -65,13 +83,15 @@ switch(THIS_PAGE)
   $activeNav1 = "_no_active";
   $activeNav2 = "_no_active";
   $activeNav3 = "_no_active";
-  $activeNav4 = "_active";
-  $activeNav5 = "_no_active";
+  $activeNav4 = "_no_active";
+  $activeNav5 = "_active";
+  $activeNav6 = "_no_active";
   $activeP1 = "nav";
   $activeP2 = "nav";
   $activeP3 = "nav";
-  $activeP4 = "nav_active";
-  $activeP5 = "nav";
+  $activeP4 = "nav";
+  $activeP5 = "nav_active";
+  $activeP6 = "nav";
   break; 
   
   case "edit_ippin.php":
@@ -80,13 +100,15 @@ switch(THIS_PAGE)
   $activeNav1 = "_no_active";
   $activeNav2 = "_no_active";
   $activeNav3 = "_no_active";
-  $activeNav4 = "_active";
-  $activeNav5 = "_no_active";
+  $activeNav4 = "_no_active";
+  $activeNav5 = "_active";
+  $activeNav6 = "_no_active";
   $activeP1 = "nav";
   $activeP2 = "nav";
   $activeP3 = "nav";
-  $activeP4 = "nav_active";
-  $activeP5 = "nav";
+  $activeP4 = "nav";
+  $activeP5 = "nav_active";
+  $activeP6 = "nav";
   break; 
 
   case "edit_rolls.php":
@@ -95,14 +117,35 @@ switch(THIS_PAGE)
   $activeNav1 = "_no_active";
   $activeNav2 = "_no_active";
   $activeNav3 = "_no_active";
-  $activeNav4 = "_active";
-  $activeNav5 = "_no_active";
+  $activeNav4 = "_no_active";
+  $activeNav5 = "_active";
+  $activeNav6 = "_no_active";
   $activeP1 = "nav";
   $activeP2 = "nav";
   $activeP3 = "nav";
-  $activeP4 = "nav_active";
-  $activeP5 = "nav";
+  $activeP4 = "nav";
+  $activeP5 = "nav_active";
+  $activeP6 = "nav";
   break; 
+
+  case "edit_course.php":
+  $myTitle = "Edit Course Item";
+  $file = "edit_course";
+  $activeNav1 = "_no_active";
+  $activeNav2 = "_no_active";
+  $activeNav3 = "_no_active";
+  $activeNav4 = "_no_active";
+  $activeNav5 = "_active";
+  $activeNav6 = "_no_active";
+  $activeP1 = "nav";
+  $activeP2 = "nav";
+  $activeP3 = "nav";
+  $activeP4 = "nav";
+  $activeP5 = "nav_active";
+  $activeP6 = "nav";
+  break; 
+
+
 
 
   case "add_sushi.php":
@@ -112,12 +155,14 @@ switch(THIS_PAGE)
   $activeNav2 = "_no_active";
   $activeNav3 = "_no_active";
   $activeNav4 = "_no_active";
-  $activeNav5 = "_active";
+  $activeNav5 = "_no_active";
+  $activeNav6 = "_active";
   $activeP1 = "nav";
   $activeP2 = "nav";
   $activeP3 = "nav";
   $activeP4 = "nav";
-  $activeP5 = "nav_active";
+  $activeP5 = "nav";
+  $activeP6 = "nav_active";
   break; 
 
   
@@ -128,12 +173,14 @@ switch(THIS_PAGE)
   $activeNav2 = "_no_active";
   $activeNav3 = "_no_active";
   $activeNav4 = "_no_active";
-  $activeNav5 = "_active";
+  $activeNav5 = "_no_active";
+  $activeNav6 = "_active";
   $activeP1 = "nav";
   $activeP2 = "nav";
   $activeP3 = "nav";
   $activeP4 = "nav";
-  $activeP5 = "nav_active";
+  $activeP5 = "nav";
+  $activeP6 = "nav_active";
   break; 
 
 
@@ -144,12 +191,34 @@ switch(THIS_PAGE)
   $activeNav2 = "_no_active";
   $activeNav3 = "_no_active";
   $activeNav4 = "_no_active";
-  $activeNav5 = "_active";
+  $activeNav5 = "_no_active";
+  $activeNav6 = "_active";
   $activeP1 = "nav";
   $activeP2 = "nav";
   $activeP3 = "nav";
   $activeP4 = "nav";
-  $activeP5 = "nav_active";
+  $activeP5 = "nav";
+  $activeP6 = "nav_active";
+  break; 
+
+  case "add_course.php":
+  $myTitle = "Add Course Item";
+  $file = "add_course";
+  $activeNav1 = "_no_active";
+  $activeNav2 = "_no_active";
+  $activeNav3 = "_no_active";
+  $activeNav4 = "_no_active";
+  $activeNav5 = "_no_active";
+  $activeNav6 = "_active";
+  $activeP1 = "nav";
+  $activeP2 = "nav";
+  $activeP3 = "nav";
+  $activeP4 = "nav";
+  $activeP5 = "nav";
+  $activeP6 = "nav_active";
+  
+
+
   //fallback values for undefined pages
   default:
   $myTitle = THIS_PAGE; #the file name is unique

@@ -28,18 +28,23 @@
 <div id="nav">
     <ul>
         <?php 
-        foreach($titleNames as $key => $titleName){ 
-           if($key >= 3){
+        $titleNames = array("sushi", "ippin", "rolls", "course", "edit", "add"); 
+        foreach($titleNames as $key => $titleName){
+            $upperTitleName = ucfirst($titleName);
+            $i = $key + 1;
+            $activeNav = ${'activeNav' . $i}; 
+            $activeP = ${'activeP' . $i}; 
+           if($key >= 4){
                 echo"<li><a href='#' id='nav'><img src='images/" . $titleName . "_icon" . $activeNav . ".png' class='nav_icons'>
                     <p id='" . $activeP . "'>" . $upperTitleName . " Items</p></a>
                     <ul>
                     <li><a href='" . $titleName . "_sushi.php'>" . $upperTitleName . " Sushi</a></li>
                     <li><a href='" . $titleName . "_ippin.php'>" . $upperTitleName . " Ippin</a></li>
                     <li><a href='" . $titleName . "_rolls.php'>" . $upperTitleName . " Rolls</a></li>
+                    <li><a href='" . $titleName . "_course.php'>" . $upperTitleName . " Course</a></li>
                     </ul></li>";
             }else{
-                echo"<li><a href='" . $titleName . ".php' id='nav'><img src='images/" . $titleName . "_icon" . $activeNav . ".png' class='nav_icons'> 
-                    <p id='" . $activeP . "'>" . $upperTitleName . " Menu</p></a></li>";
+                echo"<li><a href='" . $titleName . ".php' id='nav'><img src='images/" . $titleName . "_icon" . $activeNav . ".png' class='nav_icons'> <p id='" . $activeP . "'>" . $upperTitleName . " Menu</p></a></li>";
             }
      } ?>
   
