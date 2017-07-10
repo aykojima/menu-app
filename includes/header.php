@@ -27,21 +27,21 @@
    
 <div id="nav">
     <ul>
-    <?php echo"<li><a href='main.php' id='nav'><img src='images/sushi_icon" . $activeNav1 . ".png' class='nav_icons'> 
-    <p id='" . $activeP1 . "'>Sushi Menu</p></a></li>";?>
-    <?php echo"<li><a href='ippin.php' id='nav'><img src='images/ippin_icon" . $activeNav2 . ".png' class='nav_icons'> 
-    <p id='" . $activeP2 . "'>Ippin Menu</p></a></li>";?>
-    <?php echo"<li><a href='#' id='nav'><img src='images/edit_icon" . $activeNav3 . ".png' class='nav_icons'>
-    <p id='" . $activeP3 . "'>Edit Items</p></a>
-    <ul>
-    <li><a href='edit_sushi.php'>Edit Sushi</a></li>
-    <li><a href='edit_ippin.php'>Edit Ippin</a></li>
-    </ul></li>";?>
-    <?php echo"<li><a href='#' id='nav'><img src='images/add_icon" . $activeNav4 . ".png' class='nav_icons'>
-    <p id='" . $activeP4 . "'>Add Items</p></a>
-    <ul>
-    <li><a href='add_sushi.php'>Add Sushi</a></li>
-    <li><a href='add_ippin.php'>Add Ippin</a></li>
-    </ul></li>";?>
+        <?php 
+        foreach($titleNames as $key => $titleName){ 
+           if($key >= 3){
+                echo"<li><a href='#' id='nav'><img src='images/" . $titleName . "_icon" . $activeNav . ".png' class='nav_icons'>
+                    <p id='" . $activeP . "'>" . $upperTitleName . " Items</p></a>
+                    <ul>
+                    <li><a href='" . $titleName . "_sushi.php'>" . $upperTitleName . " Sushi</a></li>
+                    <li><a href='" . $titleName . "_ippin.php'>" . $upperTitleName . " Ippin</a></li>
+                    <li><a href='" . $titleName . "_rolls.php'>" . $upperTitleName . " Rolls</a></li>
+                    </ul></li>";
+            }else{
+                echo"<li><a href='" . $titleName . ".php' id='nav'><img src='images/" . $titleName . "_icon" . $activeNav . ".png' class='nav_icons'> 
+                    <p id='" . $activeP . "'>" . $upperTitleName . " Menu</p></a></li>";
+            }
+     } ?>
+  
     </ul>
 </div> 

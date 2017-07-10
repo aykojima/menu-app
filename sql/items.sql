@@ -89,4 +89,44 @@ INSERT INTO `Ippins` (`IppinKey`,`GF`, `Sustainability`, `IppinName`, `IppinPric
 (20,	TRUE, FALSE, 'Braised Snake River Farms wagyu beef skirt konabe with maitake mushrooms and yuchoi', '20', 'meat_dish'),
 (21,	FALSE, FALSE, 'Skagit River Ranch organic pork tenderloin tonkatsu with sesame tonkatsu sauce', '19', 'meat_dish'),
 (22,	TRUE, FALSE, 'Jidori chicken karaage with sansho sea salt', '15', 'meat_dish')
-ON DUPLICATE KEY UPDATE `IppinKey` = VALUES(`IppinKey`), `GF` = VALUES(`GF`), `Sustainability` = VALUES(`Sustainability`), `IppinName` = VALUES(`IppinName`), `IppinPrice` = VALUES(`IppinPrice`), `Category` = VALUES(`Category`);
+ON DUPLICATE KEY UPDATE `IppinKey` = VALUES(`IppinKey`), `GF` = VALUES(`GF`), `Sustainability` = VALUES(`Sustainability`), 
+`IppinName` = VALUES(`IppinName`), `IppinPrice` = VALUES(`IppinPrice`), `Category` = VALUES(`Category`);
+
+DROP TABLE IF EXISTS `Rolls`;
+CREATE TABLE `Rolls` (
+  `RollKey` int(11) NOT NULL AUTO_INCREMENT,
+  `Raw` boolean NULL,
+  `Sustainability` boolean NULL,
+  `RollName` varchar (500) NOT NULL,
+  `RollPrice` varchar(6) NOT NULL,
+  `Description` varchar (500),
+  `Category` varchar(50) NOT NULL,
+  PRIMARY KEY (`RollKey`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `Rolls` (`RollKey`,`Raw`, `Sustainability`, `RollName`, `RollPrice`,`Description`, `Category`) VALUES
+(1,	TRUE, TRUE, 'Black Cod, Avocado and Cucumber Roll', '12', 'Grilled Neah Bay black cod, avocado and cucumber', 'special_rolls'),
+(2,	TRUE, FALSE, 'Oishi Roll', '20', 'Shrimp tempura, avocado and cucumber inside topped with seared creamy spicy crab, scallop and masago', 'special_rolls'),
+(3,	TRUE, FALSE, 'Black Dragon Roll', '23', 'Shrimp tempura, avocado, cucumber inside and topped with grilled black cod, black tobiko, yuzu gosho and tsume sauce', 'special_rolls'),
+(4,	TRUE, FALSE, 'Golden Dragon Roll', '21', 'Spicy tuna, avocado, cucumber and jalapeno inside topped with spicy tuna and golden tobiko', 'special_rolls'),
+(5,	TRUE, FALSE, 'Hamtastic Roll', '23', 'Yellowtail, green onions, cucumber, avocado topped with yellowtail, jalapeno, golden tobiko and ponzu', 'special_rolls'),
+(6,	TRUE, FALSE, 'Rising Salmon Roll', '21', 'Wild salmon, avocado, cucumber topped with seared salmon, nikiri sauce, jalapeno and golden tobiko', 'special_rolls'),
+(7,	TRUE, FALSE, 'California Roll', '10', 'Crab, avocado, mayo, cucumber, masago', 'rolls'),
+(8,	TRUE, FALSE, 'Ebi-Tempura Roll', '11', 'Wild shrimp tempura, cucumber, avocado, masago', 'rolls'),
+(9,	TRUE, TRUE, 'Gari Saba', '9', 'Japanese mackerel, ginger, shiso leaf', 'rolls'),
+(10,	FALSE, FALSE, 'Futomaki', '9', 'Kampyo gourd, organic tamago, spinach, oboro', 'rolls'),
+(11,	TRUE, FALSE, 'Negihama Roll', '10', 'Yellowtail and green onions, avocado, cucumber', 'rolls'),
+(12,	TRUE, FALSE, 'Rosanna Roll', '9', 'Hokkaido sea scallops, crab, masago, avocado, mayo', 'rolls'),
+(13,	FALSE, TRUE, 'Salmon Skin Roll', '8', 'Kaiware, green onion, gobo, broiled wild salmon skin', 'rolls'),
+(14,	TRUE, TRUE, 'Seattle Roll', '10', 'Wild salmon, avocado, cucumber, masago', 'rolls'),
+(15,	TRUE, FALSE, 'Spicy Tuna Roll', '9', 'Tuna, spicy cili sauce, cucumber, avocado', 'rolls'),
+(16,	TRUE, TRUE, 'Spider Roll', '13', 'Fried Maryland blue soft shell crab, cucumber, avocado, masago', 'rolls'),
+(17,	FALSE, FALSE, 'Avocado Roll', '4', 'Fresh avocado', 'vegetable_rolls'),
+(18,	FALSE, FALSE, 'Cucumber and Avocado Roll', '5', 'Fresh avocado and cucumber slices', 'vegetable_rolls'),
+(19,	FALSE, FALSE, 'Oshinko Maki', '4', 'Pickled daikon radish', 'vegetable_rolls'),
+(20,	FALSE, FALSE, 'Kappa Maki', '4', 'Cucumber roll', 'vegetable_rolls'),
+(21,	FALSE, FALSE, 'Super Yummy Roll', '8', 'Spinach, shiidake, kanpyo gourd, avocado, pickled plum, shiso leaf', 'vegetable_rolls'),
+(22,	FALSE, FALSE, 'Ume Shiso Roll', '4', 'Pickled plum, shiso leaf, cucumber', 'vegetable_rolls'),
+(23,	FALSE, FALSE, 'Eastlake Vegetable Roll', '9', 'Satsuma yam and kabocha squash tempura, romaine lettuce, cucumber, avocado and ume paste', 'vegetable_rolls')
+ON DUPLICATE KEY UPDATE `RollKey` = VALUES(`RollKey`), `Raw` = VALUES(`Raw`), `Sustainability` = VALUES(`Sustainability`),
+`RollName` = VALUES(`RollName`), `RollPrice` = VALUES(`RollPrice`), `Category` = VALUES(`Category`);
