@@ -10,6 +10,7 @@
 */
 body{
         font-family: font91728;
+        font-weight: lighter;
         /*font-family: font89445; --TheSans Light 
         font-family: font77724;
         font-family: TheSans Light Expert;
@@ -544,4 +545,13 @@ ddiv#show_result_rolls div#gf{
 div#roll_description {
     font-size: .9em;
     line-height: .9em;
+}
+
+
+/***course meals***/
+div.additionals::after{
+    content: " ";
+    height: 0;
+    display: block;
+    clear:both;
 }
