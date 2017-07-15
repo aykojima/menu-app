@@ -1,10 +1,10 @@
 $(document).ready(function(){
     $("div#menu ul").css("list-style", "none");
     $("div#menu").css("padding-left", "0");
-    $("div#menu h2").css({"padding": "0", "float": "none", "margin": "0"});
+    $("div#menu h2").css({"padding": "0", "float": "left", "margin": "0"});
     $("div#menu h1").css({"padding-left": "0", "float": "none", "margin-left": "0"});
 
-    
+    $("h2 + p.price").css({"float": "right", "color":"#CF671F"});
     $("div.courses").css({"clear": "both"});
     $("div.additionals p").css({"color": "#ccc", "display": "block"});
     $("div.additionals p.name").css({"float": "left", "clear": "both"});

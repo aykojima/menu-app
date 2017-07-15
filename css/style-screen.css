@@ -22,7 +22,7 @@ div#nav{
     top:0;
     left:0;
     padding-top:50px;
-    width: 100px;
+    width: 120px;
     border-right-style:ridge;
     height: 100%;
 }
@@ -70,8 +70,7 @@ p#nav_active{
     text-align: center;
     /*color: #C25E03;*/
     color:#CF671F;
-
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     }
 
 /*a#nav:hover p#nav_active{
@@ -81,6 +80,7 @@ p#nav_active{
 a#nav{
     text-decoration: none;
     display:block;
+    /*margin: 5% 0*/
     }
 a#nav:hover p#nav{
     visibility: visible;
@@ -544,7 +544,6 @@ ddiv#show_result_rolls div#gf{
 
 div#roll_description {
     font-size: .9em;
-    line-height: .9em;
 }
 
 

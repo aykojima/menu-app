@@ -311,4 +311,10 @@ $(document).ready(function(){
     $("#show_result_rolls div#ippin_menu[data-name='no_sustainable'] ").css('padding-left', '21px');
     $("#show_result_rolls li.sortable ").css('margin', '5px 0 5px 0');
     $("#show_result_rolls h2").css('margin', '2px 0 0 0');
+    $("#show_result_rolls div#ippin_menu").css({'font-size': '0.9em'});
+    $("#show_result_rolls div#roll_description").css('line-height', '0.9em');
+    $("h1.rolls").css('margin-top', '30px');
+    $("h1.rolls:first-child").css('margin-top', '0');
+    $("#show_result_rolls li").css('margin-bottom', '8px');
+
 });

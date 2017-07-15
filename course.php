@@ -1,14 +1,15 @@
 <?php include('includes/header.php'); ?>
+<?php include('db/course-items.php'); ?>
     <!--@to do
     @style - print
-    @store items in db
      -->
-    <?php include('includes/header.php'); ?>
+    
+       <!--
     <div class="search-box">
             <input type="text" autocomplete="off" placeholder="Search..." />
             <div class="result"></div>       
         </div>
-
+-->
     <a id="print" href="javascript:window.print()">PRINT</a>
     <div id="container">
     <div id="menu">
@@ -17,59 +18,61 @@
 
 
     <div id="two" class="courses">
-        <h2>Two courses</h2>
+       
+        <h2><?php echo $two_courses['Course'];?></h2>
         <div class="additionals">
-        <p class="name">Served with miso soup</p>
-        <p class="name">Substitute with all sustainable fish/ +3</p>
+        <p class="name"><?php echo $two_courses['AdditionalOne'];?></p>
+        <p class="name"><?php echo $two_courses['AdditionalTwo'];?></p>
         </div>
             <div class="course">
                 <ul>
                     <li>
-                        <div><p class="name">Bara Chirashi*</p><p class="price">25</p></div>
-                        <div class="description">sushi rice layered with nori, tamago, ginger and topped with a mix of tuna, salmon, yellowtail and ikura</div>
+                        <div><p class="name"><?php echo $two_courses['EntreeFirst'];?></p><p class="price"><?php echo $two_courses['EntreeFirstPrice'];?></p></div>
+                        <div class="description"><?php echo $two_courses['EntreeFirstDesciption'];?></div>
                     </li>
                     <li>
-                        <div><p class="name">Sushi Combo*</p><p class="price">28</p></div>
-                        <div class="description">seven pieces of nigiri sushi and a roll</div>
+                        <div><p class="name"><?php echo $two_courses['EntreeSecond'];?></p><p class="price"><?php echo $two_courses['EntreeSecondPrice'];?></p></div>
+                        <div class="description"><?php echo $two_courses['EntreeSecondDescription'];?></div>
                     </li>
                     <li>
-                        <div><p class="name">Sashimi Combo*</p><p class="price">30</p></div>
-                        <div class="description">variety of sashimi chosen by the chef served with rice</div>
+                        <div><p class="name"><?php echo $two_courses['EntreeThird'];?></p><p class="price"><?php echo $two_courses['EntreeThirdPrice'];?></p></div>
+                        <div class="description"><?php echo $two_courses['EntreeThirdDescription'];?></div>
                     </li>
                 </ul>
             </div>
+            
     </div>
 
 
     <div id="three" class="courses">
-    <h2>Three courses</h2>
+    <h2><?php echo $three_courses['Course'];?></h2><p class="price"><?php echo $three_courses['CoursePrice'];?></p>
     <div class="additionals">
-    <p class="name">Add sashimi course</p><p class="price">15</p>
-    <p class="name">Add sake pairing</p><p class="price">23</p>
+    <p class="name"><?php echo $three_courses['AdditionalOne'];?></p><p class="price"><?php echo $three_courses['AdditionalOnePrice'];?></p>
+    <p class="name"><?php echo $three_courses['AdditionalTwo'];?></p><p class="price"><?php echo $three_courses['AdditionalTwoPrice'];?></p>
     </div>
     <div class="course">
                 <ul>
                     <li>
                         <p>choice of: </p>
                             <ul>
-                                <li>Washington albacore tuna and mustard green*,</li>
-                                <li>Shigoku oysters on the half shell*, or</li>
-                                <li>String bean salad</li>
+                                <li><?php echo $three_courses['AppetizerFirst'];?>,</li>
+                                <li><?php echo $three_courses['AppetizerSecond'];?>, or</li>
+                                <li><?php echo $three_courses['AppetizerThird'];?></li>
                             </ul>  
                     </li>
                     <li>
                         <p>choice of: </p>
                             <ul>
-                                <li>Bara chirashi*, or</li>
-                                <li>Sushi combination*</li>
+                                <li><?php echo $three_courses['EntreeFirst'];?>, or</li>
+                                <li><?php echo $three_courses['EntreeSecond'];?></li>
                             </ul>  
                     </li>
                     <li>
                         <p>choice of: </p>
                             <ul>
-                                <li>Chestnut and butter scotch creme brulee,</li>
-                                <li>House made millet mochi with azuki beans, or</li>
-                                <li>Yuzu and yogurt panna cotta</li>
+                                <li><?php echo $three_courses['DessertFirst'];?>,</li>
+                                <li><?php echo $three_courses['DessertSecond'];?>, or</li>
+                                <li><?php echo $three_courses['DessertThird'];?></li>
                             </ul>  
                     </li>
                 </ul>
@@ -77,30 +80,30 @@
     </div>
 
     <div id="five" class="courses">
-    <h2>Five courses</h2>
+    <h2><?php echo $five_courses['Course'];?></h2><p class="price"><?php echo $five_courses['CoursePrice'];?></p>
     <div class="additionals">
-    <p class="name">Add sashimi course</p><p class="price">15</p>
-    <p class="name">Add sake pairing</p><p class="price">34</p>
+    <p class="name"><?php echo $five_courses['AdditionalOne'];?></p><p class="price"><?php echo $five_courses['AdditionalOnePrice'];?></p>
+    <p class="name"><?php echo $five_courses['AdditionalTwo'];?></p><p class="price"><?php echo $five_courses['AdditionalTwoPrice'];?></p>
     </div>
     <div class="course">
                 <ul>
                     <li>
                         <p>choice of: </p>
                             <ul>
-                                <li>Washington albacore tuna and mustard green*,</li>
-                                <li>Shigoku oysters on the half shell*, or</li>
-                                <li>String bean salad</li>
+                                <li><?php echo $five_courses['AppetizerFirst'];?>,</li>
+                                <li><?php echo $five_courses['AppetizerSecond'];?>, or</li>
+                                <li><?php echo $five_courses['AppetizerThird'];?></li>
                             </ul>  
                     </li>
-                    <li class="need_margin">Chawanmushi</li>
-                    <li class="need_margin">Special roll*</li>
-                    <li class="need_margin">Shef's selection of 7 pieces of Sushi</li>
+                    <li class="need_margin"><?php echo $five_courses['EntreeFirst'];?></li>
+                    <li class="need_margin"><?php echo $five_courses['EntreeSecond'];?></li>
+                    <li class="need_margin"><?php echo $five_courses['EntreeThird'];?></li>
                     <li>
                         <p>choice of: </p>
                             <ul>
-                                <li>Chestnut and butter scotch creme brulee,</li>
-                                <li>House made millet mochi with azuki beans, or</li>
-                                <li>Yuzu and yogurt panna cotta</li>
+                                <li><?php echo $five_courses['DessertFirst'];?>,</li>
+                                <li><?php echo $five_courses['DessertSecond'];?>, or</li>
+                                <li><?php echo $five_courses['DessertThird'];?></li>
                             </ul>  
                     </li>
                 </ul>
@@ -108,31 +111,31 @@
     </div>
 
     <div id="six" class="courses">
-    <h2>Six courses</h2>
+    <h2><?php echo $six_courses['Course'];?></h2><p class="price"><?php echo $six_courses['CoursePrice'];?></p>
     <div class="additionals">
-    <p class="name">Add sashimi course</p><p class="price">15</p>
-    <p class="name">Add sake pairing</p><p class="price">40</p>
+    <p class="name"><?php echo $six_courses['AdditionalOne'];?></p><p class="price"><?php echo $six_courses['AdditionalOnePrice'];?></p>
+    <p class="name"><?php echo $six_courses['AdditionalTwo'];?></p><p class="price"><?php echo $six_courses['AdditionalTwoPrice'];?></p>
     </div>
     <div class="course">
                 <ul>
                     <li>
                         <p>choice of: </p>
                             <ul>
-                                <li>Washington albacore tuna and mustard green*,</li>
-                                <li>Shigoku oysters on the half shell*, or</li>
-                                <li>String bean salad</li>
+                                <li><?php echo $six_courses['AppetizerFirst'];?>,</li>
+                                <li><?php echo $six_courses['AppetizerSecond'];?>, or</li>
+                                <li><?php echo $six_courses['AppetizerThird'];?></li>
                             </ul>  
                     </li>
-                    <li class="need_margin">Chawanmushi</li>
-                    <li class="need_margin">Black cod miso yuan yaki</li>
-                    <li class="need_margin">Chef's selection of 5 pieces of Sushi</li>
-                    <li class="need_margin">Shef's selection of 5 pieces of Sushi</li>
+                    <li class="need_margin"><?php echo $six_courses['EntreeFirst'];?></li>
+                    <li class="need_margin"><?php echo $six_courses['EntreeSecond'];?></li>
+                    <li class="need_margin"><?php echo $six_courses['EntreeThird'];?></li>
+                    <li class="need_margin"><?php echo $six_courses['EntreeFourth'];?></li>
                     <li>
                         <p>choice of: </p>
                             <ul>
-                                <li>Chestnut and butter scotch creme brulee,</li>
-                                <li>House made millet mochi with azuki beans, or</li>
-                                <li>Yuzu and yogurt panna cotta</li>
+                                <li><?php echo $six_courses['DessertFirst'];?>,</li>
+                                <li><?php echo $six_courses['DessertSecond'];?>, or</li>
+                                <li><?php echo $six_courses['DessertThird'];?></li>
                             </ul>  
                     </li>
                 </ul>
@@ -141,16 +144,16 @@
 
 
 <div id='show_result_course'>
-    <h1>Omakase</h1>
+    <h1><?php echo $omakase['Course'];?></h1>
     <div id="omakase" class="courses">
         <div class="additionals">
     <p>Featuring local and seasonal ingredients in an authentic yet creative Japanese preparation.</p>
     </div>
-    <h3 class="name">Omakase sashimi</h3><h3 class="price">MP</h3>
-    <h3 class="name">Omakase sushi</h3><h3 class="price">MP</h3>
-    <h3 class="name">Seven course Omakase</h3><h3 class="price">110</h3>
+    <h3 class="name"><?php echo $omakase['EntreeFirst'];?></h3><h3 class="price"><?php echo $omakase['EntreeFirstPrice'];?></h3>
+    <h3 class="name"><?php echo $omakase['EntreeSecond'];?></h3><h3 class="price"><?php echo $omakase['EntreeSecondPrice'];?></h3>
+    <h3 class="name"><?php echo $omakase['EntreeThird'];?></h3><h3 class="price"><?php echo $omakase['EntreeThirdPrice'];?></h3>
     <div class="additionals">
-    <p class="name">Add sake pairing</p><p class="price">55</p>
+    <p class="name"><?php echo $omakase['AdditionalOne'];?></p><p class="price"><?php echo $omakase['AdditionalOnePrice'];?></p>
     </div>
     </div>
 </div>

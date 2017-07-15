@@ -7,7 +7,7 @@ body{
         /*TheSans*/
         font-family: font91728;
         font-weight: lighter;
-        font-size: .9em;
+        font-size: 1em;
     }
 
 div#nav{display: none;}
@@ -226,43 +226,35 @@ h1#ippin{
     /*border: solid 1px orange; */
     max-height: 100%
 }
-
+/*
 #show_result_ippin ul.changed_height1{
     line-height: 0.6em;
 }
-
 #show_result_ippin ul.changed_height2{
     line-height: 0.6em;
 }
-
 #show_result_ippin ul.changed_height2 li{
     margin: 8px 0;
 }
-
 #show_result_ippin ul.changed_height3{
     line-height: 0.6em;
 }
-
 #show_result_ippin ul.changed_height3 li{
     margin: 5px 0;
 }
-
 div#menu.changed_height3{
     margin-top:5%;
 }
-
 h1.changed_height3{
     margin:0 2%;
 } 
-
 h2.changed_height3{
     margin:0 2%;
 }
-
 div.gf_changed_height3{
     padding-top:10px;
 }
-
+*/
 
 /***Rolls***/
 div#roll_description{
@@ -292,8 +284,8 @@ ddiv#show_result_rolls div#gf{
 }
 
 div#roll_description {
-    font-size: .8em;
-    line-height: .8em;
+    font-size: .9em;
+    
 }
 
 
