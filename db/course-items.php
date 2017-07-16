@@ -14,7 +14,7 @@ function getCourseItems($i, $conn)
         AppetizerFirst, AppetizerSecond, AppetizerThird,
         EntreeFirst, EntreeFirstDescription, EntreeFirstPrice,
         EntreeSecond, EntreeSecondDescription, EntreeSecondPrice,
-        EntreeThird, EntreeThidDescription, EntreeThirdPrice, EntreeFourth,
+        EntreeThird, EntreeThirdDescription, EntreeThirdPrice, EntreeFourth,
         DessertFirst, DessertSecond, DessertThird
         FROM Courses WHERE CourseKey = '$i'";
 

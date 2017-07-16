@@ -28,7 +28,7 @@
                 <ul>
                     <li>
                         <div><p class="name"><?php echo $two_courses['EntreeFirst'];?></p><p class="price"><?php echo $two_courses['EntreeFirstPrice'];?></p></div>
-                        <div class="description"><?php echo $two_courses['EntreeFirstDesciption'];?></div>
+                        <div class="description"><?php echo $two_courses['EntreeFirstDescription'];?></div>
                     </li>
                     <li>
                         <div><p class="name"><?php echo $two_courses['EntreeSecond'];?></p><p class="price"><?php echo $two_courses['EntreeSecondPrice'];?></p></div>
@@ -142,8 +142,6 @@
             </div>
 </div>
 
-
-<div id='show_result_course'>
     <h1><?php echo $omakase['Course'];?></h1>
     <div id="omakase" class="courses">
         <div class="additionals">
@@ -157,9 +155,7 @@
     </div>
     </div>
 </div>
-    
-    
-    </div>
+
 <?php include('includes/footer.php'); ?>
 
 

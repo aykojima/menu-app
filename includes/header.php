@@ -28,18 +28,19 @@
 <div id="nav">
     <ul>
         <?php 
-        $titleNames = array("sushi", "ippin", "rolls", "course", "edit", "add"); 
+        $titleNames = array("sushi", "ippin", "lunch", "rolls", "course", "edit", "add"); 
         foreach($titleNames as $key => $titleName){
             $upperTitleName = ucfirst($titleName);
             $i = $key + 1;
             $activeNav = ${'activeNav' . $i}; 
             $activeP = ${'activeP' . $i}; 
-           if($key >= 4){
+           if($key >= 5){
                 echo"<li><a href='#' id='nav'><img src='images/" . $titleName . "_icon" . $activeNav . ".png' class='nav_icons'>
                     <p id='" . $activeP . "'>" . $upperTitleName . " Items</p></a>
                     <ul>
                     <li><a href='" . $titleName . "_sushi.php'>" . $upperTitleName . " Sushi</a></li>
                     <li><a href='" . $titleName . "_ippin.php'>" . $upperTitleName . " Ippin</a></li>
+                     <li><a href='" . $titleName . "_lunch.php'>" . $upperTitleName . " Lunch</a></li>
                     <li><a href='" . $titleName . "_rolls.php'>" . $upperTitleName . " Rolls</a></li>
                     <li><a href='" . $titleName . "_course.php'>" . $upperTitleName . " Course</a></li>
                     </ul></li>";

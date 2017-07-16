@@ -150,7 +150,7 @@ CREATE TABLE `Courses` (
   `EntreeSecondDescription` varchar(500) NULL,
   `EntreeSecondPrice` varchar (10) NULL,
   `EntreeThird` varchar(500) NULL,
-  `EntreeThidDescription` varchar(500) NULL,
+  `EntreeThirdDescription` varchar(500) NULL,
   `EntreeThirdPrice` varchar (10) NULL,
   `EntreeFourth` varchar(500) NULL,
   `DessertFirst` varchar(500) NULL,
@@ -164,7 +164,7 @@ INSERT INTO `Courses` (`CourseKey`,`Course`, `CoursePrice`,
 `AppetizerFirst`, `AppetizerSecond`, `AppetizerThird`, 
 `EntreeFirst`, `EntreeFirstDescription`, `EntreeFirstPrice`, 
 `EntreeSecond`, `EntreeSecondDescription`, `EntreeSecondPrice`,
-`EntreeThird`,  `EntreeThidDescription`, `EntreeThirdPrice`, `EntreeFourth`,
+`EntreeThird`,  `EntreeThirdDescription`, `EntreeThirdPrice`, `EntreeFourth`,
 `DessertFirst`, `DessertSecond`, `DessertThird`) VALUES
 
 (1,	'Two courses', '', 
@@ -209,6 +209,53 @@ ON DUPLICATE KEY UPDATE `CourseKey` = VALUES(`CourseKey`), `Course` = VALUES(`Co
 `AppetizerFirst` = VALUES(`AppetizerFirst`), `AppetizerSecond` = VALUES(`AppetizerSecond`), `AppetizerThird` = VALUES(`AppetizerThird`),
 `EntreeFirst` = VALUES(`EntreeFirst`), `EntreeFirstDescription` = VALUES(`EntreeFirstDescription`), `EntreeFirstPrice` = VALUES(`EntreeFirstPrice`),
 `EntreeSecond` = VALUES(`EntreeSecond`), `EntreeSecondDescription` = VALUES(`EntreeSecondDescription`), `EntreeSecondPrice` = VALUES(`EntreeSecondPrice`),
-`EntreeThird` = VALUES(`EntreeThird`), `EntreeThidDescription` = VALUES(`EntreeThidDescription`), `EntreeThirdPrice` = VALUES(`EntreeThirdPrice`),
+`EntreeThird` = VALUES(`EntreeThird`), `EntreeThirdDescription` = VALUES(`EntreeThirdDescription`), `EntreeThirdPrice` = VALUES(`EntreeThirdPrice`),
 `EntreeFourth` = VALUES(`EntreeFourth`), `DessertFirst` = VALUES(`DessertFirst`), `DessertSecond` = VALUES(`DessertSecond`), `DessertThird` = VALUES(`DessertThird`);
  
+
+
+DROP TABLE IF EXISTS `Lunch`;
+CREATE TABLE `Lunch` (
+  `LunchKey` int(11) NOT NULL AUTO_INCREMENT,
+  `ItemName` varchar (500) NOT NULL,
+  `ItemPrice` varchar (10) NULL,
+  `ItemDescription` varchar (500) NULL,
+  PRIMARY KEY (`LunchKey`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+ INSERT INTO `Lunch` (`LunchKey`,`ItemName`, `ItemPrice`, `ItemDescription`) VALUES
+
+(1,	'Hijiki', '', ''),
+(2,	'Agedashi tofu', '', ''),
+(3,	'string beans', '', ''),
+(4,	'rice and miso soup', '', ''),
+(5,	'Substitute chawanmushi for miso', '+4', ''),
+(6,	"Add chef's sashimi selection", '+10', ''),
+(7,	'Add yuzu and yogurt panna cotta', '+3', ''),
+
+(8,	'Asa Gozen', '23', 'Wild sockeye salmon shioyaki and organic tamago yaki'),
+(9,	'Hiru Gozen', '28', "Maitake mushrooms, braised Snake River Ranch Wagyu beef skirt steak konabe and Chef's sashimi selection of the day"),
+(10,	'Nigiri Gozen', '33', "seven pieces of chef's choice nigiri sushi"),
+
+(11,	'All combinations are served with miso soup', '', ''),
+(12,	'with all sustainable fish', '+3', ''),
+
+(13,	'Bara Chirashi*', '25', 'Sushi rice layered with nori, tamago, ginger and topped with a mix of tuna, salmon, yellowtail, albacore and ikura'),
+(14,	'Sushi Combo*', '28', '7 pieces of nigiri with a roll'),
+(15,	'Deluxe Sushi Combo*', '33', '9 pieces of nigiri with a roll'),
+(16,	'Sashimi Combo*', '30', "Daily selection of sashimi served with rice"),
+
+(17,	'Tempura Udon*', '19', 'Udon with two wild gulf prawn tempura and scallion'),
+(18,	'Tempura Udon Combo*', '25', 'Tempura udon with 3 piece of nigiri of maguro, hamachi, and sockeye salmon'),
+
+(19,	'Mustard greens and Washington albacore tuna dressed with an almond wasabi sauce*', '19', ''),
+(20,	'Organic spring mix, radishes, toasted almonds and Washington Fuji apples tossed in a sweet miso dressing', '15', ''),
+(21,	'Totten Shigoku oysters on the half shell with momiji ponzu*', '20', ''),
+(22,	'Chawan mushi with Jidori eggs, red crab and Neah Bay black cod', '11', ''),
+
+(23,	'Shredded cabbage, Snake River Ranch Kurobuta tonkatsu, miso, rice and tsukemono', '', ''),
+
+(24,	'Tonkatsu(loin)set', '20', ''),
+(25,	'Hire-katsu(tenderloin)set', '22', ''),
+(26,	'Combo katsu(loin and tenderloin)set', '26', '')
+ON DUPLICATE KEY UPDATE `LunchKey` = VALUES(`LunchKey`), `ItemName` = VALUES(`ItemName`), 
+`ItemPrice` = VALUES(`ItemPrice`), `ItemDescription` = VALUES(`ItemDescription`);
