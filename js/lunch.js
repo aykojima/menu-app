@@ -4,13 +4,14 @@ $(document).ready(function(){
     $("div#menu h2").css({"padding": "0", "float": "left", "margin": "0"});
     $("div#menu h1").css({"padding-left": "0", "float": "none", "margin-left": "0"});
     $("div#tonkatsu h1").css("margin-bottom", "0");
-   
+    $("div#tonkatsu p.name").css("margin-bottom", "3px");
+
     $("div.lunch_menu").css({"clear": "both"});
     $("div.additionals p.name").css({"color": "#ccc", "display": "block", "margin-bottom":"5px"});
-    $("div.additionals p").css({"float": "left", "clear": "both"});
+    $("div.additionals p").css({"float": "left", "clear": "both", "font-size":"0.9em"});
     $("div.additionals p.price").css("float", "right");
 
-    $("div.description").css({"clear": "both", "color":"#ccc", "line-height":".9em"});
+    $("div.description").css({"clear": "both", "color":"#ccc", "line-height":".9em", "font-size":".9em"});
 
     $("div.course ul > li").css({"margin-bottom": "10px", "clear": "both"});
     $("div.course ul").find("ul >li").css({"margin-bottom": "0"});

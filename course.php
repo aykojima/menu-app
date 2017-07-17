@@ -151,7 +151,7 @@
     <h3 class="name"><?php echo $omakase['EntreeSecond'];?></h3><h3 class="price"><?php echo $omakase['EntreeSecondPrice'];?></h3>
     <h3 class="name"><?php echo $omakase['EntreeThird'];?></h3><h3 class="price"><?php echo $omakase['EntreeThirdPrice'];?></h3>
     <div class="additionals">
-    <p class="name"><?php echo $omakase['AdditionalOne'];?></p><p class="price"><?php echo $omakase['AdditionalOnePrice'];?></p>
+    <p class="name"><?php echo $omakase['AdditionalTwo'];?></p><p class="price"><?php echo $omakase['AdditionalTwoPrice'];?></p>
     </div>
     </div>
 </div>
