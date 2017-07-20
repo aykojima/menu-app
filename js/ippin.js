@@ -151,19 +151,23 @@ $(document).ready(function(){
 
         }else{//take out the item
             var checkedId = checkId(items, item);
-            if(items == 'appetizer'){
-                console.log(appetizer);
-                appetizer.splice(checkedId, 1);
-                console.log(appetizer);}
-            else if(items == 'tempura'){tempura.splice(checkedId, 1);}
-            else if(items == 'fish_dish'){fish_dish.splice(checkedId, 1);}
-            else if(items == 'meat_dish'){meat_dish.splice(checkedId, 1);}
-            else{'We cannot take out the menu'}
-            localStorage.setItem("appetizer", JSON.stringify(appetizer));
-            localStorage.setItem("tempura", JSON.stringify(tempura));
-            localStorage.setItem("fish_dish", JSON.stringify(fish_dish));
-            localStorage.setItem("meat_dish", JSON.stringify(meat_dish));
-            location.reload();
+            if(checkedId == !isNaN())
+            {
+                alert('This item already exists in the current menu. This item will be removed.');
+                if(items == 'appetizer'){
+                    console.log(appetizer);
+                    appetizer.splice(checkedId, 1);
+                    console.log(appetizer);}
+                else if(items == 'tempura'){tempura.splice(checkedId, 1);}
+                else if(items == 'fish_dish'){fish_dish.splice(checkedId, 1);}
+                else if(items == 'meat_dish'){meat_dish.splice(checkedId, 1);}
+                else{'We cannot take out the menu'}
+                localStorage.setItem("appetizer", JSON.stringify(appetizer));
+                localStorage.setItem("tempura", JSON.stringify(tempura));
+                localStorage.setItem("fish_dish", JSON.stringify(fish_dish));
+                localStorage.setItem("meat_dish", JSON.stringify(meat_dish));
+                location.reload();
+            }
         } 
           
 });
@@ -172,8 +176,9 @@ $(document).ready(function(){
 
 function sortAppetizer(){
     $( "#sortable_appetizer").sortable({
-        axis: 'y',
+        //axis: 'y',
         cursor: "move",
+        revert:true,
         update: function (event, ui) {
         var list = document.getElementById('sortable_appetizer');
         appetizer = [];
@@ -185,7 +190,7 @@ function sortAppetizer(){
             var test = "<li id='" + list_id + "' class='sortable'>" + another_test[i].innerHTML + "</li>"
             appetizer.push(test);    
         }
-        console.log(appetizer);
+        //console.log(appetizer);
         localStorage.setItem("appetizer", JSON.stringify(appetizer));
         
             }
@@ -196,7 +201,8 @@ function sortAppetizer(){
 
 function sortTempura(){
     $( "#sortable_tempura" ).sortable({
-        axis: 'y',
+        //axis: 'y',
+        revert:true,
         update: function (event, ui) {
         var list = document.getElementById('sortable_tempura');
         tempura = [];
@@ -209,7 +215,7 @@ function sortTempura(){
             tempura.push(test);
             
         }
-        console.log(tempura);
+        //console.log(tempura);
         localStorage.setItem("tempura", JSON.stringify(tempura));
         
             }
@@ -219,7 +225,8 @@ function sortTempura(){
 
 function sortFishDish(){
     $( "#sortable_fish_dish" ).sortable({
-        axis: 'y',
+        //axis: 'y',
+        revert:true,
         update: function (event, ui) {
         var list = document.getElementById('sortable_fish_dish');
         fish_dish = [];
@@ -232,7 +239,7 @@ function sortFishDish(){
             fish_dish.push(test);
             
         }
-        console.log(fish_dish);
+        //console.log(fish_dish);
         localStorage.setItem("fish_dish", JSON.stringify(fish_dish));
         
             }
@@ -242,7 +249,8 @@ function sortFishDish(){
 
 function sortMeatDish(){
     $( "#sortable_meat_dish" ).sortable({
-        axis: 'y',
+        //axis: 'y',
+        revert:true,
         update: function (event, ui) {
         var list = document.getElementById('sortable_meat_dish');
         meat_dish = [];
@@ -255,7 +263,7 @@ function sortMeatDish(){
             meat_dish.push(test);
             
         }
-        console.log(meat_dish);
+        //console.log(meat_dish);
         localStorage.setItem("meat_dish", JSON.stringify(meat_dish));
         
             }
@@ -376,3 +384,60 @@ var change_height = function changeHeight(){
 
                 }
             }();
+
+
+//a trash can appears when hovering an item
+var $trash = $("#trash");
+$(document).ready(function(){
+    $("#show_result_ippin li").mousedown(function(){
+    $trash.addClass("hover");});
+    $("#show_result_ippin li").mouseleave(function(){
+    $trash.removeClass("hover");
+    $trash.droppable({
+      accept: "#show_result_ippin li",
+      classes: {
+        "ui-droppable-active": "ui-state-highlight"
+      },
+      //over: function(event, ui){
+      //    resizeItem(ui.draggable);
+      //},
+      //out:function(event, ui){
+       //   resizeItemBack(ui.draggable);
+      //},
+      drop: function( event, ui ) {
+        deleteImage( ui.draggable );
+      },
+      tolerance: "fit",
+      hoverClass: "highlight"
+    });
+});
+});
+
+
+//function resizeItem( $item ){
+    //$item.addClass("hover");
+//    $item.css({"width":"200px", "color":"yellow"})
+//}
+
+//function resizeItemBack( $item ){
+    //$item.removeClass("hover");
+//    $item.css({"width":"90%", "color":"#000"})
+//}
+
+function deleteImage( $item ) {
+      
+      $item.fadeOut();
+      var deleteId = $item.attr('id');
+      var itemCategory = $item.closest("div").attr('id'); 
+
+      var checkedId = checkId(itemCategory, deleteId); 
+        if(itemCategory == 'appetizer'){appetizer.splice(checkedId, 1);}               
+        else if(itemCategory == 'tempura'){tempura.splice(checkedId, 1);}
+        else if(itemCategory == 'fish_dish'){fish_dish.splice(checkedId, 1);}
+        else if(itemCategory == 'meat_dish'){meat_dish.splice(checkedId, 1);}
+        else{'We cannot take out the menu'}
+        localStorage.setItem("appetizer", JSON.stringify(appetizer));
+        localStorage.setItem("tempura", JSON.stringify(tempura));
+        localStorage.setItem("fish_dish", JSON.stringify(fish_dish));
+        localStorage.setItem("meat_dish", JSON.stringify(meat_dish));
+    }

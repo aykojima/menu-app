@@ -25,6 +25,7 @@ div#nav{
     width: 120px;
     border-right-style:ridge;
     height: 100%;
+    z-index: 1;
 }
 
 div#nav ul{
@@ -440,15 +441,18 @@ div#gf{
     display: inline-block;
     width:88%;
     line-height: 1.2em;
+    cursor:move;
 }
 
 li.sortable {
     margin: 10px 0;
     list-style: none;
+    
 }
 
 li.sortable:hover{
     border: 1px solid #CCC;
+
 }
 
 img#fish {
@@ -553,4 +557,23 @@ div.additionals::after{
     height: 0;
     display: block;
     clear:both;
+}
+
+
+div#trash{
+    visibility:hidden;
+    height:100%;
+    width:650px; 
+    background-color:#ccc;
+    position:fixed;
+    right:470px;
+    z-index: -1;
+}
+
+div#trash.hover{
+    visibility: visible;
+}
+
+div#trash.highlight{
+    background-color: yellow;
 }
