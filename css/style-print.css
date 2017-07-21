@@ -20,6 +20,8 @@ a {display:none;}
 
 .date {display:none;}
 
+div#trash{display:none;}
+
 div#container {
     width: 100%;
     /*border: solid 1px #C25E03;*/
@@ -42,7 +44,7 @@ p.verticalSushi {
         font-size: 0.7em;
         color:#ccc;
         float:right;
-        padding: 0 0 20px 20px;
+        padding: 0 0 10px 20px;
 }
 
 p.verticalSashimi {
@@ -51,7 +53,7 @@ p.verticalSashimi {
         font-size: 0.7em;
         color:#ccc;
         float:right;
-        padding: 0 0 9px 13px;
+        padding: 0 0 0 13px;
 }
 
 img#fish-vertical{
@@ -120,7 +122,7 @@ tr{
     vertical-align: center;
     font-size:0.9em;
 }
-tr.tableRow{
+table.style{
     line-height:30px;
 }
 
@@ -153,16 +155,16 @@ td.space{width:10px;}
 
 .lineHeight40{
     line-height:22px;
-    font-size: 0.85em;
+    
 }
-.lineHeight38{
-    line-height:20px;
+.lineHeight45{
+    line-height:21px;
 }
-.lineHeight43{
-    line-height:20px;
+.lineHeight49{
+    line-height:19px;
 }
 
-.lineHeight44{
+.lineHeight50{
     line-height:19px;
 }
 
@@ -175,7 +177,7 @@ div.gratuity{
     font-weight: 400;
     width:70%;
     margin-left:5%;
-    font-size: .5em;
+    font-size: .6em;
     position: absolute;
     bottom:3%;
     text-align: justify;

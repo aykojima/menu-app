@@ -26,6 +26,7 @@ if (stored) {
     //console.log(items);
     document.getElementById("showResult").innerHTML = displayResult(items);
     checkSustainability(items);
+    assignClass(items);
     styleLineHeight(items);
     styleMargin(items);
 
@@ -97,6 +98,7 @@ function storeInArray(data){
     localStorage['myKey'] = JSON.stringify(items);
     document.getElementById("showResult").innerHTML = displayResult(items);
     checkSustainability(items);
+    assignClass(items);
     styleLineHeight(items);
     styleMargin(items);
 }
@@ -105,7 +107,7 @@ function displayResult(array){
         var item='';
         for(i=0;i<array.length;i++)
             {
-                item += "<tr class='tableRow'>" + array[i] + "</tr>\n"; 
+                item += "<tr class='draggable'>" + array[i] + "</tr>\n"; 
             }
             //console.log(item);
         return item;
@@ -124,25 +126,36 @@ function checkSustainability(array){
         return true;
 }
 function checkId(array, sushiKey) {    
+    
     for(var i=0; i<array.length; i++){
-        var id = document.getElementById("showResult").rows[i].cells[3].getAttribute('id');
-        console.log(id);
+        var id = document.getElementById("showResult").rows[i].cells[3].getAttribute('id');   
             if(id == sushiKey)
             { return i; }
         }
          return true;
 }
 
+function assignClass(array) {    
+    var row =  document.getElementsByTagName("tr");
+    for(var i=0; i<array.length; i++){
+        var id = document.getElementById("showResult").rows[i].cells[3].getAttribute('id');
+        //console.log(id);
+        row[i].id = id;
+        }
+}
+
 function styleLineHeight(array){
-    var tr = document.getElementsByClassName('tableRow');
-    //console.log(tr);
+    //var tr = document.getElementsByTagName("tr");
+    var table = document.getElementById("showResult");
+    console.log(table);
     if(array.length >= 34 && array.length<=39)
     {//this can hold up to 39 items
         //dates.className ='NoMargin';
         //sushiBar.className ='NoMargin';
         for (var i = array.length -1 ; i >= 0; --i)
         {
-            tr[i].className = "lineHeight34";
+            //tr[i].className = "lineHeight34";
+            table.className = "lineHeight34";
         }
     }else if(array.length >= 40 && array.length<=42)
     {//this can hold up to 42 items
@@ -150,25 +163,29 @@ function styleLineHeight(array){
         //sushiBar.className ='NoMargin';
         for (var i = array.length -1 ; i >= 0; --i)
         {
-            tr[i].className = "lineHeight40";
+            //tr[i].className = "lineHeight40";
+            table.className = "lineHeight40";
         }
-    }else if(array.length >= 43 && array.length<=43)
+    }else if(array.length >= 43 && array.length<=44)
     {//this can hold up to 44 items
         for (var i = array.length -1 ; i >= 0; --i)
         {   
-            tr[i].className = "lineHeight40";
+            //tr[i].className = "lineHeight40";
+            table.className = "lineHeight40";
         }
-    }else if(array.length >= 44 && array.length<=46)
+    }else if(array.length >= 45 && array.length<=48)
     {//this can hold up to 46 items
         for (var i = array.length -1 ; i >= 0; --i)
         {
-            tr[i].className = "lineHeight44";
+            //tr[i].className = "lineHeight44";
+            table.className = "lineHeight45";
         }
-    }else if(array.length >= 47)
+    }else if(array.length >= 49)
     {//this can hold up to 46 items
         for (var i = array.length -1 ; i >= 0; --i)
         {
-            tr[i].className = "lineHeight42";
+            //tr[i].className = "lineHeight42";
+            table.className = "lineHeight49";
         }
     }
 }
@@ -180,8 +197,8 @@ function styleMargin(array){
 
     if(array.length >= 43)
     {
-        dates.className ='NoMargin';
-        sushiBar.className ='NoMargin';
+        //dates.className ='NoMargin';
+        //sushiBar.className ='NoMargin';
         /*
         if(document.getElementById('menu_up') == 'null')
         {
@@ -194,3 +211,61 @@ function styleMargin(array){
     }
 }
 
+
+$(document).ready(function(){
+    $("#showResult tr.draggable").draggable({
+        revert: "invalid",
+        cursor: "move",
+        helper:"clone",
+    });
+});
+
+
+var trash = $("#trash");
+$(document).ready(function(){
+    
+    $("#showResult tr.draggable").mousedown(function(){
+    trash.addClass("hover");
+    });
+    //$("#showResult tr#draggable").mouseleave(function(){
+    //$trash.removeClass("hover");
+    trash.droppable({
+      accept: "#showResult tr.draggable",
+      classes: {
+        "ui-droppable-active": "ui-state-highlight"
+      },
+      activate:function(event, ui){
+        trash.addClass("hover");
+      },
+      deactivate:function(event, ui){
+        trash.removeClass("hover");
+      },
+      drop: function( event, ui ) {
+          //var id = ui.draggable.cells[3].getAttribute('id');
+        //console.log(id);
+        deleteItem( ui.draggable );
+      },
+      tolerance: "fit",
+      hoverClass: "highlight"
+    });
+});
+//});
+
+
+
+
+function deleteItem( item ) {
+   
+      var itemClass = item.attr("id");
+      console.log(itemClass);
+      var checkedId = checkId(items, itemClass);
+      console.log(checkedId);
+      items.splice(checkedId, 1);
+      localStorage['myKey'] = JSON.stringify(items);
+      item.fadeOut().remove();   
+        
+    }
+
+$(document).ready(function(){
+    console.log(items.length);
+});

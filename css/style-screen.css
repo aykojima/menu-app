@@ -577,3 +577,7 @@ div#trash.hover{
 div#trash.highlight{
     background-color: yellow;
 }
+
+/*#showResult tr#draggable:hover{
+    cursor: move;
+}*/

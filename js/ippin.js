@@ -366,6 +366,8 @@ var change_height = function changeHeight(){
                 if(max_height > 1000 && max_height < 1149)
                 {
                     $('#show_result_ippin ul').css({'line-height':'0.8em', 'font-size':'0.9em'});
+                    $('#show_result_ippin div#gf').css({'padding-top':'3px'});
+                    $('#show_result_ippin div#gf img#fish').css({'margin-top':'0'});
                 }
                 else if(max_height > 1150 && max_height < 1199)
                 {
@@ -375,7 +377,7 @@ var change_height = function changeHeight(){
                 }
                 else if(max_height > 1200 && max_height < 1300)
                 {
-                    $('#show_result_ippin ul').css({'line-height':'0.6em'});
+                    $('#show_result_ippin ul').css({'line-height':'0.5em', 'font-size':'0.9em'});
                     /*$('#menu').addClass('changed_height3');*/
                     $('#dates').css('margin', '0 2%');
                     $('#ippin').addClass('changed_height3');
@@ -384,6 +386,8 @@ var change_height = function changeHeight(){
 
                 }
             }();
+
+
 
 
 //a trash can appears when hovering an item
@@ -406,6 +410,7 @@ $(document).ready(function(){
       //},
       drop: function( event, ui ) {
         deleteImage( ui.draggable );
+        //location.reload();
       },
       tolerance: "fit",
       hoverClass: "highlight"
@@ -424,11 +429,10 @@ $(document).ready(function(){
 //    $item.css({"width":"90%", "color":"#000"})
 //}
 
-function deleteImage( $item ) {
-      
-      $item.fadeOut();
-      var deleteId = $item.attr('id');
-      var itemCategory = $item.closest("div").attr('id'); 
+function deleteImage(item ) {
+    
+      var deleteId = item.attr('id');
+      var itemCategory = item.closest("div").attr('id'); 
 
       var checkedId = checkId(itemCategory, deleteId); 
         if(itemCategory == 'appetizer'){appetizer.splice(checkedId, 1);}               
@@ -440,4 +444,6 @@ function deleteImage( $item ) {
         localStorage.setItem("tempura", JSON.stringify(tempura));
         localStorage.setItem("fish_dish", JSON.stringify(fish_dish));
         localStorage.setItem("meat_dish", JSON.stringify(meat_dish));
+       //console.log(appetizer);
+       item.fadeOut().remove();
     }
