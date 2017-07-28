@@ -28,7 +28,7 @@ $(document).ready(function(){
             $(this).parent(".result").empty();
         }else
         {//add a item to the table                 
-            $.post("db/edit.php", {term: item}).done(function(data){
+            $.post("db/edit_sushi.php", {term: item}).done(function(data){
             //JSON.parse(data);  
             display(JSON.parse(data));
             });

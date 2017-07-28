@@ -36,6 +36,11 @@ $(document).ready(function(){
             resultDropdown.empty();
         }
     });
+    $('.search-box input[type="text"]').blur(function(){
+        var resultDropdown = $(this).siblings(".result");
+        $(this).val('');
+        resultDropdown.empty();
+    });
 }); 
 
 
@@ -139,7 +144,7 @@ $(document).ready(function(){
 function sortSpecialRolls(){
     $( "#sortable_special_rolls").sortable({
         axis: 'y',
-        cursor: "move",
+        cursor: "-webkit-grabbing",
         update: function (event, ui) {
         var list = document.getElementById('sortable_special_rolls');
         special_rolls = [];

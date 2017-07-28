@@ -43,7 +43,7 @@ if(isset($_POST['term'])){
 
 if(mysqli_query($conn, $sql)){
     echo "<script type='text/javascript'>window.alert('" . $name . " was edited successfully');
-    window.location.href = '../edit.php';</script>"; 
+    window.location.href = '../edit_sushi.php';</script>"; 
 exit;
 } else{
     echo "<script type='text/javascript'>window.alert('ERROR: Could not able to edit " . $name . "');

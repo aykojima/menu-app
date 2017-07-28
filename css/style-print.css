@@ -44,7 +44,7 @@ p.verticalSushi {
         font-size: 0.7em;
         color:#ccc;
         float:right;
-        padding: 0 0 10px 20px;
+        padding: 0 0 10px 25px;
 }
 
 p.verticalSashimi {
@@ -53,7 +53,7 @@ p.verticalSashimi {
         font-size: 0.7em;
         color:#ccc;
         float:right;
-        padding: 0 0 0 13px;
+        padding: 0 0 0 15px;
 }
 
 img#fish-vertical{
@@ -97,7 +97,7 @@ h1{
 }
 
 h2{ 
-    font-family: myriad-pro, sans-serif;
+    /*font-family: myriad-pro, sans-serif;*/
     font-style: normal;
     font-weight: 400;
 }
@@ -126,20 +126,29 @@ table.style{
     line-height:30px;
 }
 
+td.sustainable{
+    width:17px;
+}
+
 td.name{
     display:inline;
     text-align: left;
 }
 
-td.origin{
+td.origin, td.origin_small{
     display:inline;
     color:#ccc;
 }
+
+td.origin_small{
+    font-size: 0.7em;
+}
+
 td.price{
     /*TheMix
     font-family: font84093;
     font-family:Arial, Helvetica, sans-serif;*/
-    text-align: right;
+    text-align: center;
     padding: 0 2% 0 2%;
 }
 td.space{width:10px;}
@@ -148,24 +157,26 @@ td.space{width:10px;}
 .NoMargin{
     margin:0 2% 0 2%;
 }
-/*Menu items more than 34*/
+/*Menu items more than 34 less than 36*/
 .lineHeight34{
-    line-height:24px;
+    line-height:28px;
 }
-
-.lineHeight40{
-    line-height:22px;
+/*Menu items more than 37 less than 38*/
+.lineHeight37{
+    line-height:26px;
     
 }
-.lineHeight45{
-    line-height:21px;
+/*Menu items more than 39 less than 41*/
+.lineHeight39{
+    line-height:24px;
 }
-.lineHeight49{
-    line-height:19px;
+/*Menu items more than 42 less than 44*/
+.lineHeight42{
+    line-height:22px;
 }
 
-.lineHeight50{
-    line-height:19px;
+.lineHeight45{
+    line-height:20px;
 }
 
 
@@ -202,7 +213,7 @@ div.gratuity{
 }
 
 li.sortable {
-    margin: 10px 0;
+    margin: 11px 0;
     list-style: none;
 }
 
@@ -219,6 +230,7 @@ div#appetizer{
 */
 h1#ippin{
     float: none;
+    margin-bottom: 20px;
 }
 
 #show_result_ippin{

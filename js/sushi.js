@@ -1,9 +1,9 @@
 /***search-box***/
 $(document).ready(function(){
+    var resultDropdown = $('.search-box input[type="text"]').siblings(".result");
     $('.search-box input[type="text"]').on("keyup input", function(){
         /* Get input value on change */
         var inputVal = $(this).val();
-        var resultDropdown = $(this).siblings(".result");
         if(inputVal.length){           
             $.ajax({
                 url: "db/search.php",
@@ -15,6 +15,10 @@ $(document).ready(function(){
         } else{
             resultDropdown.empty();
         }
+    });
+    $('.search-box input[type="text"]', resultDropdown).blur(function(){
+        $(this).val('');
+        resultDropdown.empty();
     });
 }); 
 
@@ -36,6 +40,7 @@ else  {var items = [];}
 
 /***fetch the clicked item in the search box and store it in an array***/
  $(document).on("click", ".result p", function(event){ 
+     
         //var item = $(this).text();//clicked item (e.g. Albacore Tuna)
         var item = $(this).attr('id');
         //console.log(item);
@@ -46,6 +51,7 @@ else  {var items = [];}
             $('input[type="text"]').val('');   
             $(this).parent(".result").empty();
         }else if(item == "addall"){
+            console.log("clicked");
             for(var i = 1; i <31; i++){
             $.post("db/items.php", {term: i}).done(function(data){           
             //items = JSON.parse(data);
@@ -65,6 +71,7 @@ else  {var items = [];}
             $(this).parent(".result").empty();     
                     
         }else if(item == "empty"){
+            console.log("emptied")
             items = [];
             localStorage['myKey'] = JSON.stringify(items);
             document.getElementById("showResult").innerHTML = '';
@@ -148,7 +155,7 @@ function styleLineHeight(array){
     //var tr = document.getElementsByTagName("tr");
     var table = document.getElementById("showResult");
     console.log(table);
-    if(array.length >= 34 && array.length<=39)
+    if(array.length >= 34 && array.length<=36)
     {//this can hold up to 39 items
         //dates.className ='NoMargin';
         //sushiBar.className ='NoMargin';
@@ -157,35 +164,35 @@ function styleLineHeight(array){
             //tr[i].className = "lineHeight34";
             table.className = "lineHeight34";
         }
-    }else if(array.length >= 40 && array.length<=42)
+    }else if(array.length >= 37 && array.length<=38)
     {//this can hold up to 42 items
         //dates.className ='NoMargin';
         //sushiBar.className ='NoMargin';
         for (var i = array.length -1 ; i >= 0; --i)
         {
             //tr[i].className = "lineHeight40";
-            table.className = "lineHeight40";
+            table.className = "lineHeight37";
         }
-    }else if(array.length >= 43 && array.length<=44)
+    }else if(array.length >= 39 && array.length<=41)
     {//this can hold up to 44 items
         for (var i = array.length -1 ; i >= 0; --i)
         {   
             //tr[i].className = "lineHeight40";
-            table.className = "lineHeight40";
+            table.className = "lineHeight39";
         }
-    }else if(array.length >= 45 && array.length<=48)
+    }else if(array.length >= 42 && array.length<=44)
     {//this can hold up to 46 items
         for (var i = array.length -1 ; i >= 0; --i)
         {
             //tr[i].className = "lineHeight44";
-            table.className = "lineHeight45";
+            table.className = "lineHeight42";
         }
-    }else if(array.length >= 49)
+    }else if(array.length >= 45)
     {//this can hold up to 46 items
         for (var i = array.length -1 ; i >= 0; --i)
         {
             //tr[i].className = "lineHeight42";
-            table.className = "lineHeight49";
+            table.className = "lineHeight45";
         }
     }
 }
@@ -215,7 +222,7 @@ function styleMargin(array){
 $(document).ready(function(){
     $("#showResult tr.draggable").draggable({
         revert: "invalid",
-        cursor: "move",
+        cursor: "-webkit-grabbing",
         helper:"clone",
     });
 });
@@ -244,6 +251,7 @@ $(document).ready(function(){
           //var id = ui.draggable.cells[3].getAttribute('id');
         //console.log(id);
         deleteItem( ui.draggable );
+        styleLineHeight(items);
       },
       tolerance: "fit",
       hoverClass: "highlight"

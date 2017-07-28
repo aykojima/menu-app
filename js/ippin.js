@@ -39,6 +39,11 @@ $(document).ready(function(){
             resultDropdown.empty();
         }
     });
+    $('.search-box input[type="text"]').blur(function(){
+        var resultDropdown = $(this).siblings(".result");
+        $(this).val('');
+        resultDropdown.empty();
+    });
 }); 
 
 
@@ -177,7 +182,7 @@ $(document).ready(function(){
 function sortAppetizer(){
     $( "#sortable_appetizer").sortable({
         //axis: 'y',
-        cursor: "move",
+        cursor: "-webkit-grabbing",
         revert:true,
         update: function (event, ui) {
         var list = document.getElementById('sortable_appetizer');
@@ -363,21 +368,30 @@ $document.ready(function(){
 var change_height = function changeHeight(){
                 console.log($('#show_result_ippin').height());
                 var max_height = $('#show_result_ippin').height();
-                if(max_height > 1000 && max_height < 1149)
+                if(max_height > 980 && max_height < 1129)
                 {
                     $('#show_result_ippin ul').css({'line-height':'0.8em', 'font-size':'0.9em'});
                     $('#show_result_ippin div#gf').css({'padding-top':'3px'});
                     $('#show_result_ippin div#gf img#fish').css({'margin-top':'0'});
                 }
-                else if(max_height > 1150 && max_height < 1199)
+                else if(max_height > 1130 && max_height < 1179)
                 {
                     $('#show_result_ippin ul').css({'line-height':'0.5em', 'font-size':'0.9em'});
                     $('#show_result_ippin div#gf').css('padding-top', '5px');
                     $('#show_result_ippin img#fish').css('margin-top', '0');
                 }
-                else if(max_height > 1200 && max_height < 1300)
+                else if(max_height > 1180 && max_height < 1279)
                 {
                     $('#show_result_ippin ul').css({'line-height':'0.5em', 'font-size':'0.9em'});
+                    /*$('#menu').addClass('changed_height3');*/
+                    $('#dates').css('margin', '0 2%');
+                    $('#ippin').addClass('changed_height3');
+                    $('#show_result_ippin div#gf').css('padding-top', '5px');
+                    $('#show_result_ippin img#fish').css('margin-top', '0');
+
+                }else if(max_height > 1280 && max_height < 1400)
+                {
+                    $('#show_result_ippin ul').css({'line-height':'0.5em', 'font-size':'0.8em'});
                     /*$('#menu').addClass('changed_height3');*/
                     $('#dates').css('margin', '0 2%');
                     $('#ippin').addClass('changed_height3');
@@ -447,3 +461,10 @@ function deleteImage(item ) {
        //console.log(appetizer);
        item.fadeOut().remove();
     }
+
+/*
+function print(){
+    location.reload();
+    window.print();
+}
+*/

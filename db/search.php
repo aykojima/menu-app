@@ -1,5 +1,5 @@
 <?php 
-include ('../config/config.php') ; 
+include ('config.php') ; 
 
 if(isset($_REQUEST['term'])){
     // Prepare a select statement
