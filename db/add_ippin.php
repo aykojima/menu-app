@@ -1,5 +1,5 @@
 <?php 
-include ('../config/config.php') ; 
+include ('database.php') ; 
 
 
 // Escape user inputs for security
@@ -25,10 +25,10 @@ else{
 
 
 
-$name = mysqli_real_escape_string($conn, $_REQUEST['name']);
+$name = $db->escape_value($_REQUEST['name']);
 $name = ucfirst($name);
 
-$price = mysqli_real_escape_string($conn, $_REQUEST['price']);
+$price = $db->escape_value($_REQUEST['price']);
 $price = strtoupper($price); 
 
 $category = $_REQUEST['category'];
@@ -49,5 +49,5 @@ exit;
 }
 
 //Close database connection
-mysqli_close($conn);
+$db->close_connection();
 ?>

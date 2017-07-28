@@ -23,10 +23,10 @@ else  {var appetizer = [], tempura = [], fish_dish = [], meat_dish = [];}
 
 /***search box***/
 $(document).ready(function(){
+    var resultDropdown = $('.search-box input[type="text"]').siblings(".result");
     $('.search-box input[type="text"]').on("keyup input", function(){
         /* Get input value on change */
         var inputVal = $(this).val();
-        var resultDropdown = $(this).siblings(".result");
         if(inputVal.length){           
             $.ajax({
                 url: "db/search.php",
@@ -39,8 +39,7 @@ $(document).ready(function(){
             resultDropdown.empty();
         }
     });
-    $('.search-box input[type="text"]').blur(function(){
-        var resultDropdown = $(this).siblings(".result");
+    $('.search-box input[type="text"]', resultDropdown).blur(function(){
         $(this).val('');
         resultDropdown.empty();
     });
@@ -278,7 +277,9 @@ function sortMeatDish(){
 
 function storeInArray(data, appetizer = [], tempura = [], fish_dish = [], meat_dish = []){
     //store feched items in an array and display in table
+    console.log(data);
     var obj = [JSON.parse(data)];
+    
     //console.log(obj);
     
     //get the keys

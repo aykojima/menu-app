@@ -58,5 +58,4 @@ class MySQLDatabase{
 $db = new MySQLDatabase();
 $database =& $db;
 
-
 ?>
