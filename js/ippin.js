@@ -39,10 +39,12 @@ $(document).ready(function(){
             resultDropdown.empty();
         }
     });
+    /*
     $('.search-box input[type="text"]', resultDropdown).blur(function(){
         $(this).val('');
         resultDropdown.empty();
     });
+    */
 }); 
 
 
@@ -66,7 +68,7 @@ $(document).ready(function(){
  $(document).on("click", ".result p", function(event){         
         var item = $(this).attr('id');
         var items = $(this).attr('class');
-        console.log(items);
+        console.log(item, items);
         //check if the item already exists in the table
         //return true if it's new, false if it already exists
         if(item == "nomatch"){
@@ -110,7 +112,8 @@ $(document).ready(function(){
 
             location.reload();
         }else if(isNaN(item) == false && checkId(items, item) === true)
-        {//add a item to the table                 
+        {//add a item to the table
+            console.log('test test');                 
             $.post("db/items.php", {term_ippin: item}).done(function(data){
             storeInArray(data, appetizer, tempura, fish_dish, meat_dish);
             sort_items_appetizer[w]();
@@ -155,13 +158,17 @@ $(document).ready(function(){
 
         }else{//take out the item
             var checkedId = checkId(items, item);
-            if(checkedId == !isNaN())
-            {
+            //if(checkedId == !isNaN())
+            //{
+                console.log('matches and taken down')
                 alert('This item already exists in the current menu. This item will be removed.');
+                //items.splice(checkedId, 1);
+                //localStorage.setItem(items, JSON.stringify(items));
                 if(items == 'appetizer'){
-                    console.log(appetizer);
+                    //console.log(appetizer);
                     appetizer.splice(checkedId, 1);
-                    console.log(appetizer);}
+                    //console.log(appetizer);
+                }
                 else if(items == 'tempura'){tempura.splice(checkedId, 1);}
                 else if(items == 'fish_dish'){fish_dish.splice(checkedId, 1);}
                 else if(items == 'meat_dish'){meat_dish.splice(checkedId, 1);}
@@ -170,8 +177,9 @@ $(document).ready(function(){
                 localStorage.setItem("tempura", JSON.stringify(tempura));
                 localStorage.setItem("fish_dish", JSON.stringify(fish_dish));
                 localStorage.setItem("meat_dish", JSON.stringify(meat_dish));
+                
                 location.reload();
-            }
+            //}
         } 
           
 });
@@ -343,6 +351,7 @@ function display(key, array){
 }
 
 function checkId(ippinClass, ippinKey) {    
+    console.log('inside checkId');
     //for(var i=0; i<array.length; i++){
         //var ul = document.getElementById("sortable_" + ippinClass);//("'sortable_" + array + "'");
         var div = document.getElementById(ippinClass);

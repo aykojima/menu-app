@@ -173,4 +173,24 @@ class Rolls{
         $array = [$index => $trimed];
         }
 }
+
+class AddNewItem{
+    public $sustainability = false;
+    public $name = '';
+
+    public function check_sustainability($sust_check_box){
+        if(isset($sust_check_box)){       
+            $this->sustainability = true;
+        }
+        else{
+            $this->sustainability=false;
+        }
+    }
+
+    public function format_name($user_input){
+        global $db;
+        $this->name = ucfirst($db->escape_value($user_input));   
+    }
+
+}
 ?>

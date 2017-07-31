@@ -10,11 +10,11 @@
 
 
 <div id="add_form">
-<form action="db/edit.php" method="post">
-        <input type="text" name="sushi_key" id="sushi_key" placeholder="Sushi Key">
-        <input type="text" name="name" id="name" placeholder="Name">
+<form action="db/edit_sushi.php" method="post">
+        <input type="text" name="sushi_key" id="sushi_key" placeholder="Sushi Key" value="<?php echo htmlentities($sushi_key); ?>">
+        <input type="text" name="name" id="name" placeholder="Name" value="<?php echo htmlentities($name); ?>">
 
-        <input type="text" name="origin" id="origin" placeholder="Origin">
+        <input type="text" name="origin" id="origin" placeholder="Origin" value="<?php echo htmlentities($origin); ?>">
 
         <input type="text" name="sushi_price" id="sushiPrice" placeholder="Sushi Price" onkeyup="calcSashimi()">
 
