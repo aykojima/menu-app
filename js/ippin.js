@@ -113,54 +113,25 @@ $(document).ready(function(){
             location.reload();
         }else if(isNaN(item) == false && checkId(items, item) === true)
         {//add a item to the table
-            console.log('test test');                 
+            //console.log('test test');                 
             $.post("db/items.php", {term_ippin: item}).done(function(data){
             storeInArray(data, appetizer, tempura, fish_dish, meat_dish);
             sort_items_appetizer[w]();
             sort_items_tempura[x]();
             sort_items_fish_dish[y]();
             sort_items_meat_dish[z]();
-
-            var change_height = function changeHeight(){
-                console.log($('#show_result_ippin').height());
-                var max_height = $('#show_result_ippin').height();
-                if(max_height > 1000 && max_height < 1149)
-                {
-                    $('#show_result_ippin ul').css({'line-height':'0.6em'});
-                }
-                else if(max_height > 1150 && max_height < 1199)
-                {
-                    $('#show_result_ippin ul').css({'line-height':'0.5em', 'font-size':'0.9em'});
-                    $('#show_result_ippin div#gf').css('padding-top', '5px');
-                    $('#show_result_ippin img#fish').css('margin-top', '0');
-                }
-                else if(max_height > 1200 && max_height < 1300)
-                {
-                    $('#show_result_ippin ul').css({'line-height':'0.6em'});
-                    /*$('#menu').addClass('changed_height3');*/
-                    $('#dates').css('margin', '0 2%');
-                    $('#ippin').addClass('changed_height3');
-                    $('#show_result_ippin div#gf').css('padding-top', '5px');
-                    $('#show_result_ippin img#fish').css('margin-top', '0');
-
-                }
-            }();
-         });
-        
+            
+            });
             //clear the text in textbox and search drop down
             $('input[type="text"]').val('');   
             $(this).parent(".result").empty();
              
 
-
-
-
-
         }else{//take out the item
             var checkedId = checkId(items, item);
             //if(checkedId == !isNaN())
             //{
-                console.log('matches and taken down')
+                //console.log('matches and taken down')
                 alert('This item already exists in the current menu. This item will be removed.');
                 //items.splice(checkedId, 1);
                 //localStorage.setItem(items, JSON.stringify(items));
@@ -207,6 +178,8 @@ function sortAppetizer(){
         
             }
         }); 
+        getDraggables();
+       
     };
 
 
@@ -232,6 +205,8 @@ function sortTempura(){
         
             }
     });
+        getDraggables();
+        
 };
 
 
@@ -256,6 +231,8 @@ function sortFishDish(){
         
             }
     });
+        getDraggables();
+      
 };
 
 
@@ -280,12 +257,14 @@ function sortMeatDish(){
         
             }
     });
+        getDraggables();
+       
 };
 
 
 function storeInArray(data, appetizer = [], tempura = [], fish_dish = [], meat_dish = []){
     //store feched items in an array and display in table
-    console.log(data);
+    //console.log(data);
     var obj = [JSON.parse(data)];
     
     //console.log(obj);
@@ -299,14 +278,14 @@ function storeInArray(data, appetizer = [], tempura = [], fish_dish = [], meat_d
             }
     }
     var item = obj[0][key1];
-    console.log(item);
+    //console.log(item);
 //style origin if there is any
     var oldOpenParenth = '\(',
     newOpenParenth = "<span style='color:#ccc'>\(",
     oldCloseParenth = ')',
     newCloseParenth = '\)</span>',
     item = item.replace(oldOpenParenth, newOpenParenth).replace(oldCloseParenth, newCloseParenth);
-    console.log(item);
+    //console.log(item);
     
     if (key1 == 'appetizer'){
         appetizer.push(item);
@@ -375,72 +354,76 @@ $document.ready(function(){
     console.log($('#show_result_ippin').height());
 });*/
 
-var change_height = function changeHeight(){
-                console.log($('#show_result_ippin').height());
-                var max_height = $('#show_result_ippin').height();
-                if(max_height > 980 && max_height < 1129)
-                {
-                    $('#show_result_ippin ul').css({'line-height':'0.8em', 'font-size':'0.9em'});
-                    $('#show_result_ippin div#gf').css({'padding-top':'3px'});
-                    $('#show_result_ippin div#gf img#fish').css({'margin-top':'0'});
-                }
-                else if(max_height > 1130 && max_height < 1179)
-                {
-                    $('#show_result_ippin ul').css({'line-height':'0.5em', 'font-size':'0.9em'});
-                    $('#show_result_ippin div#gf').css('padding-top', '5px');
-                    $('#show_result_ippin img#fish').css('margin-top', '0');
-                }
-                else if(max_height > 1180 && max_height < 1279)
-                {
-                    $('#show_result_ippin ul').css({'line-height':'0.5em', 'font-size':'0.9em'});
-                    /*$('#menu').addClass('changed_height3');*/
-                    $('#dates').css('margin', '0 2%');
-                    $('#ippin').addClass('changed_height3');
-                    $('#show_result_ippin div#gf').css('padding-top', '5px');
-                    $('#show_result_ippin img#fish').css('margin-top', '0');
+$(document).ready(changeHeight());
+function changeHeight(){
+        console.log($('#show_result_ippin').height());
+        var max_height = $('#show_result_ippin').height();
 
-                }else if(max_height > 1280 && max_height < 1400)
-                {
-                    $('#show_result_ippin ul').css({'line-height':'0.5em', 'font-size':'0.8em'});
-                    /*$('#menu').addClass('changed_height3');*/
-                    $('#dates').css('margin', '0 2%');
-                    $('#ippin').addClass('changed_height3');
-                    $('#show_result_ippin div#gf').css('padding-top', '5px');
-                    $('#show_result_ippin img#fish').css('margin-top', '0');
+        if(max_height > 980 && max_height < 1129)
+        {
+            $('#show_result_ippin ul').css({'line-height':'0.8em', 'font-size':'0.9em'});
+            $('#show_result_ippin div#gf').css({'padding-top':'3px'});
+            $('#show_result_ippin div#gf img#fish').css({'margin-top':'0'});
+        }
+        else if(max_height > 1130 && max_height < 1179)
+        {
+            $('#show_result_ippin ul').css({'line-height':'0.5em', 'font-size':'0.9em'});
+            $('#show_result_ippin div#gf').css('padding-top', '5px');
+            $('#show_result_ippin img#fish').css('margin-top', '0');
+        }
+        else if(max_height > 1180 && max_height < 1279)
+        {
+            $('#show_result_ippin ul').css({'line-height':'0.5em', 'font-size':'0.9em'});
+            /*$('#menu').addClass('changed_height3');*/
+            $('#dates').css('margin', '0 2%');
+            $('#ippin').addClass('changed_height3');
+            $('#show_result_ippin div#gf').css('padding-top', '5px');
+            $('#show_result_ippin img#fish').css('margin-top', '0');
 
-                }
-            }();
+        }else if(max_height > 1280 && max_height < 1400)
+        {
+            $('#show_result_ippin ul').css({'line-height':'0.5em', 'font-size':'0.8em'});
+            /*$('#menu').addClass('changed_height3');*/
+            $('#dates').css('margin', '0 2%');
+            $('#ippin').addClass('changed_height3');
+            $('#show_result_ippin div#gf').css('padding-top', '5px');
+            $('#show_result_ippin img#fish').css('margin-top', '0');
+
+        }
+}
 
 
 
 
 //a trash can appears when hovering an item
 var $trash = $("#trash");
-$(document).ready(function(){
+$(document).ready(getDraggables());
+function getDraggables(){
     $("#show_result_ippin li").mousedown(function(){
     $trash.addClass("hover");});
     $("#show_result_ippin li").mouseleave(function(){
-    $trash.removeClass("hover");
-    $trash.droppable({
-      accept: "#show_result_ippin li",
-      classes: {
-        "ui-droppable-active": "ui-state-highlight"
-      },
-      //over: function(event, ui){
-      //    resizeItem(ui.draggable);
-      //},
-      //out:function(event, ui){
-       //   resizeItemBack(ui.draggable);
-      //},
-      drop: function( event, ui ) {
-        deleteImage( ui.draggable );
-        //location.reload();
-      },
-      tolerance: "fit",
-      hoverClass: "highlight"
+        $trash.removeClass("hover");
+        $trash.droppable({
+        accept: "#show_result_ippin li",
+        classes: {
+            "ui-droppable-active": "ui-state-highlight"
+        },
+        //over: function(event, ui){
+        //    resizeItem(ui.draggable);
+        //},
+        //out:function(event, ui){
+        //   resizeItemBack(ui.draggable);
+        //},
+        drop: function( event, ui ) {
+            deleteImage( ui.draggable );
+            //location.reload();
+        },
+        tolerance: "fit",
+        hoverClass: "highlight"
+        });
     });
-});
-});
+
+};
 
 
 //function resizeItem( $item ){
@@ -470,6 +453,8 @@ function deleteImage(item ) {
         localStorage.setItem("meat_dish", JSON.stringify(meat_dish));
        //console.log(appetizer);
        item.fadeOut().remove();
+       $trash.removeClass("hover");
+       changeHeight();
     }
 
 /*

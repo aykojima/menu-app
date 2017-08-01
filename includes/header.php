@@ -48,6 +48,7 @@
                 echo"<li><a href='" . $titleName . ".php' id='nav'><img src='images/" . $titleName . "_icon" . $activeNav . ".png' class='nav_icons'> <p id='" . $activeP . "'>" . $upperTitleName . " Menu</p></a></li>";
             }
      } ?>
-  
+    
     </ul>
+    <a id="print" href="javascript: window.print()">PRINT</a>
 </div> 

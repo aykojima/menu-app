@@ -62,7 +62,7 @@ else  {var items = [];}
             //}
             }); 
         }
-            console.log(items);
+            //console.log(items);
             //items.forEach(function(item) {
               //  storeInArray(item);
             //});
@@ -80,14 +80,17 @@ else  {var items = [];}
         }else if(isNaN(item) == false && checkId(items, item) === true)
         {//add a item to the table                 
             $.post("db/items.php", {term: item}).done(function(data){
-            console.log(items);    
+            //console.log(items);    
             storeInArray(data);
+            getDraggables();
             });
             //clear the text in textbox and search drop down
             $('input[type="text"]').val('');   
             $(this).parent(".result").empty();
         }else{//take out the item
+            
             var checkedId = checkId(items, item)
+            alert('This item already exists in the current menu. This item will be removed.');
             //console.log(checkedId);
             items.splice(checkedId, 1);
             localStorage['myKey'] = JSON.stringify(items);
@@ -219,14 +222,15 @@ function styleMargin(array){
 }
 
 
-$(document).ready(function(){
+$(document).ready(getDraggables());
+function getDraggables(){
     $("#showResult tr.draggable").draggable({
         revert: "invalid",
         cursor: "-webkit-grabbing",
         helper:"clone",
     });
-});
-
+//});
+}
 
 var trash = $("#trash");
 $(document).ready(function(){
@@ -250,12 +254,14 @@ $(document).ready(function(){
       drop: function( event, ui ) {
           //var id = ui.draggable.cells[3].getAttribute('id');
         //console.log(id);
+        
         deleteItem( ui.draggable );
-        styleLineHeight(items);
       },
       tolerance: "fit",
       hoverClass: "highlight"
+
     });
+    
 });
 //});
 
@@ -271,6 +277,9 @@ function deleteItem( item ) {
       items.splice(checkedId, 1);
       localStorage['myKey'] = JSON.stringify(items);
       item.fadeOut().remove();   
+      console.log(items);
+      styleLineHeight(items);
+      trash.removeClass("hover");
         
     }
 

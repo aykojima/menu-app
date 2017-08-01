@@ -323,8 +323,25 @@ td.space{width:12px;}
 
 a#print{
     position: fixed;
+    bottom: 5%;
+    left: 2%;
+    text-decoration-line: none;
+    background-color: #ccc;
+    padding: 1% 1%;
+    color: #fff;
+    border-bottom: solid #000 1px;
+    border-right: solid #000 1px;
+    z-index: 100;
+}
+
+a#print:hover{
+    background-color: #CF671F;
+}
+
+a#style{
+    position: fixed;
     top: 0;
-    left: 45%;
+    left: 51%;
     text-decoration-line: none;
     background-color: #ccc;
     padding: 0 1%;
@@ -453,6 +470,7 @@ div#gf{
     display: inline-block;
     width:88%;
     line-height: 1.2em;
+    margin-left:5px;
     
 }
 
