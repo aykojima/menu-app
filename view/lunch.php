@@ -1,5 +1,5 @@
-<?php include('includes/header.php'); ?>
-<?php include('db/lunch-items.php'); ?>
+<?php include('../includes/header.php'); ?>
+<?php include('../db/lunch-items.php'); ?>
     <!--@to do
     @style - print
      -->
@@ -131,10 +131,10 @@
     </div>
 </div>
 </div>
-<?php echo"<script src='js/lunch.js'></script>";?>
+<?php echo"<script src='../js/lunch.js'></script>";?>
 <?php 
     if(THIS_PAGE == "sushi.php" || THIS_PAGE == "ippin.php"){
-        echo"<script src='js/dates.js'></script>";
+        echo"<script src='../js/dates.js'></script>";
         }?>
 </body>
 </html>

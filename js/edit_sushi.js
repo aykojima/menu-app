@@ -6,7 +6,7 @@ $(document).ready(function(){
         var resultDropdown = $(this).siblings(".result");
         if(inputVal.length){           
             $.ajax({
-                url: "db/search.php",
+                url: "../db/search.php",
                 data: {term: inputVal},
                 success: function(data){
                 // Display the returned data in browser
@@ -28,7 +28,7 @@ $(document).ready(function(){
             $(this).parent(".result").empty();
         }else
         {//add a item to the table                 
-            $.post("db/edit_sushi.php", {term: item}).done(function(data){
+            $.post("../db/edit_sushi.php", {term: item}).done(function(data){
             //JSON.parse(data);  
             display(JSON.parse(data));
             });

@@ -1,9 +1,9 @@
-<?php include('includes/header.php'); ?>
+<?php include('../includes/header.php'); ?>
     <!--@to do
      @Style
     -->
 <div id="add_form">
-<form action="db/add_ippin.php" method="post">
+<form action="../db/add_ippin.php" method="post">
         <input type="text" name="name" id="name" placeholder="Name" value="<?php echo htmlentities($name); ?>">
 
         <input type="text" name="price" id="price" placeholder="Price" value="<?php echo htmlentities($price); ?>">
@@ -23,4 +23,7 @@
         </div>
     <input type="submit" value="Save">
 </form>
-<?php include('includes/footer.php'); ?>
+
+</div>
+</body>
+</html>

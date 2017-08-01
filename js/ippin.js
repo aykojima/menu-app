@@ -29,7 +29,7 @@ $(document).ready(function(){
         var inputVal = $(this).val();
         if(inputVal.length){           
             $.ajax({
-                url: "db/search.php",
+                url: "../db/search.php",
                 data: {term_ippin: inputVal},
                 success: function(data){
                 // Display the returned data in browser
@@ -78,7 +78,7 @@ $(document).ready(function(){
 
         }else if(item == "addall"){
             for(var i = 1; i <23; i++){
-            $.post("db/items.php", {term_ippin: i}).done(function(data){     
+            $.post("../db/items.php", {term_ippin: i}).done(function(data){     
                 //console.log(data);      
                 storeInArray(data, appetizer, tempura, fish_dish, meat_dish);
             sort_items_appetizer[w]();
@@ -114,7 +114,7 @@ $(document).ready(function(){
         }else if(isNaN(item) == false && checkId(items, item) === true)
         {//add a item to the table
             //console.log('test test');                 
-            $.post("db/items.php", {term_ippin: item}).done(function(data){
+            $.post("../db/items.php", {term_ippin: item}).done(function(data){
             storeInArray(data, appetizer, tempura, fish_dish, meat_dish);
             sort_items_appetizer[w]();
             sort_items_tempura[x]();

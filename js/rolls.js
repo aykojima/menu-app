@@ -26,7 +26,7 @@ $(document).ready(function(){
         var resultDropdown = $(this).siblings(".result");
         if(inputVal.length){           
             $.ajax({
-                url: "db/search.php",
+                url: "../db/search.php",
                 data: {term_rolls: inputVal},
                 success: function(data){
                 // Display the returned data in browser
@@ -73,7 +73,7 @@ $(document).ready(function(){
 
         }else if(item == "addall"){
             for(var i = 1; i <23; i++){
-            $.post("db/items.php", {term_rolls: i}).done(function(data){     
+            $.post("../db/items.php", {term_rolls: i}).done(function(data){     
                 //console.log(data);      
                 storeInArray(data, special_rolls, rolls, vegetable_rolls);
             
@@ -103,7 +103,7 @@ $(document).ready(function(){
             $(this).parent(".result").empty();
         }else if(isNaN(item) == false && checkId(items, item) === true)
         {//add a item to the table                 
-            $.post("db/items.php", {term_rolls: item}).done(function(data){
+            $.post("../db/items.php", {term_rolls: item}).done(function(data){
             storeInArray(data, special_rolls, rolls, vegetable_rolls);
             sort_items_special_rolls[x]();
             sort_items_rolls[y]();

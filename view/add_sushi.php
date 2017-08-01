@@ -1,9 +1,9 @@
-<?php include('includes/header.php'); ?>
+<?php include('../includes/header.php'); ?>
     <!--@to do
      @Style
     -->
 <div id="add_form">
-<form action="db/add.php" method="post">
+<form action="../db/add.php" method="post">
         <input type="text" name="name" id="name" placeholder="Name" value="<?php echo htmlentities($name); ?>">
 
         <input type="text" name="origin" id="origin" placeholder="Origin" value="<?php echo htmlentities($origin); ?>">
@@ -18,4 +18,4 @@
     <input type="submit" value="Save">
 </form>
 </div>
-<?php include('includes/footer.php'); ?>
+<?php include('../includes/footer.php'); ?>

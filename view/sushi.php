@@ -1,4 +1,4 @@
-<?php include('includes/header.php'); ?>
+<?php include('../includes/header.php'); ?>
     <!--@to do
      @Style it so that it exactly same as the original
      @DB credentials into config file
@@ -11,11 +11,11 @@
     </div>
     <a id="print" href="javascript:window.print()">PRINT</a>
 
-    <div id="trash"><img src='images/trashcan.png' class='nav_icons' style="margin-top:300px"></div>
+    <div id="trash"><img src='../images/trashcan.png' class='nav_icons' style="margin-top:300px"></div>
 
 
     <div id="container">
-    <p class="notes"><img id="fish-vertical" src='images/fish.png' alt='fish' style=width:15px;>sustainable "best" or "good alternative" seafood 
+    <p class="notes"><img id="fish-vertical" src='../images/fish.png' alt='fish' style=width:15px;>sustainable "best" or "good alternative" seafood 
         *raw or undercooked meats, poultry, seafodd, shellfish or eggs 
         may increase your risk of foodborne illness</p>
     <div id="menu">
@@ -37,4 +37,4 @@
     100% of these funds are distributed to the staff in form of wages, benefits and revenue share.
     Additional gratuity is not expected.</p></div>
     </div>
-    <?php include('includes/footer.php'); ?>
+    <?php include('../includes/footer.php'); ?>

@@ -1,4 +1,4 @@
-<?php include('includes/header.php'); ?>
+<?php include('../includes/header.php'); ?>
     <!--@to do
      @auto select category when select item to edit
      @Style
@@ -11,7 +11,7 @@
 
 
 <div id="add_form">
-<form action="db/edit_ippin.php" method="post">
+<form action="../db/edit_ippin.php" method="post">
         <input type="text" name="ippin_key" id="ippin_key" placeholder="Ippin Key">
         <input type="text" name="name" id="name" placeholder="Name">
 
@@ -33,6 +33,6 @@
     <input type="submit" value="Save">
 </form>
 </div>
-<script src='js/edit_ippin.js'></script>
+<script src='../js/edit_ippin.js'></script>
 </body>
 </html>

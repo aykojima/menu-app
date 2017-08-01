@@ -39,11 +39,11 @@ class AddSushiItem extends AddNewItem{
                 VALUES ('$sustainability', '$name', '$origin', '$sushiPrice', '$sashimiPrice')";
         if($db->query($sql)){
             echo "<script type='text/javascript'>window.alert('" . $name . " was added successfully');
-            window.location.href = '../add_sushi.php';</script>"; 
+            window.location.href = '../view/add_sushi.php';</script>"; 
         exit;
         } else{
             echo "<script type='text/javascript'>window.alert('ERROR: Could not able to add " . $name . "');
-            window.location.href = '../add_sushi.php';</script>"; 
+            window.location.href = '../view/add_sushi.php';</script>"; 
         }   
     }
 }

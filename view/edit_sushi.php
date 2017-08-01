@@ -1,4 +1,4 @@
-<?php include('includes/header.php'); ?>
+<?php include('../includes/header.php'); ?>
     <!--@to do
      @Style
     -->
@@ -10,7 +10,7 @@
 
 
 <div id="add_form">
-<form action="db/edit_sushi.php" method="post">
+<form action="../db/edit_sushi.php" method="post">
         <input type="text" name="sushi_key" id="sushi_key" placeholder="Sushi Key" value="<?php echo htmlentities($sushi_key); ?>">
         <input type="text" name="name" id="name" placeholder="Name" value="<?php echo htmlentities($name); ?>">
 
@@ -25,4 +25,4 @@
         </div>
     <input type="submit" value="Save">
 </form>
-<?php include('includes/footer.php'); ?>
+<?php include('../includes/footer.php'); ?>

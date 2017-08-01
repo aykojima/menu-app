@@ -6,7 +6,7 @@ $(document).ready(function(){
         var inputVal = $(this).val();
         if(inputVal.length){           
             $.ajax({
-                url: "db/search.php",
+                url: "../db/search.php",
                 data: {term: inputVal},
                 success: function(data){
                 // Display the returned data in browser
@@ -53,7 +53,7 @@ else  {var items = [];}
         }else if(item == "addall"){
             console.log("clicked");
             for(var i = 1; i <31; i++){
-            $.post("db/items.php", {term: i}).done(function(data){           
+            $.post("../db/items.php", {term: i}).done(function(data){           
             //items = JSON.parse(data);
             //console.log(items.length);
             //for(var i = items.length -1 ; i >= 0; --i){
@@ -79,7 +79,7 @@ else  {var items = [];}
             $(this).parent(".result").empty();
         }else if(isNaN(item) == false && checkId(items, item) === true)
         {//add a item to the table                 
-            $.post("db/items.php", {term: item}).done(function(data){
+            $.post("../db/items.php", {term: item}).done(function(data){
             //console.log(items);    
             storeInArray(data);
             getDraggables();
@@ -125,7 +125,7 @@ function displayResult(array){
     }
 
 function checkSustainability(array){
-    var img = "<img src='images/fish.jpg' alt='fish' style=width:15px;>";
+    var img = "<img src='../images/fish.jpg' alt='fish' style=width:15px;>";
     for(var i=0; i<array.length; i++){
         var id = document.getElementById("showResult").rows[i].cells[5].getAttribute('id');
             if(id == 1 )

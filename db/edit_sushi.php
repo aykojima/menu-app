@@ -66,11 +66,11 @@ class EditSushiItem extends AddNewItem{
 
         if($db->query($sql)){
             echo "<script type='text/javascript'>window.alert('" . $name . " was edited successfully');
-            window.location.href = '../edit_sushi.php';</script>"; 
+            window.location.href = '../view/edit_sushi.php';</script>"; 
             exit;
         } else{
             echo "<script type='text/javascript'>window.alert('ERROR: Could not able to edit " . $name . "');
-            window.location.href = '../add_sushi.php';</script>"; 
+            window.location.href = '../view/add_sushi.php';</script>"; 
         }
     }
 

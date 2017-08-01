@@ -348,6 +348,7 @@ a#style{
     color: #fff;
     border-bottom: solid #000 1px;
     border-right: solid #000 1px;
+    z-index: 100;
 }
 
 a:hover{

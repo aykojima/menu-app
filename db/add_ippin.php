@@ -46,11 +46,11 @@ class AddIppinItem extends AddNewItem{
                     VALUES ('$gf', '$sustainability','$name', '$price', '$category')";
             if($db->query($sql)){
                 echo "<script type='text/javascript'>window.alert('" . $name . " was added successfully');
-                window.location.href = '../add_ippin.php';</script>"; 
+                window.location.href = '../view/add_ippin.php';</script>"; 
             exit;
             } else{
                 echo "<script type='text/javascript'>window.alert('ERROR: Could not able to add " . $name . "');
-                window.location.href = '../add_ippin.php';</script>"; 
+                window.location.href = '../view/add_ippin.php';</script>"; 
             }
     }
 }

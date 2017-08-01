@@ -1,13 +1,14 @@
 <?php 
-include ('config/config.php') ; 
+require_once('database.php');
 
 //$param_term = i;
 
 $courses = array();
 
 //Class GetItems{
-function getCourseItems($i, $conn)
+function getCourseItems($i)
 {
+        global $db;
         //global $conn;
         //$i_esc = $ $conn->escape_string($i);
         $sql = "SELECT CourseKey, Course, CoursePrice, AdditionalOne, AdditionalOnePrice, AdditionalTwo, AdditionalTwoPrice,
@@ -18,20 +19,20 @@ function getCourseItems($i, $conn)
         DessertFirst, DessertSecond, DessertThird
         FROM Courses WHERE CourseKey = '$i'";
 
-        $results = $conn->query($sql);
+        $results = $db->query($sql);
         //$results = mysql_query($sql);
-        $row_cnt = $results->num_rows;
-        $course = $results->fetch_assoc();
+        $row_cnt = $db->num_rows($results);
+        $course = $db->fetch_assoc($results);
         //mysqli_close($conn);
         return $course;
        // echo mysql_result($results, 0);
 }
 
-$two_courses = getCourseItems(1, $conn);
-$three_courses = getCourseItems(2, $conn);
-$five_courses = getCourseItems(3, $conn);
-$six_courses = getCourseItems(4, $conn);
-$omakase = getCourseItems(5, $conn);
+$two_courses = getCourseItems(1);
+$three_courses = getCourseItems(2);
+$five_courses = getCourseItems(3);
+$six_courses = getCourseItems(4);
+$omakase = getCourseItems(5);
 
 
         //echo $row_cnt;

@@ -71,11 +71,11 @@ class EditIppinItem extends AddNewItem{
 
         if($db->query($sql)){
             echo "<script type='text/javascript'>window.alert('" . $name . " was edited successfully');
-            window.location.href = '../edit_ippin.php';</script>"; 
+            window.location.href = '../view/edit_ippin.php';</script>"; 
             exit;
         } else{
             echo "<script type='text/javascript'>window.alert('ERROR: Could not able to edit " . $name . "');
-            window.location.href = '../add_ippin.php';</script>"; 
+            window.location.href = '../view/add_ippin.php';</script>"; 
         }
     }
 }//end of class

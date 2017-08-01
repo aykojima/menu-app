@@ -1,4 +1,4 @@
-<?php include('includes/header.php'); ?>
+<?php include('../includes/header.php'); ?>
     <!--@to do
     @style the menu - height of div
     @add all
@@ -7,7 +7,6 @@
     @form validation
     @fix navigation in ippin page
      -->
-    <?php include('includes/header.php'); ?>
     <div class="search-box">
             <input type="text" autocomplete="off" placeholder="Search..." />
             <div class="result"></div>       
@@ -16,9 +15,9 @@
     
     <a id="style" href="javascript: location.reload()">STYLE MENU</a>
 
-    <div id="trash"><img src='images/trashcan.png' class='nav_icons' style="margin-top:300px"></div>
+    <div id="trash"><img src='../images/trashcan.png' class='nav_icons' style="margin-top:300px"></div>
     <div id="container">
-    <p class="notes"><img id="fish-vertical" src='images/fish.jpg' alt='fish' style=width:15px;>sustainable "best" or "good alternative" seafood 
+    <p class="notes"><img id="fish-vertical" src='../images/fish.jpg' alt='fish' style=width:15px;>sustainable "best" or "good alternative" seafood 
         *raw or undercooked meats, poultry, seafodd, shellfish or eggs 
         may increase your risk of foodborne illness</p>
     <div id="menu">
@@ -41,6 +40,6 @@
     100% of these funds are distributed to the staff in form of wages, benefits and revenue share.
     Additional gratuity is not expected.</p></div>
     </div>
-<?php include('includes/footer.php'); ?>
+<?php include('../includes/footer.php'); ?>
 
 

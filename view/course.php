@@ -1,5 +1,5 @@
-<?php include('includes/header.php'); ?>
-<?php include('db/course-items.php'); ?>
+<?php include('../includes/header.php'); ?>
+<?php include('../db/course-items.php'); ?>
     <!--@to do
     @style - print
      -->
@@ -156,6 +156,6 @@
     </div>
 </div>
 
-<?php include('includes/footer.php'); ?>
+<?php include('../includes/footer.php'); ?>
 
 

@@ -1,4 +1,4 @@
-<?php include('includes/header.php'); ?>
+<?php include('../includes/header.php'); ?>
     <!--@to do
          -->
     <div class="search-box">
@@ -7,7 +7,7 @@
     </div>
     <a id="print" href="javascript:window.print()">PRINT</a>
     <div id="container">
-    <p class="notes"><img id="fish-vertical" src='images/fish.png' alt='fish' style=width:15px;>sustainable "best" or "good alternative" seafood 
+    <p class="notes"><img id="fish-vertical" src='../images/fish.png' alt='fish' style=width:15px;>sustainable "best" or "good alternative" seafood 
         *raw or undercooked meats, poultry, seafodd, shellfish or eggs 
         may increase your risk of foodborne illness</p>
     <div id="menu">
@@ -22,4 +22,4 @@
     
     </div>
     
-    <?php include('includes/footer.php'); ?>
+    <?php include('../includes/footer.php'); ?>

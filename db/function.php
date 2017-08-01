@@ -89,14 +89,14 @@ class Ippin{
         {                 
             $trimed =
                 $string1 
-                . "<div id='gf'>GF <img src='images/fish.jpg' id='fish' style='width:15px;'></div>" 
+                . "<div id='gf'>GF <img src='../images/fish.jpg' id='fish' style='width:15px;'></div>" 
                 . $string2;         
         
         }else if($sustainability == 1 && $gf == 0)
         {          
             $trimed =
                 $string1 
-                . "<div id='gf'><img src='images/fish.jpg' id='fish' style='width:15px;'></div>"
+                . "<div id='gf'><img src='../images/fish.jpg' id='fish' style='width:15px;'></div>"
                 . $string2; 
 
         }else if($sustainability == 0 && $gf == 1)
@@ -140,7 +140,7 @@ class Rolls{
         {                 
             $trimed =
                 $string1
-                . "<div id='gf'><img src='images/fish.jpg' id='fish' style='width:15px;'></div>
+                . "<div id='gf'><img src='../images/fish.jpg' id='fish' style='width:15px;'></div>
                 <div id='ippin_menu'>{$item['RollName']}*/ {$item['RollPrice']}</div>"
                 . $string2;   
         }        
@@ -148,7 +148,7 @@ class Rolls{
         {          
             $trimed =
                 $string1
-                . "<div id='gf'><img src='images/fish.jpg' id='fish' style='width:15px;'></div>
+                . "<div id='gf'><img src='../images/fish.jpg' id='fish' style='width:15px;'></div>
                 <div id='ippin_menu'>{$item['RollName']}/ {$item['RollPrice']}</div>"
                 . $string2;
                 
