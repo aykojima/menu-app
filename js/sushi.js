@@ -94,7 +94,16 @@ else  {var items = [];}
             //console.log(checkedId);
             items.splice(checkedId, 1);
             localStorage['myKey'] = JSON.stringify(items);
-            location.reload();
+            console.log(items);
+            $('input[type="text"]').val('');   
+            $(this).parent(".result").empty();
+
+            var new_item = document.getElementById(item);
+            
+            new_item.remove();   
+            console.log('item fades out');
+            styleLineHeight(items);
+            //location.reload();
         } 
           
 });
@@ -276,8 +285,9 @@ function deleteItem( item ) {
       console.log(checkedId);
       items.splice(checkedId, 1);
       localStorage['myKey'] = JSON.stringify(items);
+      console.log(item);
       item.fadeOut().remove();   
-      console.log(items);
+      
       styleLineHeight(items);
       trash.removeClass("hover");
         

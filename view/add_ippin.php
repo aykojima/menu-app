@@ -4,9 +4,9 @@
     -->
 <div id="add_form">
 <form action="../db/add_ippin.php" method="post">
-        <input type="text" name="name" id="name" placeholder="Name" value="<?php echo htmlentities($name); ?>">
+        <input type="text" name="name" id="name" placeholder="Name (e.g. Asparagus and shimeji mushrooms in a creamy tofu sauce)" value="<?php echo htmlentities($name); ?>">
 
-        <input type="text" name="price" id="price" placeholder="Price" value="<?php echo htmlentities($price); ?>">
+        <input type="text" name="price" id="price" placeholder="Price (e.g. 9)" value="<?php echo htmlentities($price); ?>">
 
         <select name="category" id="category" placeholder="category">
             <option value="appetizer">appetizer</option>

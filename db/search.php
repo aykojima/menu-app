@@ -27,7 +27,7 @@ if(isset($_REQUEST['term'])){
             }else if(isset($_REQUEST['term']) && $_REQUEST['term'] == '-'){
                 echo "<p id='empty'>empty the menu</p>";
             }else{
-                echo "<p id='nomatch'>No matches found. <a href='http://ayumik.com/skt/add_sushi.php' target='_blank''>Add New Item</a></p>";
+                echo "<p id='nomatch'>No matches found. <a href='http://ayumik.com/skt/view/add_sushi.php' target='_blank''>Add New Item</a></p>";
             }
         } else{
             echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
@@ -62,7 +62,7 @@ if(isset($_REQUEST['term'])){
             }else if(isset($_REQUEST['term_ippin']) && $_REQUEST['term_ippin'] == '-'){
                 echo "<p id='empty'>empty the menu</p>";
             }else{
-                echo "<p id='nomatch'>No matches found. <a href='http://ayumik.com/skt/add_ippin.php' target='_blank''>Add New Item</a></p>";
+                echo "<p id='nomatch'>No matches found. <a href='http://ayumik.com/skt/view/add_ippin.php' target='_blank''>Add New Item</a></p>";
             }
         } else{
             echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);

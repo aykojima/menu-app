@@ -21,10 +21,13 @@ class AddSushiItem extends AddNewItem{
 
     public function format_origin($user_input){
         global $db;
-        $this->origin = $db->escape_value($user_input);
-        $this->origin = '(' . ucfirst($this->origin) . ')';
-        //$origin = '(' . ucfirst($origin) . ')';
-        //return $origin;
+        if(!isset($user_input) || trim($user_input) == '')
+        {
+            $this->origin = '';
+        }else{
+            $this->origin = $db->escape_value($user_input);
+            $this->origin = '(' . ucfirst($this->origin) . ')';
+        }
     }
 
     public function set_prices($sushi_price, $sashimi_price){

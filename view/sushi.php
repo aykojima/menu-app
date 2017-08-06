@@ -11,7 +11,7 @@
     </div>
     <a id="print" href="javascript:window.print()">PRINT</a>
 
-    <div id="trash"><img src='../images/trashcan.png' class='nav_icons' style="margin-top:300px"></div>
+    <div id="trash"><img src='../images/remove_icon.png' class='nav_icons' style="margin-top:300px"></div>
 
 
     <div id="container">

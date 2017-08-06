@@ -15,7 +15,7 @@
     
     <a id="style" href="javascript: location.reload()">STYLE MENU</a>
 
-    <div id="trash"><img src='../images/trashcan.png' class='nav_icons' style="margin-top:300px"></div>
+    <div id="trash"><img src='../images/remove_icon.png' class='nav_icons' style="margin-top:300px"></div>
     <div id="container">
     <p class="notes"><img id="fish-vertical" src='../images/fish.jpg' alt='fish' style=width:15px;>sustainable "best" or "good alternative" seafood 
         *raw or undercooked meats, poultry, seafodd, shellfish or eggs 
