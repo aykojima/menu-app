@@ -42,18 +42,18 @@ function display(array){
     array.forEach(function(a){
         document.getElementById('ippin_key').value = a['IppinKey'];
         document.getElementById('name').value = a['IppinName'];
-        var category = a['Category'];
-        
-        if(category = 'appetizer')
-        {$('[name=category]').val('appetizer');}
-        else if(category = 'tempura')
-        {$('[name=category]').val('tempura');}
-        else if(category = 'fish_dish')
-        {$('[name=category]').val('fish_dish');}
-        else if(category = 'meat_dish')
-        {$('[name=category]').val('meat_dish');}
+        var item_category = a['Category'];
+        var drop_down = document.getElementById('category');
+        if(item_category == 'appetizer')
+        {drop_down.selectedIndex = 0;}
+        else if(item_category == 'tempura')
+        {drop_down.selectedIndex = 1;}
+        else if(item_category == 'fish_dish')
+        {drop_down.selectedIndex = 2;}
+        else if(item_category == 'meat_dish')
+        {drop_down.selectedIndex = 3;}
         else{console.log('no such category');}
-        
+
         document.getElementById('price').value = a['IppinPrice'];
         if(a['Sustainability'] == 1)
         {

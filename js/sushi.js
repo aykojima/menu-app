@@ -93,7 +93,7 @@ else  {var items = [];}
             alert('This item already exists in the current menu. This item will be removed.');
             //console.log(checkedId);
             items.splice(checkedId, 1);
-            localStorage['myKey'] = JSON.stringify(items);
+            
             console.log(items);
             $('input[type="text"]').val('');   
             $(this).parent(".result").empty();
@@ -101,6 +101,7 @@ else  {var items = [];}
             var new_item = document.getElementById(item);
             
             new_item.remove();   
+            localStorage['myKey'] = JSON.stringify(items);
             console.log('item fades out');
             styleLineHeight(items);
             //location.reload();
