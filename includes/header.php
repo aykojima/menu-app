@@ -1,4 +1,5 @@
 <?php include ("config.php");?>
+<?php require_once("../db/database.php"); ?>
 <!DOCTYPE html>
 <html>
 <head>

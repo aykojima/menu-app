@@ -70,9 +70,10 @@ class EditIppinItem extends AddNewItem{
         IppinPrice = '$price', Category = '$category' WHERE IppinKey = '$ippin_key'"; 
 
         if($db->query($sql)){
-            echo "<script type='text/javascript'>window.alert('" . $name . " was edited successfully');
-            window.location.href = '../view/edit_ippin.php';</script>"; 
-            exit;
+            echo $ippin_key . "-" . $category;
+            //"<script type='text/javascript'>window.alert('" . $name . " was edited successfully');
+            //window.location.href = '../view/edit_ippin.php';</script>"; 
+            //exit;
         } else{
             echo "<script type='text/javascript'>window.alert('ERROR: Could not able to edit " . $name . "');
             window.location.href = '../view/add_ippin.php';</script>"; 

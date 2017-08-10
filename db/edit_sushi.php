@@ -14,6 +14,7 @@ class EditSushiItem extends AddNewItem{
         $this->get_item($_POST['term']);
         
     }
+
     public function get_item($user_input){
         global $db;
         if(isset($user_input)){
@@ -65,12 +66,12 @@ class EditSushiItem extends AddNewItem{
                 SushiPrice = '$sushiPrice', SashimiPrice = '$sashimiPrice' WHERE SushiKey = '$sushiKey'"; 
 
         if($db->query($sql)){
-            echo "<script type='text/javascript'>window.alert('" . $name . " was edited successfully');
-            window.location.href = '../view/edit_sushi.php';</script>"; 
-            exit;
+            echo $sushiKey;//echo "<script type='text/javascript'>window.alert('" . $name . " was edited successfully')";
+            //window.location.href = '../view/sushi.php';</script>"; 
+            //exit;
         } else{
             echo "<script type='text/javascript'>window.alert('ERROR: Could not able to edit " . $name . "');
-            window.location.href = '../view/add_sushi.php';</script>"; 
+            window.location.href = '../view/ad_sushi.php';</script>"; 
         }
     }
 

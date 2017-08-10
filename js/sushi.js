@@ -1,8 +1,8 @@
 /***search-box***/
-$(document).ready(function(){
+/*$(document).ready(function(){
     var resultDropdown = $('.search-box input[type="text"]').siblings(".result");
     $('.search-box input[type="text"]').on("keyup input", function(){
-        /* Get input value on change */
+        
         var inputVal = $(this).val();
         if(inputVal.length){           
             $.ajax({
@@ -20,7 +20,64 @@ $(document).ready(function(){
         $(this).val('');
         resultDropdown.empty();
     });
+}); */
+
+function show_items(){
+  $("#item_box").toggle();
+  $.ajax({
+              url: "../db/test.php",
+              data: {search: 'all'},
+              success: function(data){
+              // Display the returned data in browser
+              $(".result").html(data)},
+            });
+  
+}
+
+
+  /***search-box***/
+$(document).ready(function(){
+    //var resultDropdown = $('.search-box input[type="text"]').siblings(".result");
+    $('.search-box input[type="text"]').on("keyup input", function(){    
+        var inputVal = $(this).val();  
+        if(inputVal.length){           
+            $.ajax({
+                url: "../db/test.php",
+                data: {search: inputVal},
+                success: function(data){
+                // Display the returned data in browser
+                $(".result").html(data)},
+                });
+        }else{
+            $.ajax({
+              url: "../db/test.php",
+              data: {search: 'all'},
+              success: function(data){
+              // Display the returned data in browser
+              $(".result").html(data)},
+            });
+
+        }
+    });
+
 }); 
+
+function show_edit_div(){
+  $("#edit_div").show('slow');
+}
+
+
+function hide_edit_div(){
+     $("#edit_div").hide();
+}
+
+
+
+
+
+
+
+
 
 
 /***caching the menu array***/
@@ -43,6 +100,8 @@ else  {var items = [];}
      
         //var item = $(this).text();//clicked item (e.g. Albacore Tuna)
         var item = $(this).attr('id');
+        var position = item.indexOf("-");
+        var new_key = item.slice(0, position);
         //console.log(item);
         //check if the item already exists in the table
         //return true if it's new, false if it already exists
@@ -77,34 +136,34 @@ else  {var items = [];}
             document.getElementById("showResult").innerHTML = '';
             $('input[type="text"]').val('');   
             $(this).parent(".result").empty();
-        }else if(isNaN(item) == false && checkId(items, item) === true)
+        }else if(isNaN(new_key) == false && checkId(items, new_key) === true)
         {//add a item to the table                 
-            $.post("../db/items.php", {term: item}).done(function(data){
+            $.post("../db/items.php", {term: new_key}).done(function(data){
             //console.log(items);    
             storeInArray(data);
             getDraggables();
             });
             //clear the text in textbox and search drop down
             $('input[type="text"]').val('');   
-            $(this).parent(".result").empty();
+            //$(this).parent(".result").empty();
         }else{//take out the item
             
-            var checkedId = checkId(items, item)
+            var checkedId = checkId(items, new_key)
             alert('This item already exists in the current menu. This item will be removed.');
-            //console.log(checkedId);
             items.splice(checkedId, 1);
-            
-            console.log(items);
             $('input[type="text"]').val('');   
-            $(this).parent(".result").empty();
-
-            var new_item = document.getElementById(item);
+            //  $(this).parent(".result").empty();
             
-            new_item.remove();   
-            localStorage['myKey'] = JSON.stringify(items);
-            console.log('item fades out');
+            var new_item = document.getElementById(new_key);
+            
+            $(new_item).fadeOut("slow", function(){
+                new_item.remove();   
+                localStorage['myKey'] = JSON.stringify(items);
+            });
+            
+            
             styleLineHeight(items);
-            //location.reload();
+            
         } 
           
 });
@@ -145,7 +204,7 @@ function checkSustainability(array){
         } 
         return true;
 }
-function checkId(array, sushiKey) {    
+function checkId(array, sushiKey) {
     
     for(var i=0; i<array.length; i++){
         var id = document.getElementById("showResult").rows[i].cells[3].getAttribute('id');   

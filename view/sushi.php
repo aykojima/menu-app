@@ -5,12 +5,42 @@
      @print out be able to select "custom" paper size by default
      @Be able to search item with any words (e.g. you can get to "Tuna*/Maguro" by typing "Maguro")
     -->
+
+
+<button id="search" onclick="show_items()">Search</button>
+<div id="item_box">
     <div class="search-box">
         <input type="text" autocomplete="off" placeholder="Search..." />
         <div class="result"></div>       
     </div>
-    <a id="print" href="javascript:window.print()">PRINT</a>
+    <div id='edit_div' >
+    <button id='close_tab' onclick='hide_edit_div()'>X</button>
+      <form>
+        <input type="text" name="sushi_key" id="sushi_key" placeholder="Sushi Key" value="<?php echo htmlentities($sushi_key); ?>">
+        <input type="text" name="name" id="name" placeholder="Name" value="<?php echo htmlentities($name); ?>">
 
+        <input type="text" name="origin" id="origin" placeholder="Origin" value="<?php echo htmlentities($origin); ?>">
+
+        <input type="text" name="sushi_price" id="sushiPrice" placeholder="Sushi Price" onkeyup="calcSashimi()">
+
+        <input type="text" name="sashimi_price" id="sashimiPrice" placeholder="Sashimi Price">
+        <div id= "sustainable">
+        <label for=sustainable>Sustainable:</label>
+        <input type="checkbox" name="sustainability" id="sustainability">
+        </div>
+    <input type="submit" value="Save">
+    </div>
+ </div>
+
+ <!--
+    <div class="search-box">
+        <input type="text" autocomplete="off" placeholder="Search..." />
+        <div class="result"></div>       
+    </div>
+
+    
+    <a id="print" href="javascript:window.print()">PRINT</a>
+-->
     <div id="trash"><img src='../images/remove_icon.png' class='nav_icons' style="margin-top:300px"></div>
 
 

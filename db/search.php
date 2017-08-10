@@ -20,7 +20,7 @@ if(isset($_REQUEST['term'])){
             if(mysqli_num_rows($result) > 0){
                 // Fetch result rows as an associative array
                 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-                    echo "<p id='" . $row[SushiKey] .  "'>" . $row["SushiName"] . " " .$row["Origin"] . "</p>";
+                    echo "<p id='" . $row[SushiKey] .  "-searchkey'>" . $row["SushiName"] . " " .$row["Origin"] . "</p>";
                 }
             }else if(isset($_REQUEST['term']) && $_REQUEST['term'] == '+'){
                 echo "<p id='addall'>add sample 30 items to the menu</p>";

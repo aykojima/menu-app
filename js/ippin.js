@@ -22,10 +22,11 @@ else  {var appetizer = [], tempura = [], fish_dish = [], meat_dish = [];}
 
 
 /***search box***/
+/*
 $(document).ready(function(){
     var resultDropdown = $('.search-box input[type="text"]').siblings(".result");
     $('.search-box input[type="text"]').on("keyup input", function(){
-        /* Get input value on change */
+        
         var inputVal = $(this).val();
         if(inputVal.length){           
             $.ajax({
@@ -39,13 +40,66 @@ $(document).ready(function(){
             resultDropdown.empty();
         }
     });
-    /*
+    
     $('.search-box input[type="text"]', resultDropdown).blur(function(){
         $(this).val('');
         resultDropdown.empty();
     });
-    */
+    
 }); 
+*/
+
+
+function show_items(){
+  $("#item_box").toggle();
+  $.ajax({
+              url: "../db/test.php",
+              data: {search_ippin: 'all'},
+              success: function(data){
+              // Display the returned data in browser
+              $(".result").html(data)},
+            });
+  
+}
+
+
+  /***search-box***/
+$(document).ready(function(){
+    //var resultDropdown = $('.search-box input[type="text"]').siblings(".result");
+    $('.search-box input[type="text"]').on("keyup input", function(){    
+        var inputVal = $(this).val();  
+        if(inputVal.length){           
+            $.ajax({
+                url: "../db/test.php",
+                data: {search_ippin: inputVal},
+                success: function(data){
+                // Display the returned data in browser
+                $(".result").html(data)},
+                });
+        }else{
+            $.ajax({
+              url: "../db/test.php",
+              data: {search_ippin: 'all'},
+              success: function(data){
+              // Display the returned data in browser
+              $(".result").html(data)},
+            });
+
+        }
+    });
+
+}); 
+
+function show_edit_div(){
+  $("#edit_div").show('slow');
+}
+
+
+function hide_edit_div(){
+     $("#edit_div").hide();
+}
+
+
 
 
  //sort and store new order in array
@@ -68,7 +122,9 @@ $(document).ready(function(){
  $(document).on("click", ".result p", function(event){         
         var item = $(this).attr('id');
         var items = $(this).attr('class');
-        console.log(item, items);
+        var position = item.indexOf("-");
+        var new_key = item.slice(0, position);
+        console.log(new_key, items);
         //check if the item already exists in the table
         //return true if it's new, false if it already exists
         if(item == "nomatch"){
@@ -108,13 +164,13 @@ $(document).ready(function(){
             localStorage.setItem("meat_dish", JSON.stringify(meat_dish));
 
             $('input[type="text"]').val('');   
-            $(this).parent(".result").empty();
+            //$(this).parent(".result").empty();
 
             location.reload();
-        }else if(isNaN(item) == false && checkId(items, item) === true)
+        }else if(isNaN(new_key) == false && checkId(items, new_key) === true)
         {//add a item to the table
             //console.log('test test');                 
-            $.post("../db/items.php", {term_ippin: item}).done(function(data){
+            $.post("../db/items.php", {term_ippin: new_key}).done(function(data){
             storeInArray(data, appetizer, tempura, fish_dish, meat_dish);
             sort_items_appetizer[w]();
             sort_items_tempura[x]();
@@ -124,11 +180,11 @@ $(document).ready(function(){
             });
             //clear the text in textbox and search drop down
             $('input[type="text"]').val('');   
-            $(this).parent(".result").empty();
+            //$(this).parent(".result").empty();
              
 
         }else{//take out the item
-            var checkedId = checkId(items, item);
+            var checkedId = checkId(items, new_key);
             //if(checkedId == !isNaN())
             //{
                 //console.log('matches and taken down')
@@ -144,13 +200,17 @@ $(document).ready(function(){
                 else if(items == 'fish_dish'){fish_dish.splice(checkedId, 1);}
                 else if(items == 'meat_dish'){meat_dish.splice(checkedId, 1);}
                 else{'We cannot take out the menu'}
-                localStorage.setItem("appetizer", JSON.stringify(appetizer));
-                localStorage.setItem("tempura", JSON.stringify(tempura));
-                localStorage.setItem("fish_dish", JSON.stringify(fish_dish));
-                localStorage.setItem("meat_dish", JSON.stringify(meat_dish));
-                
-                location.reload();
-            //}
+
+                var new_item = document.getElementById(new_key);
+                $(new_item).fadeOut("slow", function(){
+                    console.log(new_item);
+                    new_item.remove();   
+                    localStorage.setItem("appetizer", JSON.stringify(appetizer));
+                    localStorage.setItem("tempura", JSON.stringify(tempura));
+                    localStorage.setItem("fish_dish", JSON.stringify(fish_dish));
+                    localStorage.setItem("meat_dish", JSON.stringify(meat_dish));
+                });
+
         } 
           
 });

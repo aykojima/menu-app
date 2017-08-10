@@ -112,12 +112,66 @@ div#nav li:hover > ul{
 
 
 /* Formatting search box */
+
+
+button#search{
+    position: fixed;
+    left: 120px;
+    padding: 1%;
+    margin: 1%;
+    font-size: 1.2em;
+    background-color: #ccc;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+#item_box{
+  display:none;
+  width:50%;
+  /*background-color: #f0f0f0;*/
+}
+
+button.edit{
+    cursor: alias;
+    display: block;
+    float: right;
+    padding: 8px;
+    background-color: #f0f0f0;
+    border: none;
+    color: #CF671F;
+    margin-top: 2px;
+}
+
+button.edit:hover{
+    
+}
+#edit_div{
+  display:none;
+  border: 1px solid #ccc;
+  position:absolute;
+  left:50%;
+  top:0;
+  background-color: #fff;
+  height: 100%;
+  width:50%;
+  z-index:999;
+}
+
+button#close_tab{
+    background-color: #fff;
+    border: none;
+    margin: 2%;
+    cursor: pointer;
+    color: #ccc;
+    font-size: 1.2em;
+}
+
+
 .search-box{
         width: 300px;
-        /*position: relative;*/
-        position: fixed;
+        position: relative;
         top:0;
-        left:20%;
+        left:250px;
         display: inline-block;
         font-size: 14px;
     }
@@ -150,6 +204,7 @@ div#nav li:hover > ul{
 .result p:hover{
         background: #f2f2f2;
         }
+
 
 div#container {
     position:absolute;
