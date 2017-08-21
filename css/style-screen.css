@@ -2,19 +2,20 @@
     margin:0;
     padding:0;
 }
-/*
+
 @font-face {
-    font-family: 'TheSans Light Expert'; 
-    src: url('http://ayumik.com/skt/css/TheSans_Light_Expert.ttf'); 
+    font-family: 'TheSansSemiBoldPlain'; 
+    src: url('http://ayumik.com/menu-app/css/TheSansSemiBoldPlain.ttf'); 
 }
-*/
+
 body{
+    /*    
         font-family: font91728;
+        font-family: font89445; --TheSans Light 
+        font-family: font77724;*/
+        font-family: TheSansSemiBoldPlain;
         font-weight: lighter;
-        /*font-family: font89445; --TheSans Light 
-        font-family: font77724;
-        font-family: TheSans Light Expert;
-        font-family: 'Roboto', sans-serif;*/
+        /*font-family: 'Roboto', sans-serif;*/
     }
 
 div#nav{
@@ -140,11 +141,10 @@ button.edit{
     border: none;
     color: #CF671F;
     margin-top: 2px;
+    clear:both;
 }
 
-button.edit:hover{
-    
-}
+
 #edit_div{
   display:none;
   border: 1px solid #ccc;
@@ -669,3 +669,5 @@ div#trash.highlight{
 /*#showResult tr#draggable:hover{
     cursor: move;
 }*/
+
+

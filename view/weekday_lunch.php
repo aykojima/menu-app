@@ -15,19 +15,14 @@
     <div id="menu">
      <div id='show_result'>
     <div id="gozen" class="lunch_menu">       
-        <h1>Weekend Gozen</h1>
-        <h3>for the weekend of <input type="text" id="datepicker"></h3>
+        <h1>Weekday Gozen</h1>
         <div class="additionals">
         <p class="name">All gozens include:</p>
-        <p class="includes"><?php echo $gozen_include1['ItemName'];?>,</p>
-        <p class="includes" contentEditable="true" 
-            onBlur="saveToDatabase(this,'ItemName','<?php echo $gozen_include2['LunchKey'];?>')">
-            <?php echo $gozen_include2['ItemName'];?>,</p>
-        <p class="includes"><?php echo $gozen_include3['ItemName'];?>,</p>
-        <p class="includes"><?php echo $gozen_include4['ItemName'];?></p>
-        <p class="subs"><?php echo $gozen_sub['ItemName'];?> <?php echo $gozen_sub['ItemPrice'];?></p>
-        <p class="subs"><?php echo $gozen_add1['ItemName'];?> <?php echo $gozen_add1['ItemPrice'];?></p>
-        <p class="subs"><?php echo $gozen_add2['ItemName'];?> <?php echo $gozen_add2['ItemPrice'];?></p>
+        <p><?php echo $gozen_include1['ItemName'];?>, <?php echo $gozen_include2['ItemName'];?>, 
+        <?php echo $gozen_include3['ItemName'];?>, <?php echo $gozen_include4['ItemName'];?></p>
+        <p><?php echo $gozen_sub['ItemName'];?> <?php echo $gozen_sub['ItemPrice'];?></p>
+        <p><?php echo $gozen_add1['ItemName'];?> <?php echo $gozen_add1['ItemPrice'];?></p>
+        <p><?php echo $gozen_add2['ItemName'];?> <?php echo $gozen_add2['ItemPrice'];?></p>
         </div>
             <div class="course">
                 <ul>

@@ -19,9 +19,9 @@ else  {var special_rolls = [], rolls = [], vegetable_rolls = [];}
 
 
 /***search box***/
-$(document).ready(function(){
+/*$(document).ready(function(){
     $('.search-box input[type="text"]').on("keyup input", function(){
-        /* Get input value on change */
+        /* Get input value on change 
         var inputVal = $(this).val();
         var resultDropdown = $(this).siblings(".result");
         if(inputVal.length){           
@@ -42,6 +42,61 @@ $(document).ready(function(){
         resultDropdown.empty();
     });
 }); 
+*/
+
+
+function show_items(){
+  $("#item_box").toggle();
+  $.ajax({
+              url: "../db/test.php",
+              data: {search_roll: 'all'},
+              success: function(data){
+              // Display the returned data in browser
+              $(".result").html(data)},
+            });
+  
+}
+
+
+  /***search-box***/
+$(document).ready(function(){
+    //var resultDropdown = $('.search-box input[type="text"]').siblings(".result");
+    $('.search-box input[type="text"]').on("keyup input", function(){    
+        var inputVal = $(this).val();  
+        if(inputVal.length){           
+            $.ajax({
+                url: "../db/test.php",
+                data: {search_roll: inputVal},
+                success: function(data){
+                // Display the returned data in browser
+                $(".result").html(data)},
+                });
+        }else{
+            $.ajax({
+              url: "../db/test.php",
+              data: {search_roll: 'all'},
+              success: function(data){
+              // Display the returned data in browser
+              $(".result").html(data)},
+            });
+
+        }
+    });
+
+}); 
+
+function show_edit_div(){
+  $("#edit_div").show('slow');
+}
+
+
+function hide_edit_div(){
+     $("#edit_div").hide();
+}
+
+
+
+
 
 
  //sort and store new order in array
@@ -63,6 +118,8 @@ $(document).ready(function(){
  $(document).on("click", ".result p", function(event){         
         var item = $(this).attr('id');
         var items = $(this).attr('class');
+        var position = item.indexOf("-");
+        var new_key = item.slice(0, position);
         //console.log(items);
         //check if the item already exists in the table
         //return true if it's new, false if it already exists
@@ -98,12 +155,15 @@ $(document).ready(function(){
             localStorage.setItem("special_rolls", JSON.stringify(special_rolls));
             localStorage.setItem("rolls", JSON.stringify(rolls));
             localStorage.setItem("vegetable_rolls", JSON.stringify(vegetable_rolls));
-            document.getElementById("show_result_rolls").innerHTML = '';
+            document.getElementById("special_rolls").innerHTML = '';
+            document.getElementById("rolls").innerHTML = '';
+            document.getElementById("vegetable_rolls").innerHTML = '';
             $('input[type="text"]').val('');   
             $(this).parent(".result").empty();
-        }else if(isNaN(item) == false && checkId(items, item) === true)
-        {//add a item to the table                 
-            $.post("../db/items.php", {term_rolls: item}).done(function(data){
+        }else if(isNaN(new_key) == false && checkId(items, item) === true)
+        {//add a item to the table
+            console.log(new_key);                 
+            $.post("../db/items.php", {term_rolls: new_key}).done(function(data){
             storeInArray(data, special_rolls, rolls, vegetable_rolls);
             sort_items_special_rolls[x]();
             sort_items_rolls[y]();
@@ -122,7 +182,7 @@ $(document).ready(function(){
             $('input[type="text"]').val('');   
             $(this).parent(".result").empty();
         }else{//take out the item
-            var checkedId = checkId(items, item);
+            var checkedId = checkId(items, new_key);
             if(items == 'special_rolls'){
                 //console.log(appetizer);
                 special_rolls.splice(checkedId, 1);
@@ -131,10 +191,16 @@ $(document).ready(function(){
             else if(items == 'rolls'){rolls.splice(checkedId, 1);}
             else if(items == 'vegetable_rolls'){vegetable_rolls.splice(checkedId, 1);}
             else{'We cannot take out the menu'}
+
+            var new_item = document.getElementById(new_key);
+                $(new_item).fadeOut("slow", function(){
+                    console.log(new_item);
+                    new_item.remove();   
             localStorage.setItem("special_rolls", JSON.stringify(special_rolls));
             localStorage.setItem("rolls", JSON.stringify(rolls));
             localStorage.setItem("vegetable_rolls", JSON.stringify(vegetable_rolls));
-            location.reload();
+            //location.reload();
+             });
         } 
           
 });
@@ -214,10 +280,12 @@ function sortVegetableRolls(){
 function storeInArray(data, special_rolls = [], rolls = [], vegetable_rolls = []){
     //store feched items in an array and display in table
     var obj = [JSON.parse(data)];
-    //console.log(obj);
+    console.log(obj);
     
     //get the keys
     var obj1 = obj[0], key1;
+    console.log(obj[0]);
+    console.log(key1);
     for(var key in obj1){
         if(obj1.hasOwnProperty(key)){
             //Keys.push(key);

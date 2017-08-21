@@ -3,9 +3,17 @@
     padding:0;
 }
 
+
+@font-face {
+    font-family: 'TheSansSemiBoldPlain'; 
+    src: url('http://ayumik.com/menu-app/css/TheSansSemiBoldPlain.ttf'); 
+}
+
+
 body{
         /*TheSans*/
-        font-family: font91728;
+        font-family: TheSansSemiBoldPlain;
+        /*font-family: font91728;*/
         font-weight: lighter;
         font-size: 1em;
     }
@@ -83,7 +91,7 @@ h1, h2{
     padding-left:2%;
     margin:2%;          
     color:#CF671F;
-    
+    font-weight: lighter;
 }
 
 h1{
@@ -145,7 +153,7 @@ td.price{
     text-align: center;
     padding: 0 2% 0 3%;
 }
-td.space{width:10px;}
+td.space{width:8px;}
 
 
 .NoMargin{
@@ -311,4 +319,11 @@ div.additionals::after{
 @page {
    size: 4.25in 14in;
    margin: 0;
+}
+
+
+/***lunch menu***/
+h3{
+    font-size:1em;
+    font-weight: lighter;
 }

@@ -171,6 +171,7 @@ function hide_edit_div(){
         {//add a item to the table
             //console.log('test test');                 
             $.post("../db/items.php", {term_ippin: new_key}).done(function(data){
+            //console.log(data);
             storeInArray(data, appetizer, tempura, fish_dish, meat_dish);
             sort_items_appetizer[w]();
             sort_items_tempura[x]();

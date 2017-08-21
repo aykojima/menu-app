@@ -61,7 +61,7 @@ else if(isset($_POST['term_ippin'])){
 else if(isset($_POST['term_rolls'])){
         $roll_key = $_POST['term_rolls'];
         $result = $Rolls->get_roll_item($roll_key);
-        $array = [];
+        //$array = [];
         if ($db->num_rows($result) > 0) {                  
                 // output data of each row
                 while($item = $db->fetch_assoc($result)) {
@@ -73,7 +73,7 @@ else if(isset($_POST['term_rolls'])){
 }else if(isset($_POST['term_rolls']) && $_POST['term_rolls'] == "i"){
         $roll_key = $_POST['term_rolls'];
         $result = $Rolls->get_roll_item($roll_key);
-        $array = [];
+        //$array = [];
         if ($db->num_rows($result) > 0) {                  
                 // output data of each row
                 while($item = $db->fetch_assoc($result)) {

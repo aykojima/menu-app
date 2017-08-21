@@ -1,5 +1,5 @@
 <?php 
-include ('database.php') ; 
+require_once ('database.php') ; 
 
 //$courses = array();
 
@@ -49,4 +49,5 @@ $tonkatsu_include = getLunchItems(23);
 $tonkatsu = getLunchItems(24);
 $hire_katsu = getLunchItems(25);
 $combo_katsu = getLunchItems(26);
+
 ?>

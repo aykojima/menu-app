@@ -123,7 +123,8 @@ class Ippin{
 class Rolls{
     public function get_roll_item($roll_key=0){
         global $db;
-        $sql = "SELECT Raw, Sustainability, RollName, Category, RollPrice, Description, RollKey 
+        //$sql = "SELECT Raw, Sustainability, RollName, Category, RollPrice, Description, RollKey 
+        $sql = "SELECT *
         FROM Rolls WHERE RollKey = '". $roll_key ."'" ;
         $result_set = $db->query($sql);
         return $result_set;
@@ -170,7 +171,7 @@ class Rolls{
                 
                             
         } 
-        $array = [$index => $trimed];
+        return $array = [$index => $trimed];
         }
 }
 
@@ -193,4 +194,8 @@ class AddNewItem{
     }
 
 }
+//$ippins = new Ippin;
+// $rolls = new Rolls();
+// var_dump($ippins->get_ippin_item(1));
+// var_dump ($rolls->get_roll_item(1));
 ?>
