@@ -13,36 +13,9 @@ if (stored_special_rolls || stored_rolls || stored_vegetable_rolls === true) {
     display("special_rolls", special_rolls);
     display("rolls", rolls);
     display("vegetable_rolls", vegetable_rolls);
+    style();
     }
 else  {var special_rolls = [], rolls = [], vegetable_rolls = [];}
-
-
-
-/***search box***/
-/*$(document).ready(function(){
-    $('.search-box input[type="text"]').on("keyup input", function(){
-        /* Get input value on change 
-        var inputVal = $(this).val();
-        var resultDropdown = $(this).siblings(".result");
-        if(inputVal.length){           
-            $.ajax({
-                url: "../db/search.php",
-                data: {term_rolls: inputVal},
-                success: function(data){
-                // Display the returned data in browser
-                resultDropdown.html(data)},
-                });
-        } else{
-            resultDropdown.empty();
-        }
-    });
-    $('.search-box input[type="text"]').blur(function(){
-        var resultDropdown = $(this).siblings(".result");
-        $(this).val('');
-        resultDropdown.empty();
-    });
-}); 
-*/
 
 
 function show_items(){
@@ -129,7 +102,7 @@ function hide_edit_div(){
             $(this).parent(".result").empty();
 
         }else if(item == "addall"){
-            for(var i = 1; i <23; i++){
+            for(var i = 1; i <24; i++){
             $.post("../db/items.php", {term_rolls: i}).done(function(data){     
                 //console.log(data);      
                 storeInArray(data, special_rolls, rolls, vegetable_rolls);
@@ -137,6 +110,7 @@ function hide_edit_div(){
             sort_items_special_rolls[x]();
             sort_items_rolls[y]();
             sort_items_vegetable_rolls[z]();
+            style();
             });
             //clear the text in textbox and search drop down
             $('input[type="text"]').val('');   
@@ -160,7 +134,7 @@ function hide_edit_div(){
             document.getElementById("vegetable_rolls").innerHTML = '';
             $('input[type="text"]').val('');   
             $(this).parent(".result").empty();
-        }else if(isNaN(new_key) == false && checkId(items, item) === true)
+        }else if(isNaN(new_key) == false && checkId(items, new_key) === true)
         {//add a item to the table
             console.log(new_key);                 
             $.post("../db/items.php", {term_rolls: new_key}).done(function(data){
@@ -183,6 +157,7 @@ function hide_edit_div(){
             $(this).parent(".result").empty();
         }else{//take out the item
             var checkedId = checkId(items, new_key);
+            alert('This item already exists in the current menu. This item will be removed.');
             if(items == 'special_rolls'){
                 //console.log(appetizer);
                 special_rolls.splice(checkedId, 1);
@@ -196,6 +171,7 @@ function hide_edit_div(){
                 $(new_item).fadeOut("slow", function(){
                     console.log(new_item);
                     new_item.remove();   
+                    style();
             localStorage.setItem("special_rolls", JSON.stringify(special_rolls));
             localStorage.setItem("rolls", JSON.stringify(rolls));
             localStorage.setItem("vegetable_rolls", JSON.stringify(vegetable_rolls));
@@ -357,29 +333,36 @@ $document.ready(function(){
 var change_height = function changeHeight(){
                 console.log($('#show_result_rolls').height());
                 var max_height = $('#show_result_rolls').height();
-                if(max_height > 1000 && max_height < 1149)
-                {
-                    $('#show_result_rolls').find('ul').addClass('changed_height1');
+                var list = $("li.sortable");
+                var description = $("div#roll_description");
+                if(max_height > 1300 && max_height < 1400){
+                    //list.css({"font-size":"0.8em"});
+                    description.css({"font-size":"0.8em"});
                 }
-                else if(max_height > 1150 && max_height < 1199)
-                {
-                    $('#show_result_rolls').find('ul').addClass('changed_height2');
-                    $('#show_result_rolls').find('div#gf').css('padding-top', '5px');
-                    $('#show_result_rolls').find('img#fish').css('margin-top', '0');
-                }
-                else if(max_height > 1200 && max_height < 1300)
-                {
-                    $('#show_result_rolls').find('ul').addClass('changed_height3');
-                    /*$('#menu').addClass('changed_height3');*/
-                    $('#dates').addClass('changed_height3');
-                    $('#ippin').addClass('changed_height3');
-                    $('#show_result_rolls').find('div#gf').css('padding-top', '5px');
-                    $('#show_result_rolls').find('img#fish').css('margin-top', '0');
+                // var max_height = $('#show_result_rolls').height();
+                // if(max_height > 1000 && max_height < 1149)
+                // {
+                //     $('#show_result_rolls').find('ul').addClass('changed_height1');
+                // }
+                // else if(max_height > 1150 && max_height < 1199)
+                // {
+                //     $('#show_result_rolls').find('ul').addClass('changed_height2');
+                //     $('#show_result_rolls').find('div#gf').css('padding-top', '5px');
+                //     $('#show_result_rolls').find('img#fish').css('margin-top', '0');
+                // }
+                // else if(max_height > 1200 && max_height < 1300)
+                // {
+                //     $('#show_result_rolls').find('ul').addClass('changed_height3');
+                //     /*$('#menu').addClass('changed_height3');*/
+                //     $('#dates').addClass('changed_height3');
+                //     $('#ippin').addClass('changed_height3');
+                //     $('#show_result_rolls').find('div#gf').css('padding-top', '5px');
+                //     $('#show_result_rolls').find('img#fish').css('margin-top', '0');
 
-                }
+                // }
             }();
 
-$(document).ready(function(){
+function style(){
     $("#show_result_rolls div#gf ").css('width', '17px');
     $("#show_result_rolls div#ippin_menu[data-name='no_sustainable'] ").css('padding-left', '21px');
     $("#show_result_rolls li.sortable ").css('margin', '5px 0 5px 0');
@@ -389,5 +372,5 @@ $(document).ready(function(){
     $("h1.rolls").css('margin-top', '30px');
     $("h1.rolls:first-child").css('margin-top', '0');
     $("#show_result_rolls li").css('margin-bottom', '8px');
-
-});
+    $("#show_result_rolls img#fish").css('margin-top', '2px');
+};

@@ -4,6 +4,7 @@ require_once ('function.php') ;
 $Sushi = new Sushi;
 $Ippin = new Ippin;
 $Rolls = new Rolls;
+$AllMenu = new AllMenu;
 
 /***********Sushi**********/
 if(isset($_POST['term'])){
@@ -29,7 +30,7 @@ if(isset($_POST['term'])){
         }
         //}
         //echo json_encode($items);
-}                    
+}               
 
 /***********Ippins**********/
 else if(isset($_POST['term_ippin'])){

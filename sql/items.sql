@@ -131,6 +131,21 @@ INSERT INTO `Rolls` (`RollKey`,`Raw`, `Sustainability`, `RollName`, `RollPrice`,
 ON DUPLICATE KEY UPDATE `RollKey` = VALUES(`RollKey`), `Raw` = VALUES(`Raw`), `Sustainability` = VALUES(`Sustainability`),
 `RollName` = VALUES(`RollName`), `RollPrice` = VALUES(`RollPrice`), `Category` = VALUES(`Category`);
 
+DROP TABLE IF EXISTS `TodaysMenu`;
+CREATE TABLE `TodaysMenu`(
+  `TodaysMenuKey` int(11) NOT NULL AUTO_INCREMENT,
+  `MenuName` varchar(128) NOT NULL,
+  `Menu` text NULL,
+  PRIMARY KEY (`TodaysMenuKey`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `TodaysMenu` (`TodaysMenuKey`, `MenuName`, `Menu`) VALUES
+(1000, 'Sushi', ''),
+(1001, 'Ippins', ''),
+(1002, 'Rolls', '')
+ON DUPLICATE KEY UPDATE `TodaysMenuKey` = VALUES(`TodaysMenuKey`), `MenuName` = VALUES(`MenuName`), `Menu` = VALUES(`Menu`);
+
+
 DROP TABLE IF EXISTS `Courses`;
 CREATE TABLE `Courses` (
   `CourseKey` int(11) NOT NULL AUTO_INCREMENT,

@@ -439,7 +439,7 @@ div#add_form{
 input#sushi_key{
     display: none;
 }
-input#name, #origin {
+input#name, #origin, #description {
     padding: 2%;
     width: 80%;
     margin: auto;
@@ -449,6 +449,10 @@ input#name, #origin {
     font-size: 1em;
 }
 
+textarea#description{
+    height: 300px;
+    border: solid 1px #ccc;
+}
 input#sushiPrice, #sashimiPrice {
     padding: 2%;
     margin: 2% 2% 8% 2%;
@@ -610,7 +614,7 @@ div.gf_changed_height3{
 /***Rolls***/
 div#roll_description{
     color: #ccc;
-    margin-left: 20px;
+    margin-left: 27px;
 }
 
 h1.rolls{

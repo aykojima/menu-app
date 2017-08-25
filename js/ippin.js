@@ -7,7 +7,7 @@ var stored_meat = localStorage.getItem("meat_dish");
 
 if (stored_app || stored_temp || stored_fish || stored_meat === true) {
     appetizer = JSON.parse(stored_app);
-    console.log(appetizer);
+    //console.log(appetizer);
     tempura = JSON.parse(stored_temp);
     fish_dish = JSON.parse(stored_fish);
     meat_dish = JSON.parse(stored_meat);
@@ -18,36 +18,6 @@ if (stored_app || stored_temp || stored_fish || stored_meat === true) {
     display("meat_dish", meat_dish);
     }
 else  {var appetizer = [], tempura = [], fish_dish = [], meat_dish = [];}
-
-
-
-/***search box***/
-/*
-$(document).ready(function(){
-    var resultDropdown = $('.search-box input[type="text"]').siblings(".result");
-    $('.search-box input[type="text"]').on("keyup input", function(){
-        
-        var inputVal = $(this).val();
-        if(inputVal.length){           
-            $.ajax({
-                url: "../db/search.php",
-                data: {term_ippin: inputVal},
-                success: function(data){
-                // Display the returned data in browser
-                resultDropdown.html(data)},
-                });
-        } else{
-            resultDropdown.empty();
-        }
-    });
-    
-    $('.search-box input[type="text"]', resultDropdown).blur(function(){
-        $(this).val('');
-        resultDropdown.empty();
-    });
-    
-}); 
-*/
 
 
 function show_items(){

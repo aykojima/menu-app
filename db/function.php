@@ -159,7 +159,7 @@ class Rolls{
         {                         
             $trimed =
                 $string1
-                . "<div id='ippin_menu' data-name='no_sustainable'>{$item['RollName']}/ {$item['RollPrice']}</div>"
+                . "<div id='ippin_menu' data-name='no_sustainable'>{$item['RollName']}*/ {$item['RollPrice']}</div>"
                 . $string2;
                 
         }else
@@ -173,7 +173,7 @@ class Rolls{
         } 
         return $array = [$index => $trimed];
         }
-}
+}//end of Rolls class
 
 class AddNewItem{
     public $sustainability = false;
@@ -193,9 +193,33 @@ class AddNewItem{
         $this->name = ucfirst($db->escape_value($user_input));   
     }
 
+}//end of AddNewItem class
+
+class AllMenu{
+    public function get_stored_menu($TodaysMenuKey){
+                global $db;
+                $sql = "SELECT Menu FROM TodaysMenu WHERE TodaysMenuKey = '". $TodaysMenuKey ."'" ;
+                $result = $db->query($sql);
+                //var_dump($result);
+                
+                while($fetched_result = $db->fetch_assoc($result)){
+                    return $fetched_result['Menu'];
+                    //$result_return = unserialize($fetched_result['Menu']);
+                    //echo $result_return;
+                }
+                
+        }
+
+    public function update_menu($string_menu, $MenuKey){
+                global $db;
+                $sql = "UPDATE TodaysMenu SET Menu = '". $string_menu . "' WHERE TodaysMenuKey = '". $MenuKey ."'" ;                
+                $db->query($sql);
+    }
 }
-//$ippins = new Ippin;
+
+//$allmenu = new AllMenu;
 // $rolls = new Rolls();
-// var_dump($ippins->get_ippin_item(1));
+//$allmenu->get_stored_menu('Sushi');
+//echo $allmenu->get_stored_menu('Sushi');
 // var_dump ($rolls->get_roll_item(1));
 ?>

@@ -29,6 +29,7 @@
         <input type="checkbox" name="sustainability" id="sustainability">
         </div>
     <input type="submit" value="Save">
+    <input type="delete" value="delete">
     </div>
  </div>
 
