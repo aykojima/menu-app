@@ -64,12 +64,15 @@ public function authenticate($UserName="", $Password=""){
     $result_array = $this->find_by_sql($sql);
 
     $found_user = !empty($result_array) ? array_shift($result_array) : false;
-    foreach($found_user as $row){
-        if ($this->password_check($Password, $row)) {
-            return $found_user;
+    if($found_user){
+        foreach($found_user as $row){
+            if ($this->password_check($Password, $row)) {
+                return $found_user;
+            }
         }
-    }
-    return false; 
+        return false;
+    }else {return $found_user;}
+    
 
     // $sql = "SELECT * FROM Users ";
     // $sql .= "WHERE Username = '{$username}' ";
