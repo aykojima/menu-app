@@ -5,6 +5,22 @@ SET time_zone = '+00:00';
 SET foreign_key_checks = 0;
 SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
+DROP TABLE IF EXISTS `Users`;
+CREATE TABLE `Users` (
+  `UserId` int(11) NOT NULL AUTO_INCREMENT,
+  `UserName` varchar (128) NULL,
+  `FirstName` varchar(128) NULL,
+  `LastName` varchar(128) NULL,
+  `Password` varchar(128) NOT NULL,
+  `Email` varchar(128) NOT NULL,
+  PRIMARY KEY (`UserId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `Users` (`UserId`,`UserName`, `FirstName`, `LastName`, `Password`, `Email`)
+VALUES (1, 'admin', 'Steve', 'Tamura', 'sushi2968', 'info@sushikappotamura.com')
+
+ON DUPLICATE KEY UPDATE `UserId` = VALUES(`UserId`), `UserName` = VALUES(`UserName`), `FirstName` = VALUES(`FirstName`), `LastName` = VALUES(`LastName`),
+ `Password` = VALUES(`Password`), `Email` = VALUES(`Email`);
 
 DROP TABLE IF EXISTS `Sushi`;
 CREATE TABLE `Sushi` (
@@ -16,6 +32,8 @@ CREATE TABLE `Sushi` (
   `SashimiPrice` float(6) NOT NULL,
   PRIMARY KEY (`SushiKey`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
 
 INSERT INTO `Sushi` (`SushiKey`,`Sustainability`, `SushiName`, `Origin`, `SushiPrice`, `SashimiPrice`) VALUES
 (1,	TRUE, 'Albacore Tuna*', '(Washington)', 5, 10),

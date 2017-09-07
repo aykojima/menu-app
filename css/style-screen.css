@@ -18,9 +18,28 @@ body{
         /*font-family: 'Roboto', sans-serif;*/
     }
 
+
+header{
+    background-color: #CF671F;
+    height: 40px;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+}
+
+header>ul li {
+    display: block;
+    float: right;
+    margin: 10px 30px 10px 10px;
+}
+
+header a{
+    text-decoration: none;
+    color: #fff;
+}
 div#nav{
     position: fixed;
-    top:0;
+    top:40px;
     left:0;
     padding-top:50px;
     width: 120px;
@@ -118,6 +137,7 @@ div#nav li:hover > ul{
 button#search{
     position: fixed;
     left: 120px;
+    top:45px;
     padding: 1%;
     margin: 1%;
     font-size: 1.2em;
@@ -136,11 +156,12 @@ button.edit{
     cursor: alias;
     display: block;
     float: right;
-    padding: 8px;
+    padding: 6px;
     background-color: #f0f0f0;
     border: none;
     color: #CF671F;
     margin-top: 2px;
+    margin-right:1px;
     clear:both;
 }
 
@@ -170,7 +191,7 @@ button#close_tab{
 .search-box{
         width: 300px;
         position: relative;
-        top:0;
+        top:45px;
         left:250px;
         display: inline-block;
         font-size: 14px;
@@ -183,7 +204,7 @@ button#close_tab{
             }
 .result{
         position: absolute;        
-        z-index: 999;
+        z-index: 800;
         top: 100%;
         left: 0;
             }
@@ -209,8 +230,8 @@ button#close_tab{
 div#container {
     position:absolute;
     /*height:1400px;*/
-    right: 70px;
-    top:0;
+    left: 550px;
+    top:45px;
     width: 400px;
     border: solid #CCC 1px;
 }
@@ -658,7 +679,7 @@ div#trash{
     width:650px; 
     background-color:#ccc;
     position:fixed;
-    right:470px;
+    left:950px;
     z-index: -1;
 }
 

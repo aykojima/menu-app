@@ -22,7 +22,7 @@ button#search ,#item_box,
 button.edit, 
 #edit_div, button#close_tab,
 div#nav, .search-box,
-a, .date, div#trash{display:none;}
+a, .date, div#trash, #footer{display:none;}
 
 div#container {
     width: 100%;
@@ -243,11 +243,40 @@ h1#ippin{
     /*border: solid 1px orange; */
     max-height: 100%
 }
+/*
+#show_result_ippin ul.changed_height1{
+    line-height: 0.6em;
+}
+#show_result_ippin ul.changed_height2{
+    line-height: 0.6em;
+}
+#show_result_ippin ul.changed_height2 li{
+    margin: 8px 0;
+}
+#show_result_ippin ul.changed_height3{
+    line-height: 0.6em;
+}
+#show_result_ippin ul.changed_height3 li{
+    margin: 5px 0;
+}
+div#menu.changed_height3{
+    margin-top:5%;
+}
+h1.changed_height3{
+    margin:0 2%;
+} 
+h2.changed_height3{
+    margin:0 2%;
+}
+div.gf_changed_height3{
+    padding-top:10px;
+}
+*/
 
 /***Rolls***/
 div#roll_description{
     color: #ccc;
-    margin-left: 27px;
+    margin-left: 20px;
 }
 
 h1.rolls{

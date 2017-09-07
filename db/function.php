@@ -1,6 +1,19 @@
 <?php
 require_once ('database.php') ; 
 
+function __autoload($class_name){
+    $class_name = strtolower($class_name);
+    $path = "../db/{$class_name}.php";
+    if(file_exists($path)){
+        require_once($path);
+    }else{
+        die("The file {$class_name}.php could not be found.");
+    }
+}
+
+function redirect_to($location){
+            header('Location:'.$location);
+}
 
 class Sushi{
         /*
@@ -217,9 +230,5 @@ class AllMenu{
     }
 }
 
-//$allmenu = new AllMenu;
-// $rolls = new Rolls();
-//$allmenu->get_stored_menu('Sushi');
-//echo $allmenu->get_stored_menu('Sushi');
-// var_dump ($rolls->get_roll_item(1));
+
 ?>

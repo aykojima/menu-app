@@ -1,5 +1,17 @@
 <?php include ("config.php");?>
-<?php require_once("../db/database.php"); ?>
+<?php 
+require_once("../db/database.php");
+require_once("../db/session.php");
+require_once("../db/function.php");
+require_once("../db/user.php");
+
+if($session->is_logged_in() == false){
+    redirect_to("login.php");
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +39,12 @@
 
 </head>
 <body>
-   
+<header>
+<ul>
+    <li><a href = "logout.php">logout</a></li>
+</ul>
+
+</header>   
 <div id="nav">
     <ul>
         <?php 
@@ -50,8 +67,11 @@
             }else{
                 echo"<li><a href='" . $titleName . ".php' id='nav'><img src='../images/" . $titleName . "_icon" . $activeNav . ".png' class='nav_icons'> <p id='" . $activeP . "'>" . $upperTitleName . " Menu</p></a></li>";
             }
-     } ?>
-    
+} ?>
+
+<!-- <?php //var_dump( $session->is_logged_in()); ?>
+<?php //echo $session->user_id; ?> -->
+
     </ul>
     <a id="print" href="javascript: window.print()">PRINT</a>
 </div> 
