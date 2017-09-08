@@ -7,7 +7,7 @@
     @form validation
     @fix navigation in ippin page
      -->
-   <button id="search" onclick="show_items()">Search</button>
+   <!-- <button id="search" onclick="show_items()">Search</button> -->
 <div id="item_box">
     <div class="search-box">
         <input type="text" autocomplete="off" placeholder="Search..." />

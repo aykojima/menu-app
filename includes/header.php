@@ -41,7 +41,10 @@ if($session->is_logged_in() == false){
 <body>
 <header>
 <ul>
-    <li><a href = "logout.php">logout</a></li>
+    
+    <li id="logout"><a href ="logout.php">Logout</a></li>
+    <li id="print"><a href="javascript: window.print()">Print</a></li>
+    <li><a onclick="show_items()">Search</a></li>
 </ul>
 
 </header>   
@@ -73,5 +76,5 @@ if($session->is_logged_in() == false){
 <?php //echo $session->user_id; ?> -->
 
     </ul>
-    <a id="print" href="javascript: window.print()">PRINT</a>
+    <!-- <a id="print" href="javascript: window.print()">PRINT</a> -->
 </div> 
