@@ -159,8 +159,13 @@ CREATE TABLE `TodaysMenu`(
 
 INSERT INTO `TodaysMenu` (`TodaysMenuKey`, `MenuName`, `Menu`) VALUES
 (1000, 'Sushi', ''),
-(1001, 'Ippins', ''),
-(1002, 'Rolls', '')
+(1001, 'IppinsApp', ''),
+(1002, 'IppinsTemp', ''),
+(1003, 'IppinsFish', ''),
+(1004, 'IppinsMeat', ''),
+(1005, 'RollSp', ''),
+(1006, 'Roll', ''),
+(1007, 'RollVeg', '')
 ON DUPLICATE KEY UPDATE `TodaysMenuKey` = VALUES(`TodaysMenuKey`), `MenuName` = VALUES(`MenuName`), `Menu` = VALUES(`Menu`);
 
 

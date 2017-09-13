@@ -41,8 +41,7 @@
     </div>
  </div>
 
-    
-    <a id="style" href="javascript: location.reload()">STYLE MENU</a>
+
 
     <div id="trash"><img src='../images/remove_icon.png' class='nav_icons' style="margin-top:300px"></div>
     <div id="container">

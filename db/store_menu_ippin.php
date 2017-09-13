@@ -2,6 +2,7 @@
 require_once ('function.php') ; 
 
 $AllMenu = new AllMenu;
+$Ippin = new Ippin;
 $key = 1001;
 if(isset($_POST['term'])){
         $arrays = json_decode($_POST['term']);
@@ -19,23 +20,36 @@ if(isset($_POST['term'])){
         }
         
         
-}else{
-        $obj = array();
-        //$i = $_GET['get_menu'];
+}else if(isset($_GET['keys'])){ 
+        $result_array = array();        
         for($i = 1001; $i <1005; $i++){
-        $array = unserialize($AllMenu->get_stored_menu($i));
-        array_push($obj, $array);
+                $array = unserialize($AllMenu->get_stored_menu($i));
+                array_push($result_array, $array);
+                //echo json_encode($array);  
         }
+        
+        echo json_encode($result_array);       
 
-        // foreach($array as $item){
-        //         echo $item;
-        // }
-        //echo json_encode($string_data);//$array = unserialize($string_data);
-        //echo gettype($array);
-        echo json_encode($obj);
-        //echo 'this is else statement';
+}else{
+        //$return_array = array();
+        $result_array = array();
+        for($i = 1001; $i <1005; $i++){
+                $array = unserialize($AllMenu->get_stored_menu($i));
+                foreach($array as $ippin_key){
+                        $result = $Ippin->get_ippin_item($ippin_key);
+                        if($db->num_rows($result) > 0) {                   
+                        // output data of each row
+                                while($item = $db->fetch_assoc($result)) {
+                                        $menu_array = $Ippin->create_item_list($item);
+                                        //var_dump ($menu_array);
+                                         //echo json_encode($menu_array); 
+                                         array_push($result_array, $menu_array);
+                                }             
+                        }
+                }
+        }
+        echo json_encode($result_array);  //returning numbers....
 }
-
 /*
 else if(($_POST['updateSushi'])){
         $string_menu = $POST['updateSushi'];

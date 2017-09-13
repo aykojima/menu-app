@@ -47,6 +47,10 @@ li#print{
     margin-left: 150px;
 }
 
+li#style {
+    width: 85px;
+}
+
 header li a:hover {
     background-color: #CF671F;
     color: #f0f0f0;
@@ -83,12 +87,19 @@ div#nav ul ul{
     
 }
 
+div#nav ul ul li {
+    font-size: 1.2em;
+    line-height: 1.5em;
+}
+
 div#nav ul ul a:hover{
     color: #CF671F;
 }
 div#nav li{
     position: relative;
 }
+
+
 .nav_icons{
     width: 50px;
     display: block;
@@ -466,7 +477,7 @@ div.gratuity{
 div#add_form{
     width: 50%;
     position: absolute;
-    top:0;
+    top:50px;
     right:20px;
     font-size: 1em;
     border: solid 1px #ccc;

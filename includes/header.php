@@ -44,6 +44,7 @@ if($session->is_logged_in() == false){
     
     <li id="logout"><a href ="logout.php">Logout</a></li>
     <li id="print"><a href="javascript: window.print()">Print</a></li>
+    <li id="style"><a href="javascript: location.reload()">Style menu</a></li>
     <li><a onclick="show_items()">Search</a></li>
 </ul>
 
@@ -67,8 +68,16 @@ if($session->is_logged_in() == false){
                     <li><a href='" . $titleName . "_rolls.php'>" . $upperTitleName . " Rolls</a></li>
                     <li><a href='" . $titleName . "_course.php'>" . $upperTitleName . " Course</a></li>
                     </ul></li>";
+            }else if($key ==2){
+                echo"<li><a href='#' id='nav'><img src='../images/" . $titleName . "_icon" . $activeNav . ".png' class='nav_icons'>
+                    <p id='" . $activeP . "'>" . $upperTitleName . " Items</p></a>
+                    <ul>
+                        <li><a href='weekend_" . $titleName . ".php'>Weekend</a></li>
+                        <li><a href='weekday_" . $titleName . ".php'>Weekday</a></li>
+                    </ul></li>";
             }else{
-                echo"<li><a href='" . $titleName . ".php' id='nav'><img src='../images/" . $titleName . "_icon" . $activeNav . ".png' class='nav_icons'> <p id='" . $activeP . "'>" . $upperTitleName . " Menu</p></a></li>";
+                echo"<li><a href='" . $titleName . ".php' id='nav'><img src='../images/" . $titleName . "_icon" . $activeNav . ".png' class='nav_icons'> 
+                <p id='" . $activeP . "'>" . $upperTitleName . " Menu</p></a></li>";
             }
 } ?>
 

@@ -18,7 +18,7 @@ body{
         font-size: 1em;
     }
 
-button#search ,#item_box, 
+header, button#search ,#item_box, 
 button.edit, 
 #edit_div, button#close_tab,
 div#nav, .search-box,
@@ -28,6 +28,7 @@ div#container {
     width: 100%;
     /*border: solid 1px #C25E03;*/
     max-height:100vh;
+    top: -45px;
 }
 
 p.notes {

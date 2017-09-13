@@ -46,9 +46,28 @@ switch(THIS_PAGE)
   $activeP7 = "nav";
   break;
   
-  case "lunch.php":
-  $myTitle = "Lunch";
-  $file = "lunch";
+  case "weekend_lunch.php":
+  $myTitle = "Weekend Lunch";
+  $file = "weekend_lunch";
+  $activeNav1 = "_no_active";
+  $activeNav2 = "_no_active";
+  $activeNav3 = "_active";
+  $activeNav4 = "_no_active";
+  $activeNav5 = "_no_active";
+  $activeNav6 = "_no_active";
+  $activeNav7 = "_no_active";
+  $activeP1 = "nav";
+  $activeP2 = "nav";
+  $activeP3 = "nav_active";
+  $activeP4 = "nav";
+  $activeP5 = "nav";
+  $activeP6 = "nav";
+  $activeP7 = "nav";
+  break;
+
+  case "weekday_lunch.php":
+  $myTitle = "Weekday Lunch";
+  $file = "weekday_lunch";
   $activeNav1 = "_no_active";
   $activeNav2 = "_no_active";
   $activeNav3 = "_active";
@@ -108,7 +127,7 @@ switch(THIS_PAGE)
   case "edit_sushi.php":
   $myTitle = "Edit Sushi Item";
   $file = "edit_sushi";
-   $activeNav1 = "_no_active";
+  $activeNav1 = "_no_active";
   $activeNav2 = "_no_active";
   $activeNav3 = "_no_active";
   $activeNav4 = "_no_active";
@@ -127,7 +146,7 @@ switch(THIS_PAGE)
   case "edit_ippin.php":
   $myTitle = "Edit Ippin Item";
   $file = "edit_ippin";
-    $activeNav1 = "_no_active";
+  $activeNav1 = "_no_active";
   $activeNav2 = "_no_active";
   $activeNav3 = "_no_active";
   $activeNav4 = "_no_active";
